@@ -1,0 +1,12 @@
+[    
+    ["Ports",
+    {
+        "nets" : ["VGND", "VPWR"]
+    }
+    ],
+    ["PowerNets",
+    {
+        "nets" : ["VGND", "VPWR"]
+    }
+    ]        
+]

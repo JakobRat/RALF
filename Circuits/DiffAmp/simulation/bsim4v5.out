@@ -1,0 +1,6 @@
+
+Checking parameters for BSIM 4.5 model x1.xdiffamp.xm3:sky130_fd_pr__nfet_01v8__model.4
+Fatal: Dsub = -0.564113 is negative.
+Fatal: Pclm = -0.144928 is not positive.
+Fatal: Drout = -0.564113 is negative.
+Warning: Eta0 = -0.210279 is negative.

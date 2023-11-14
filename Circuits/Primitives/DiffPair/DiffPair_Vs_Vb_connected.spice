@@ -1,0 +1,16 @@
+** sch_path: /home/jakob/Documents/AutomatedLayoutGeneration/Circuits/DiffAmp/DiffPair.sch
+**.subckt DiffPair Vn Vp Vb Vs Vdn Vdp
+*.ipin Vn
+*.ipin Vp
+*.iopin Vb
+*.iopin Vs
+*.iopin Vdn
+*.iopin Vdp
+XM1 Vd1 Vg1 Vb Vb sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 Vd2 Vg2 Vb Vb sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+**.ends
+.end

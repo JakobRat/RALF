@@ -1,0 +1,57 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1690709672
+<< checkpaint >>
+rect 208 7747 3130 7888
+rect 208 6476 7568 7747
+rect -1872 3717 7568 6476
+rect -3479 3479 7568 3717
+rect -3717 313 7568 3479
+rect -3717 -1544 6132 313
+rect -3717 -1867 5540 -1544
+rect -3717 -2648 5138 -1867
+rect -3717 -3479 3717 -2648
+rect -3479 -3717 3479 -3479
+rect -1461 -3858 1461 -3717
+use XC1_xCMS  XC1_xCMS_0 ../Devices/CMS_Amp
+timestamp 1690621426
+transform 0 -1 428 1 0 4030
+box -1186 -1040 1186 1040
+use XM1_xDiffPair_xDiffAmp  XM1_xDiffPair_xDiffAmp_0 ../Devices/DiffPair
+timestamp 1690621428
+transform 0 1 2518 -1 0 318
+box -296 -510 296 510
+use XM2_xDiffPair_xDiffAmp  XM2_xDiffPair_xDiffAmp_0 ../Devices/DiffPair
+timestamp 1690621428
+transform 0 1 2518 -1 0 -274
+box -296 -510 296 510
+use XM3_xDiffAmp  XM3_xDiffAmp_0 ../Devices/DiffAmp
+timestamp 1690621427
+transform 1 0 3453 0 1 22
+box -425 -1410 425 1410
+use XM4_xBias_xDiffAmp  XM4_xBias_xDiffAmp_0 ../Devices/Curr_Biasing
+timestamp 1690621428
+transform -1 0 4576 0 -1 26
+box -296 -310 296 310
+use XM5_xCMS  XM5_xCMS_0 ../Devices/CMS_Amp
+timestamp 1690621426
+transform 0 -1 4089 1 0 4030
+box -2457 -2219 2457 2219
+use XM6_xLoad_xDiffAmp  XM6_xLoad_xDiffAmp_0 ../Devices/PMOS_Load
+timestamp 1690621429
+transform 1 0 1120 0 1 22
+box -296 -719 296 719
+use XM7_xLoad_xDiffAmp  XM7_xLoad_xDiffAmp_0 ../Devices/PMOS_Load
+timestamp 1690621429
+transform 1 0 1712 0 1 22
+box -296 -719 296 719
+use XR3_xBias_xDiffAmp  XR3_xBias_xDiffAmp_0 ../Devices/Curr_Biasing
+timestamp 1690621428
+transform -1 0 4079 0 -1 26
+box -201 -633 201 633
+use XR4_xCMS  XR4_xCMS_0 ../Devices/CMS_Amp
+timestamp 1690621426
+transform 1 0 1669 0 1 4030
+box -201 -2598 201 2598
+<< end >>

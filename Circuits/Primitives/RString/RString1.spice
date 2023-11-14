@@ -1,0 +1,10 @@
+** sch_path: /home/jakob/Documents/AutomatedLayoutGeneration/Circuits/Primitives/RString/RString.sch
+**.subckt RString Vh VB Vmid Vl
+*.iopin Vh
+*.iopin VB
+*.iopin Vmid
+*.iopin Vl
+XR1 Vmid Vh VB sky130_fd_pr__res_xhigh_po_0p35 L=0.35 mult=1 m=1
+XR2 Vl Vmid VB sky130_fd_pr__res_xhigh_po_0p35 L=0.35 mult=1 m=1
+**.ends
+.end

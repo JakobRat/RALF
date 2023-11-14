@@ -1,0 +1,164 @@
+{
+"ScaleFactor":10, 
+"device_layers":["nwell","dnwell", "mimcap"],
+"layer_stack":["li","m1","m2","m3","m4","m5"],
+"via_stack":["mcon","via1","via2","via3","via4"],
+"aliases":{
+    "li" : ["li1", "locali"],
+    "m1" : ["met1", "metal1"],
+    "m2" : ["met2", "metal2"],
+    "m3" : ["met3", "metal3"],
+    "m4" : ["met4", "metal4"],
+    "m5" : ["met5", "metal5"]
+},
+"via_map":{
+    "lim1": "mcon",
+    "m1li": "mcon",
+    "m1m2": "via1",
+    "m2m1": "via1",
+    "m2m3": "via2",
+    "m3m2": "via2",
+    "m3m4": "via3",
+    "m4m3": "via3",
+    "m4m5": "via4",
+    "m5m4": "via4"
+},
+"li":
+    {
+        "Direction": "V",
+        "Pitch": 340,
+        "Width": 180,
+        "Space": 180,
+        "MinL": 298,
+        "MinArea": 57600,
+        "Resistivity": 125
+    }
+,
+"mcon":
+    {
+        "Stack": ["li", "m1"],
+        "SpaceX": 190,
+        "SpaceY": 190,
+        "WidthX": 180,
+        "WidthY": 180,
+        "min_enclosure": 60,
+        "Resistivity": 11925 
+    }
+,
+"m1":
+    {
+        "Direction": "H",
+        "Pitch": 280,
+        "Width": 140,
+        "Space": 140,
+        "MinL": 298,
+        "MinArea": 90000,
+        "Resistivity": 125
+    }
+,
+"via1":
+    {
+        "Stack": ["m1", "m2"],
+        "SpaceX": 170,
+        "SpaceY": 170,
+        "WidthX": 260,
+        "WidthY": 260,
+        "min_enclosure": 60,
+        "Resistivity": 12150 
+    }
+,
+"m2":
+    {
+        "Direction": "V",
+        "Pitch": 280,
+        "Width": 140,
+        "Space": 140,
+        "MinL": 242,
+        "MinArea": 67600,
+        "Resistivity": 125
+    }
+,
+"via2":
+    {
+        "Stack": ["m2", "m3"],
+        "SpaceX": 200,
+        "SpaceY": 200,
+        "WidthX": 280,
+        "WidthY": 280 ,
+        "min_enclosure": 80,
+        "Resistivity": 14322
+    }
+,
+"m3":
+    {   
+        "Direction": "H",
+        "Pitch": 600,
+        "Width": 300,
+        "Space": 400,
+        "MinL": 400,
+        "MinArea": 250000,
+        "Resistivity": 47
+    }
+,
+"via3":
+    {
+        "Stack": ["m3", "m4"],
+        "SpaceX": 200,
+        "SpaceY": 200,
+        "WidthX": 320,
+        "WidthY": 320 ,
+        "min_enclosure": 80,
+        "Resistivity": 13299
+    }
+,
+"m4":
+    {   
+        "Direction": "V",
+        "Pitch": 600,
+        "Width": 300,
+        "Space": 400,
+        "MinL": 400,
+        "MinArea": 250000,
+        "Resistivity": 47
+    }
+,
+"via4":
+    {
+        "Stack": ["m4", "m5"],
+        "SpaceX": 800,
+        "SpaceY": 800,
+        "WidthX": 1180,
+        "WidthY": 1180 ,
+        "min_enclosure": 320,
+        "Resistivity": 1919
+    }
+,
+"m5":
+    {   
+        "Direction": "H",
+        "Pitch": 3200,
+        "Width": 1600,
+        "Space": 1600,
+        "MinL": 300,
+        "MinArea": 4000000,
+        "Resistivity": 29
+    }
+,
+"nwell":
+    {
+        "Width": 840,
+        "Space": 1270
+    }
+,
+"dnwell":
+    {
+        "Width": 3000,
+        "Space": 6300
+    }
+,
+"mimcap":
+    {
+        "Width": 2000,
+        "Space": 1200
+    }
+}

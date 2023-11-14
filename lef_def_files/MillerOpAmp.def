@@ -1,0 +1,40 @@
+VERSION 5.7 ;
+   NAMESCASESENSITIVE ON ;
+   DIVIDERCHAR "/" ;
+   BUSBITCHARS "()" ;
+   DESIGN MillerOpAmp ;
+   TECHNOLOGY sky130A ;
+   UNITS DISTANCE MICRONS 1000 ;
+   DIEAREA ( -5 -1265 ) ( 23000 15170 ) ;
+
+
+
+PINS 8 ;
+   - Vp + NET Vp
+     + PORT
+        + LAYER met4 ( -305 -420 ) ( 305 420 )        + PLACED ( 11525 14740 ) N ;
+   - Vn + NET Vn
+     + PORT
+        + LAYER met4 ( -305 -420 ) ( 305 420 )        + PLACED ( 12755 14740 ) N ;
+   - Vbias1 + NET Vbias1
+     + PORT
+        + LAYER met4 ( -420 -305 ) ( 420 305 )        + PLACED ( 22550 11395 ) N ;
+   - Vbias2 + NET Vbias2
+     + PORT
+        + LAYER met4 ( -420 -305 ) ( 420 305 )        + PLACED ( 22580 9325 ) N ;
+   - VGND + NET VGND
+     + PORT
+        + LAYER met4 ( -305 -420 ) ( 305 420 )        + PLACED ( 16035 14720 ) N ;
+   - VPWR + NET VPWR
+     + PORT
+        + LAYER met4 ( -305 -420 ) ( 305 420 )        + PLACED ( 6345 14750 ) N ;
+   - Von + NET Von
+     + PORT
+        + LAYER met4 ( -420 -305 ) ( 420 305 )        + PLACED ( 22420 5955 ) N ;
+   - Vop + NET Vop
+     + PORT
+        + LAYER met4 ( -420 -305 ) ( 420 305 )        + PLACED ( 22370 475 ) N ;
+END PINS
+
+END DESIGN
+

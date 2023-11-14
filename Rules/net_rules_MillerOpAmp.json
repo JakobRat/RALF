@@ -1,0 +1,42 @@
+[    
+    ["MinNetWireWidth",
+    {
+        "net" : "Von",
+        "min_width" : 28
+    }
+    ],
+    ["MinNetWireWidth",
+    {
+        "net" : "Vop",
+        "min_width" : 28
+    }
+    ],
+    ["MinNetWireWidth",
+    {
+        "net" : "VPWR",
+        "min_width" : 28
+    }
+    ],
+    ["MinNetWireWidth",
+    {
+        "net" : "VGND",
+        "min_width" : 28
+    }
+    ],
+    ["MinNetWireWidth",
+    {
+        "net" : "x1.Vmid",
+        "min_width" : 28
+    }
+    ],
+    ["Ports",
+    {
+        "nets" : ["VGND", "VPWR", "Vp", "Vn", "Vbias1", "Vbias2", "Von", "Vop"]
+    }
+    ],
+    ["PowerNets",
+    {
+        "nets" : ["VGND", "VPWR"]
+    }
+    ]        
+]

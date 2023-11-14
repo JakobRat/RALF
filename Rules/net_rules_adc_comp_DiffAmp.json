@@ -1,0 +1,18 @@
+[    
+    ["MinNetWireWidth",
+    {
+        "net" : "in_stage_net1",
+        "min_width" : 28
+    }
+    ],
+    ["Ports",
+    {
+        "nets" : ["VGND", "VPWR", "clk", "inn", "inp", "outp","outn"]
+    }
+    ],
+    ["PowerNets",
+    {
+        "nets" : ["VGND", "VPWR"]
+    }
+    ]        
+]

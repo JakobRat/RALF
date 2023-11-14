@@ -1,0 +1,143 @@
+** sch_path: /foss/designs/xschem/MillerOpAmp/MillerOpAmp_tb.sch
+**.subckt MillerOpAmp_tb
+V3 VDD GND 1.8
+.save i(v3)
+E1 Vp Vcmm vd GND 0.5
+E2 Vn Vcmm vd GND -0.5
+Vcmm Vcmm GND 0.9
+.save i(vcmm)
+Vd vd GND dc 0 ac 1
+.save i(vd)
+XM6 Vbias Vbias GND GND sky130_fd_pr__nfet_01v8 L=2 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+x1 VDD Voutn Vbias2 Vp Vn Vbias Voutp GND MillerOpAmp
+C2 Voutp GND 50f m=1
+C1 Voutn GND 50f m=1
+x2 VDD net1 Vbias2 net1 Vcmm VcmmOut Vbias GND DiffAmp
+XM2 VbiasP VbiasP VDD VDD sky130_fd_pr__pfet_01v8 L=2 W=1 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XR1 VbiasP net2 GND sky130_fd_pr__res_xhigh_po_0p35 L=2 mult=1 m=1
+XR2 net2 net3 GND sky130_fd_pr__res_xhigh_po_0p35 L=2 mult=1 m=1
+XR3 net3 net4 GND sky130_fd_pr__res_xhigh_po_0p35 L=2 mult=1 m=1
+XR4 net4 net5 GND sky130_fd_pr__res_xhigh_po_0p35 L=2 mult=1 m=1
+XR5 net5 Vbias GND sky130_fd_pr__res_xhigh_po_0p35 L=2 mult=1 m=1
+XR6 Voutp net6 GND sky130_fd_pr__res_xhigh_po_0p35 L=2 mult=1 m=1
+XR7 net6 net7 GND sky130_fd_pr__res_xhigh_po_0p35 L=2 mult=1 m=1
+XR8 net7 net8 GND sky130_fd_pr__res_xhigh_po_0p35 L=2 mult=1 m=1
+XR9 net8 net9 GND sky130_fd_pr__res_xhigh_po_0p35 L=2 mult=1 m=1
+XR10 net9 VcmmOut GND sky130_fd_pr__res_xhigh_po_0p35 L=2 mult=1 m=1
+XR11 Voutn net10 GND sky130_fd_pr__res_xhigh_po_0p35 L=2 mult=1 m=1
+XR12 net10 net11 GND sky130_fd_pr__res_xhigh_po_0p35 L=2 mult=1 m=1
+XR13 net11 net12 GND sky130_fd_pr__res_xhigh_po_0p35 L=2 mult=1 m=1
+XR14 net12 net13 GND sky130_fd_pr__res_xhigh_po_0p35 L=2 mult=1 m=1
+XR15 net13 VcmmOut GND sky130_fd_pr__res_xhigh_po_0p35 L=2 mult=1 m=1
+**** begin user architecture code
+
+
+
+* ngspice commands
+.option savecurrents
+.save all
+.control
+ac dec 1001 1 100Meg
+let vod = V(Voutp)-V(Voutn)
+meas ac gain max vod
+let gain3dB = gain/sqrt(2)
+meas ac BW TRIG at=1 TARG vod val=gain3dB fall=LAST
+let GBW = BW*gain*1e-6
+print GBW
+print vodmax
+plot vdb(vod) xlimit 1k 100Meg ylabel 'small signal gain'
+let outd = 180/PI*cph(vod)
+meas ac ftHz when vdb(vod)=1 fall=LAST
+meas ac ph find outd when vdb(vod)=0 fall=LAST
+let phm = ph+180
+print phm
+settype phase outd
+plot outd xlimit 1k 100Meg ylabel 'phase'
+dc Vd -0.02 0.02 1m
+let vod = V(Voutp)-V(Voutn)
+plot vod
+op
+write MillerOpAmp_tb.raw
+.endc
+
+
+
+ .lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  /foss/designs/xschem/MillerOpAmp/MillerOpAmp.sym # of pins=8
+** sym_path: /foss/designs/xschem/MillerOpAmp/MillerOpAmp.sym
+** sch_path: /foss/designs/xschem/MillerOpAmp/MillerOpAmp.sch
+.subckt MillerOpAmp VPWR Von Vbias2 Vp Vn Vbias1 Vop VGND
+*.opin Von
+*.opin Vop
+*.ipin Vbias2
+*.ipin Vp
+*.ipin Vn
+*.ipin Vbias1
+*.iopin VPWR
+*.iopin VGND
+XC1 Von1 Von sky130_fd_pr__cap_mim_m3_1 W=4 L=4 MF=1 m=1
+XC2 Vop1 Vop sky130_fd_pr__cap_mim_m3_1 W=4 L=4 MF=1 m=1
+x1 VPWR Vbias2 Von1 Vop1 Vp Vn Vbias1 VGND DiffAmp
+x2 VPWR Von1 Von Vbias1 VGND CSAmp
+x3 VPWR Vop1 Vop Vbias1 VGND CSAmp
+.ends
+
+
+* expanding   symbol:  /foss/designs/xschem/MillerOpAmp/DiffAmp.sym # of pins=8
+** sym_path: /foss/designs/xschem/MillerOpAmp/DiffAmp.sym
+** sch_path: /foss/designs/xschem/MillerOpAmp/DiffAmp.sch
+.subckt DiffAmp Vdd Vbias2 Von Vop Vp Vn Vbias1 Vss
+*.iopin Vdd
+*.iopin Vss
+*.ipin Vp
+*.ipin Vn
+*.ipin Vbias1
+*.ipin Vbias2
+*.opin Vop
+*.opin Von
+XM1 Vop Vp Vmid Vss sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 Von Vn Vmid Vss sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM3 Vop Vbias2 Vdd Vdd sky130_fd_pr__pfet_01v8 L=1 W=2 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM4 Von Vbias2 Vdd Vdd sky130_fd_pr__pfet_01v8 L=1 W=2 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM5 Vmid Vbias1 Vss Vss sky130_fd_pr__nfet_01v8 L=2 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+
+* expanding   symbol:  /foss/designs/xschem/MillerOpAmp/CSAmp.sym # of pins=5
+** sym_path: /foss/designs/xschem/MillerOpAmp/CSAmp.sym
+** sch_path: /foss/designs/xschem/MillerOpAmp/CSAmp.sch
+.subckt CSAmp Vdd Vi Vo Vbias1 Vss
+*.ipin Vbias1
+*.ipin Vi
+*.iopin Vdd
+*.iopin Vss
+*.opin Vo
+XM1 Vo Vi Vdd Vdd sky130_fd_pr__pfet_01v8 L=1 W=4 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 Vo Vbias1 Vss Vss sky130_fd_pr__nfet_01v8 L=2 W=12 nf=6 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+.GLOBAL GND
+.GLOBAL VDD
+.end

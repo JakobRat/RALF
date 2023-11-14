@@ -1,0 +1,49 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1690294290
+<< checkpaint >>
+rect 1479 3717 4837 4477
+rect -1679 2718 4837 3717
+rect -1679 1679 5239 2718
+rect -3717 -1198 5239 1679
+rect -3717 -1679 4837 -1198
+rect -1679 -2957 4837 -1679
+rect -1679 -3717 1679 -2957
+use XM1  XM1_0 ../Devices/DiffPair
+timestamp 1690289632
+transform 0 -1 1191 1 0 -348
+box -296 -510 296 510
+use XM2  XM2_0 ../Devices/DiffPair
+timestamp 1690289632
+transform 0 -1 1191 1 0 244
+box -296 -510 296 510
+use XM3  XM3_0 ../Devices/DiffAmp
+timestamp 1690289632
+transform 0 -1 1191 1 0 1352
+box -812 -410 812 410
+use XM4  XM4_0 ../Devices/Curr_Biasing
+timestamp 1690289633
+transform -1 0 1897 0 -1 1352
+box -296 -310 296 310
+use XM5  XM5_0 ../Devices/CMS_Amp
+timestamp 1690289631
+transform 0 1 3158 -1 0 760
+box -2457 -419 2457 419
+use XM6  XM6_0 ../Devices/PMOS_Load
+timestamp 1690289633
+transform 0 1 2220 -1 0 244
+box -296 -519 296 519
+use XM7  XM7_0 ../Devices/PMOS_Load
+timestamp 1690289633
+transform 0 1 2220 -1 0 -348
+box -296 -519 296 519
+use XR3  XR3_0 ../Devices/Curr_Biasing
+timestamp 1690289633
+transform -1 0 2394 0 -1 1352
+box -201 -633 201 633
+use XR4  XR4_0 ../Devices/CMS_Amp
+timestamp 1690289631
+transform 1 0 3778 0 1 760
+box -201 -698 201 698
+<< end >>

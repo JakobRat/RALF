@@ -1,0 +1,99 @@
+** sch_path: /home/jakob/Documents/AutomatedLayoutGeneration/Circuits/DiffAmp/TwoStageDiffAmp.sch
+**.subckt TwoStageDiffAmp Vout Vp Vn
+*.opin Vout
+*.ipin Vp
+*.ipin Vn
+xCMS VDD Vo_n Vout GND CMS_Amp
+xDiffAmp VDD Vo_n Vp Vn GND DiffAmp
+XC1 Vo_n Vout sky130_fd_pr__cap_mim_m3_1 W=10 L=10 MF=1 m=1
+**.ends
+
+* expanding   symbol:  /home/jakob/Documents/AutomatedLayoutGeneration/Circuits/DiffAmp/CMS_Amp.sym
+*+ # of pins=4
+** sym_path: /home/jakob/Documents/AutomatedLayoutGeneration/Circuits/DiffAmp/CMS_Amp.sym
+** sch_path: /home/jakob/Documents/AutomatedLayoutGeneration/Circuits/DiffAmp/CMS_Amp.sch
+.subckt CMS_Amp Vdd Vi Vout Vss
+*.opin Vout
+*.ipin Vi
+*.iopin Vdd
+*.iopin Vss
+XM5 Vout Vi Vdd Vdd sky130_fd_pr__pfet_01v8 L=2 W=20 nf=10 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XR4 Vss Vout Vss sky130_fd_pr__res_xhigh_po_0p35 L=20 mult=1 m=1
+.ends
+
+
+* expanding   symbol:  /home/jakob/Documents/AutomatedLayoutGeneration/Circuits/DiffAmp/DiffAmp.sym
+*+ # of pins=5
+** sym_path: /home/jakob/Documents/AutomatedLayoutGeneration/Circuits/DiffAmp/DiffAmp.sym
+** sch_path: /home/jakob/Documents/AutomatedLayoutGeneration/Circuits/DiffAmp/DiffAmp.sch
+.subckt DiffAmp Vdd Vo_n Vp Vn Vss
+*.ipin Vp
+*.ipin Vn
+*.iopin Vdd
+*.iopin Vss
+*.opin Vo_n
+xDiffPair Vo1_p Vo_n Vss Vp Vn Vmid DiffPair
+xBias Vdd Vbias Vss Curr_Biasing
+xLoad Vdd Vo_n Vo1_p PMOS_Load
+XM3 Vmid Vbias Vss Vss sky130_fd_pr__nfet_01v8 L=1 W=12 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+
+* expanding   symbol:  /home/jakob/Documents/AutomatedLayoutGeneration/Circuits/DiffAmp/DiffPair.sym
+*+ # of pins=6
+** sym_path: /home/jakob/Documents/AutomatedLayoutGeneration/Circuits/DiffAmp/DiffPair.sym
+** sch_path: /home/jakob/Documents/AutomatedLayoutGeneration/Circuits/DiffAmp/DiffPair.sch
+.subckt DiffPair Vdn Vdp Vb Vp Vn Vs
+*.ipin Vn
+*.ipin Vp
+*.iopin Vb
+*.iopin Vs
+*.iopin Vdn
+*.iopin Vdp
+XM1 Vdn Vn Vs Vb sky130_fd_pr__nfet_01v8 L=1 W=3 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 Vdp Vp Vs Vb sky130_fd_pr__nfet_01v8 L=1 W=3 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+
+* expanding   symbol:
+*+  /home/jakob/Documents/AutomatedLayoutGeneration/Circuits/DiffAmp/Curr_Biasing.sym # of pins=3
+** sym_path: /home/jakob/Documents/AutomatedLayoutGeneration/Circuits/DiffAmp/Curr_Biasing.sym
+** sch_path: /home/jakob/Documents/AutomatedLayoutGeneration/Circuits/DiffAmp/Curr_Biasing.sch
+.subckt Curr_Biasing Vdd Vbias Vss
+*.iopin Vbias
+*.iopin Vdd
+*.iopin Vss
+XR3 Vbias Vdd Vss sky130_fd_pr__res_xhigh_po_0p35 L=0.35 mult=1 m=1
+XM4 Vbias Vbias Vss Vss sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+
+* expanding   symbol:
+*+  /home/jakob/Documents/AutomatedLayoutGeneration/Circuits/DiffAmp/PMOS_Load.sym # of pins=3
+** sym_path: /home/jakob/Documents/AutomatedLayoutGeneration/Circuits/DiffAmp/PMOS_Load.sym
+** sch_path: /home/jakob/Documents/AutomatedLayoutGeneration/Circuits/DiffAmp/PMOS_Load.sch
+.subckt PMOS_Load Vdd Vr Vl
+*.iopin Vdd
+*.iopin Vl
+*.iopin Vr
+XM1 Vl Vl Vdd Vb sky130_fd_pr__pfet_01v8 L=1 W=5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 Vr Vl Vdd Vb sky130_fd_pr__pfet_01v8 L=1 W=5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+.GLOBAL GND
+.GLOBAL VDD
+.end

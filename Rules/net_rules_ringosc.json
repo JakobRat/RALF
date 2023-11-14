@@ -1,0 +1,12 @@
+[    
+    ["Ports",
+    {
+        "nets" : ["vdd", "vss", "clk_out", "ena"]
+    }
+    ],
+    ["PowerNets",
+    {
+        "nets" : ["vdd", "vss"]
+    }
+    ]        
+]
