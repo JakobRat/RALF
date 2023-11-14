@@ -36,6 +36,6 @@ die_obstacles = DieObstacles(die)
 circuit = die.circuit
 
 #route the circuit
-route(circuit=circuit, routing_name=f'{CIRCUIT_NAME}_routing', plan_wires=PLAN_WIRES, 
+route(circuit=circuit, routing_name=CIRCUIT_NAME, plan_wires=PLAN_WIRES, 
       planning_iterations=N_PLANNING_ITERATIONS, gcell_length=GCELL_LENGTH, use_layers=LAYERS,
       destination_path=DESTINATION_PATH, show_stats=SHOW_STATS)

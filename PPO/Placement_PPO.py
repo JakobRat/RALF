@@ -25,9 +25,6 @@ from Network.D2RL_Actor import D2RL_Actor
 from Network.D2RL_Critic import D2RL_Critic
 
 import matplotlib.pyplot as plt 
-from PPO.Environment_Multiprocessing import rollout_process
-
-from multiprocessing import Process, Queue, set_start_method
 
 import copy
 
@@ -234,73 +231,6 @@ class Placement_PPO:
         
         self.save_logs_to_csv()
             
-    def rollout_multi(self):
-        """Do a rollout in a  multi-process fashion.
-            WARNING: Only for experiments used!
-        """
-        batch_obs = []
-        batch_acts = []
-        batch_log_probs = []
-        batch_rews = []
-        batch_placements = self.placements_per_batch
-
-        n_proc = 3
-        out_queues = []
-        in_queues = []
-        procs = []
-        for _ in range(n_proc):
-            q_i = Queue()
-            q_i.put(copy.copy(self.env))
-            q_i.put(copy.copy(self.actor))
-            q_o = Queue()
-            p = Process(target=rollout_process, args=(q_i,q_o))
-            in_queues.append(q_i)
-            out_queues.append(q_o)
-            procs.append(p)
-        
-        for p in procs:
-            p.start()
-        
-        for p in procs:
-            p.join()
-
-        for p in procs:
-            while p.is_alive():
-                p.terminate()
-                time.sleep(0.01)
-        
-
-        process_obs=[]
-        process_acts = []
-        process_log_probs = []
-        process_rews = []
-
-        for q in out_queues:
-            process_obs.extend(q.get())
-            process_acts.extend(q.get())
-            process_rews.extend(q.get())
-            process_log_probs.extend(q.get())
-            q.close()
-
-        for q in in_queues:
-            q.close()
-
-        for p in procs:
-            p.close()
-
-        batch_obs = []
-        for d in process_obs:
-            batch_obs.append(Data(x=torch.tensor(d[0],dtype=torch.float32), edge_index=torch.tensor(d[1],dtype=torch.int64)))
-        
-        batch_obs = DataLoader(batch_obs, batch_size=len(batch_obs))
-        batch_acts = torch.tensor(np.stack(process_acts), dtype=torch.float)
-        batch_log_probs = torch.tensor(np.stack(process_log_probs), dtype=torch.float)
-        batch_rts = self.compute_rts(process_rews)
-
-        self.logger['batch_rews'] = process_rews
-        
-        return batch_obs, batch_acts, batch_log_probs, batch_rts, batch_placements
-    
     def rollout(self):
         """Rollout the environment.
 

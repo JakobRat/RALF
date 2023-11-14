@@ -1,6 +1,8 @@
-from Routing.Primitives import PDK
-from SchematicCapture.Net import Net
-from SchematicCapture.Circuit import Circuit
+from __future__ import annotations
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from PDK.PDK import PDK
+    from SchematicCapture.Net import Net
 import numpy as np
 import matplotlib.pyplot as plt
 

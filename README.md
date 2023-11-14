@@ -44,7 +44,30 @@ To design your circuit, add the circuits-netlist (only `.spice` formats are supp
     .end
 ```
 
-## Step2: Do a placement
+## Step 2: Do a placement
 There are two supported placement mechanisms:
 - Reinforcement learning based (`main_RL_placement.py`)
 - Simulated annealing based (`main_RPS_placement.py`)
+
+To do a placement, adapt the global variables according to your circuit, and run the script in a shell.\
+For the reinforcement learning based placement run:
+```
+$ python3 main_RL_placement.py
+```
+For the simulated annealing based placement run:
+```
+$ python3 main_RPS_placement.py
+```
+The placed circuit will be stored under `PlacementCircuits/<circuit_name>_placement.pkl`.
+
+## Step 3: View the placement in Magic
+To view the placement in Magic run the script `main_place_circuit.py`.
+```
+$ python3 main_place_circuit.py
+```
+Don't forget to adapt the variable `CIRCUIT_NAME` to your circuits name!\
+The generated Magic file of the placement will be located under `Magic/Placement/<CIRCUIT_NAME>.mag`.
+
+## Step 4: Do a routing
+The routing of an already placed circuit can be performed by running the script `main_routing.py` in an python shell.
+
