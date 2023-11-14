@@ -35,11 +35,12 @@ from logging.handlers import RotatingFileHandler
 #global variables to control the placement 
 USE_LOGGER = False                  #If True, debug information will be logged under "Logs/{CIRCUIT_NAME}_placement.log".
 INSTANTIATE_CELLS_IN_MAGIC = True   #If True, the devices cell-view will be instantiated in Magic
-N_ITERATIONS = 1                 #Number of RL-training iterations
+N_ITERATIONS = 2500                 #Number of RL-training iterations
 CIRCUIT_FILE = "Circuits/Examples/DiffAmp.spice"    #Input spice-netlist
 CIRCUIT_NAME = "DiffAmp"            #Name of the circuit
-NET_RULES_FILE = None               #Net-rules definition file
+NET_RULES_FILE = "NetRules/net_rules.json"               #Net-rules definition file
 DEF_FILE = None                     #Def file of the circuit
+
 def main():
 
     if USE_LOGGER:
