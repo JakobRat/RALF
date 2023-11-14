@@ -1,9 +1,42 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Jul  1 19:31:11 2023
-
-@author: jakob
-"""
+# MIT License
+#
+# Copyright (c) 2022 Eric Yang Yu
+#
+# Copyright (c) 2023 Jakob Ratschenberger
+#
+# Modifications:
+# - added init_weights method
+# - Renamed class to Placement_PPO
+# - Modified __init_ for the placement-environment and using a policy-network
+# - Modified learn() for the improved PPO algorithm and added computation of KL-divergence
+# - Modified rollout() for interacting with the placement-environment and for the improved PPO algorithm
+# - Modified compute_rts() to normalize the output
+# - added compute_advantages()
+# - Modified get_action() for the used policy network and advantage estimation
+# - Modified evaluate() for the used policy network
+# - Modified _init_hyperparameters() for the improved PPO algorithm
+# - Modified _log_summary() to include logging data regarding the placement-environment 
+# - Added save_logs_to_csv()
+# - Added plot_logs()
+# - Added plot_grad_flow()
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
 
 import time
 

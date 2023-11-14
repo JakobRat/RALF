@@ -1,5 +1,11 @@
 # Copyright 2022 Kotaro Terada
 #
+# Copyright 2023 Jakob Ratschenger
+#
+# Modifications:
+# - Modified __init__() to setup a problem by a circuit.
+# - Added id_to_device()
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at

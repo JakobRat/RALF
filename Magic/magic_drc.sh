@@ -5,6 +5,11 @@
 # SPDX-FileCopyrightText: 2021-2023 Harald Pretl
 # Johannes Kepler University, Institute for Integrated Circuits
 #
+# SPDX-FileCopyrightText: 2023 Jakob Ratschenberger
+# Johannes Kepler University, Institute for Integrated Circuits
+#
+# Modified for usage with python.
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -18,7 +23,6 @@
 # limitations under the License.
 # SPDX-License-Identifier: Apache-2.0
 #
-# Usage: iic-drc.sh [-d] [-m|-k|-b] [-c] [-w workdir] <cellname>
 # ========================================================================
 
 ERR_DRC=1

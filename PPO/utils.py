@@ -1,3 +1,30 @@
+# MIT License
+#
+# Copyright (c) 2022 Eric Yang Yu
+#
+# Copyright (c) 2023 Jakob Ratschenberger
+#
+# Modifications:
+# - Modified train() to use a placement-environment and to define the total number of placements
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
 from __future__ import annotations
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
@@ -39,60 +66,3 @@ def train(env : Placement, hyperparameters : dict, actor_model : str = '', criti
 
     #learn to place
     model.learn(total_placements=total_placements)
-
-def test(env, actor_model):
-    """Test the trained policy.
-
-    WARNING: Experimental function, no longer needed!
-
-    Args:
-        env (Placement): Placement environment.
-        actor_model (str): Weights-file of the actor-model.
-    """
-    print(f"Testing {actor_model}", flush=True)
-    if actor_model == '':
-        print(f"Didn't specify model file!", flush=True)
-		
-    playground_size = env.size
-    policy = D2RL_Actor(playground_size[0], playground_size[1])
-
-    policy.load_state_dict(torch.load(actor_model))
-    
-    
-    obs, info = env.reset()
-    
-    #run until all devices are placed
-    done = False
-    valid = True
-    placed_dev = info
-    while not done: 
-        
-        action_x, action_y, action_rot = get_action(policy, obs)
-        coord = (int(action_x), int(action_y))
-        rot = int(action_rot)
-        
-        obs, rew, term, trunc, _ = env.step(coord, rot)
-        print(f"Placed {placed_dev} with reward: {rew}")
-        placed_dev = _
-        done = term or trunc
-
-
-
-def get_action(policy, obs):
-    """Get an action.
-
-        WARNING: Experimental function, no longer needed!
-    
-    """
-    policy.eval()
-    action_x, action_y, action_rot = policy(obs)
-
-    distr_x = torch.distributions.Categorical(action_x)
-    distr_y = torch.distributions.Categorical(action_y)
-    distr_rot = torch.distributions.Categorical(action_rot)
-
-    action_x = distr_x.sample()
-    action_y = distr_y.sample()
-    action_rot = distr_rot.sample()
-
-    return action_x, action_y, action_rot
