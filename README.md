@@ -7,7 +7,7 @@ a automated analog layout design flow were developed.
 ## Getting started
 ### Step 0: Prerequisites
 - [SKY130 PDK](https://github.com/google/skywater-pdk)
-    - For easy installation check out [volare](https://github.com/efabless/volare)
+    - For easy installation checkout [volare](https://github.com/efabless/volare)
 - [MAGIC](https://github.com/RTimothyEdwards/magic)
 - Python >= 3.10
 - Path to the sky130A pdk set under `$PDKPATH`, this can look like as follows
