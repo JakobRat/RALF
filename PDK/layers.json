@@ -25,11 +25,8 @@
 },
 "li":
     {
-        "Direction": "V",
-        "Pitch": 340,
         "Width": 180,
         "Space": 180,
-        "MinL": 298,
         "MinArea": 57600,
         "Resistivity": 125
     }
@@ -37,21 +34,16 @@
 "mcon":
     {
         "Stack": ["li", "m1"],
-        "SpaceX": 190,
-        "SpaceY": 190,
-        "WidthX": 180,
-        "WidthY": 180,
+        "Space": 190,
+        "Width": 180,
         "min_enclosure": 60,
         "Resistivity": 11925 
     }
 ,
 "m1":
     {
-        "Direction": "H",
-        "Pitch": 280,
         "Width": 140,
         "Space": 140,
-        "MinL": 298,
         "MinArea": 90000,
         "Resistivity": 125
     }
@@ -59,21 +51,16 @@
 "via1":
     {
         "Stack": ["m1", "m2"],
-        "SpaceX": 170,
-        "SpaceY": 170,
-        "WidthX": 260,
-        "WidthY": 260,
+        "Space": 170,
+        "Width": 260,
         "min_enclosure": 60,
         "Resistivity": 12150 
     }
 ,
 "m2":
     {
-        "Direction": "V",
-        "Pitch": 280,
         "Width": 140,
         "Space": 140,
-        "MinL": 242,
         "MinArea": 67600,
         "Resistivity": 125
     }
@@ -81,21 +68,16 @@
 "via2":
     {
         "Stack": ["m2", "m3"],
-        "SpaceX": 200,
-        "SpaceY": 200,
-        "WidthX": 280,
-        "WidthY": 280 ,
+        "Space": 200,
+        "Width": 280,
         "min_enclosure": 80,
         "Resistivity": 14322
     }
 ,
 "m3":
     {   
-        "Direction": "H",
-        "Pitch": 600,
         "Width": 300,
         "Space": 400,
-        "MinL": 400,
         "MinArea": 250000,
         "Resistivity": 47
     }
@@ -103,21 +85,16 @@
 "via3":
     {
         "Stack": ["m3", "m4"],
-        "SpaceX": 200,
-        "SpaceY": 200,
-        "WidthX": 320,
-        "WidthY": 320 ,
+        "Space": 200,
+        "Width": 320,
         "min_enclosure": 80,
         "Resistivity": 13299
     }
 ,
 "m4":
     {   
-        "Direction": "V",
-        "Pitch": 600,
         "Width": 300,
         "Space": 400,
-        "MinL": 400,
         "MinArea": 250000,
         "Resistivity": 47
     }
@@ -125,21 +102,16 @@
 "via4":
     {
         "Stack": ["m4", "m5"],
-        "SpaceX": 800,
-        "SpaceY": 800,
-        "WidthX": 1180,
-        "WidthY": 1180 ,
+        "Space": 800,
+        "Width": 1180,
         "min_enclosure": 320,
         "Resistivity": 1919
     }
 ,
 "m5":
     {   
-        "Direction": "H",
-        "Pitch": 3200,
         "Width": 1600,
         "Space": 1600,
-        "MinL": 300,
         "MinArea": 4000000,
         "Resistivity": 29
     }

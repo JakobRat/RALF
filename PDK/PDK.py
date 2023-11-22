@@ -122,8 +122,8 @@ class PDK:
 
         #init via layers
         for l in self._pdk_definition["via_stack"]:
-            minWidth = self._pdk_definition[l]["WidthX"]/self._scale_factor
-            minSpace = self._pdk_definition[l]["SpaceX"]/self._scale_factor
+            minWidth = self._pdk_definition[l]["Width"]/self._scale_factor
+            minSpace = self._pdk_definition[l]["Space"]/self._scale_factor
             resistivity = self._pdk_definition[l]["Resistivity"]/self._scale_factor
             min_enclosure = self._pdk_definition[l]["min_enclosure"]/self._scale_factor
             bottom_layer = self._metal_layers[self._pdk_definition[l]["Stack"][0]]
