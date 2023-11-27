@@ -25,11 +25,11 @@ faulthandler.enable()
 
 from SchematicCapture.utils import setup_circuit, include_primitives_hierarchical
 from Magic.utils import instantiate_circuit, add_cells
-from rectangle_packing_solver.utils import do_bottom_up_placement
+from rectangle_packing_placement.utils import do_bottom_up_placement
 from SchematicCapture.RString import include_RStrings_hierarchical
 from Magic.MagicDie import MagicDie
 
-from rectangle_packing_solver.utils import do_bottom_up_placement
+from rectangle_packing_placement.utils import do_bottom_up_placement
 
 import logging
 from logging.handlers import RotatingFileHandler
