@@ -315,7 +315,7 @@ class RectanglePackingProblemAnnealerHard(RectanglePackingProblemAnnealer):
         if floorplan.bounding_box[1] > self.height_limit:
             return sys.float_info.max
 
-        return float(floorplan.HPWL) + math.sqrt(floorplan.area)
+        return float(floorplan.HPWL) + math.sqrt(floorplan.congestion)
 
 
 class RectanglePackingProblemAnnealerSoft(RectanglePackingProblemAnnealer):
@@ -369,7 +369,7 @@ class RectanglePackingProblemAnnealerSoft(RectanglePackingProblemAnnealer):
         if floorplan.bounding_box[1] > self.height_limit:
             return self.max_possible_width * self.max_possible_height + floorplan.area
 
-        return float(floorplan.HPWL) + math.sqrt(floorplan.area)
+        return float(floorplan.HPWL) + math.sqrt(floorplan.congestion)
 
 
 class HardToFindSolutionException(Exception):

@@ -25,7 +25,8 @@ if TYPE_CHECKING:
     from SchematicCapture.Devices import Device
 
 from typing import Dict, List, Tuple, Union
-
+from Environment.RUDY import RUDY
+from PDK.PDK import global_pdk
 
 class Problem:
     """
@@ -39,6 +40,10 @@ class Problem:
             circuit (Circuit): Circuit which shall be placed.
         """
         self.circuit = circuit
+
+        #setup RUDY of the PDK, for 
+        #wire-density estimation
+        self.rudy = RUDY(global_pdk)
 
         #setup the rectangles of the problem
         rectangles = []

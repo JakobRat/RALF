@@ -38,6 +38,8 @@ class Floorplan:
         self.problem = problem
         
         circuit = problem.circuit
+        rudy = problem.rudy
+
         #place the devices of the circuit
         for pos in positions:
             device_name = self.problem.id_to_device(pos['id'])
@@ -66,12 +68,21 @@ class Floorplan:
         for net_name, net in circuit._nets.items():
             net : Net
             self.HPWL += net.HPWL()
-            
+        
+        #calculate the estimated congestion of the placement
+        self.congestion = 0
+        rudy.clear_nets()
+        for net in circuit._nets.values():
+            rudy.add_net(net)
+
+        self.congestion = rudy.congestion()
+
     def __repr__(self) -> str:
         s = "Floorplan({"
         s += "'positions': " + str(self.positions) + ", "
         s += "'bounding_box': " + str(self.bounding_box) + ", "
         s += "'area': " + str(self.area) + ", " 
-        s += "'HPWL: '" + str(round(self.HPWL,2)) + "})"
+        s += "'HPWL: '" + str(round(self.HPWL,2)) + ", "
+        s += "'congestion: '" + str(round(self.congestion,2)) + "})"
 
         return s
