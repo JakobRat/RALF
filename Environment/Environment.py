@@ -1,26 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jun 29 11:02:15 2023
-
-@author: jakob
-"""
-from __future__ import annotations
-from typing import TYPE_CHECKING
-if TYPE_CHECKING:
-    import torch_geometric
-    import torch_geometric.data
-
-from SchematicCapture.Circuit import Circuit
-from Magic.DRC import DRC_collidates, DRC_collidates_all, DRC_magic_check_cell, DRC_magic_all
-from Magic.utils import place_circuit
-from Environment.cell_sliding import cell_slide3
-
-import numpy as np
-from torch_geometric.utils.convert import from_networkx, to_networkx 
-import random
-
-import copy
-
 # ========================================================================
 #
 # SPDX-FileCopyrightText: 2023 Jakob Ratschenberger
@@ -39,6 +16,27 @@ import copy
 # limitations under the License.
 # SPDX-License-Identifier: Apache-2.0
 # ========================================================================
+
+from __future__ import annotations
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    import torch_geometric
+    import torch_geometric.data
+
+from SchematicCapture.Circuit import Circuit
+from Magic.DRC import DRC_collidates, DRC_collidates_all, DRC_magic_check_cell, DRC_magic_all
+from Magic.utils import place_circuit
+from Environment.cell_sliding import cell_slide3
+
+import numpy as np
+from torch_geometric.utils.convert import from_networkx, to_networkx 
+import random
+
+import copy
+
+
+import pandas as pd
+
 
 import torch
 import pygame
