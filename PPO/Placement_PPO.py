@@ -263,7 +263,8 @@ class Placement_PPO:
                 torch.save(self.critic.state_dict(), 'Network/Weights/ppo_critic.pth')
         
         self.save_logs_to_csv()
-            
+        self.env.save_logs_to_csv()
+
     def rollout(self):
         """Rollout the environment.
 
