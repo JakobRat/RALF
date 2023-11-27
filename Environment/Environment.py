@@ -116,6 +116,18 @@ class Placement:
         #wire-density estimation
         self._rudy = RUDY(self._pdk)
 
+        #define a logger
+        self.logger = {
+            "n_placement" : [],
+            "n_step" : [],
+            "placed_dev" : [],
+            "reward" : [],
+            "HPWL" : [],
+            "congestion" : [],
+            "action" : [],
+            "legalized_action" : [],
+        }
+
     @property
     def best_placement(self) -> Circuit:
         """
@@ -324,6 +336,11 @@ class Placement:
         coordinate = (c0,c1)
         rotation = (rotation*90)%360
 
+        self.logger["n_placement"].append(self._total_placements)
+        self.logger["n_step"].append(self._n_step)
+        self.logger["placed_dev"].append(placed_device.name)
+        self.logger["action"].append((c0,c1,rotation))
+
         #place the cell
         device_to_place.cell.place(coordinate, rotation)
 
@@ -341,6 +358,8 @@ class Placement:
         
 
         ### Evaluate the placement
+        Total_Wire_Length = 0
+        congestion = 0
         reward = 0
         truncated = False
         terminated = False
@@ -353,6 +372,10 @@ class Placement:
             cell_slide3(self._placed_cells)
             self._total_placements += 1
 
+            #get the new positions for the logger
+            leg_actions = [(*cell.center_point, cell.rotation) for cell in self._placed_cells]
+            self.logger["legalized_action"].extend(reversed(leg_actions))
+            
             #get the HPWL of the placement
             Total_Wire_Length = self.HPWL()
             
@@ -382,6 +405,10 @@ class Placement:
         
         self._n_step += 1
         
+        self.logger["reward"].append(reward)
+        self.logger["congestion"].append(congestion)
+        self.logger["HPWL"].append(Total_Wire_Length)
+
         #get the new observation
         observation = self._get_data()
 
@@ -419,6 +446,19 @@ class Placement:
         device_to_place.cell.place_next()
 
         return not DRC_error
+
+
+    def save_logs_to_csv(self):
+        """
+            Save the logged data to a CSV file.
+            The file will be located under Logs/<environment_name>_log.csv
+        """
+        
+        data = self.logger
+        dataframe = pd.DataFrame(data)
+        filename = "Logs/" + self.name + "_log.csv"
+
+        dataframe.to_csv(filename)
 
     def init_pygame(self):
         """Initialize pygame for showing the placement process.
