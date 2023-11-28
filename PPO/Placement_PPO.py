@@ -602,6 +602,7 @@ class Placement_PPO:
                 'avg_actor_loss' : self.logger['avg_actor_loss'],
                 'avg_critic_loss' : self.logger['avg_critic_loss'],
                 'avg_policy_loss' : self.logger['avg_policy_loss'],
+                'avg_kl_divergence': self.logger['avg_KL_divergences'],
         }
 
         dataframe = pd.DataFrame(data)
