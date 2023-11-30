@@ -150,11 +150,16 @@ wire segment m1 30.0 736 1414 736 1414
 wire segment mcon 18.0 736 1414 736 1414
 wire segment m1 30.0 836 1210 836 1210
 wire segment mcon 18.0 836 1210 836 1210
-wire segment m1 14 729 1414 1033 1414 -noendcap
-wire segment m1 14 1026 1215 1026 1421 -noendcap
-wire segment m1 14 829 1222 1033 1222 -noendcap
-wire segment m1 14 836 1203 836 1229 -noendcap
-box 729.0 1407.0 1033.0 1421.0
+wire segment m1 14 736 1407 736 1444 -noendcap
+wire segment m2 38.0 736 1437 736 1437
+wire segment via1 26.0 736 1437 736 1437
+wire segment m1 38.0 736 1437 736 1437
+wire segment m2 14 736 1203 736 1444 -noendcap
+wire segment m2 14 729 1210 843 1210 -noendcap
+wire segment m2 38.0 836 1210 836 1210
+wire segment via1 26.0 836 1210 836 1210
+wire segment m1 38.0 836 1210 836 1210
+box 729.0 1407.0 743.0 1444.0
 label Vmid_x1_x1 1 10 0 0 0 center m1
 wire segment m1 30.0 2516 984 2516 984
 wire segment mcon 18.0 2516 984 2516 984
@@ -164,10 +169,17 @@ wire segment m1 30.0 2516 984 2516 984
 wire segment mcon 18.0 2516 984 2516 984
 wire segment m1 30.0 2312 882 2312 882
 wire segment mcon 18.0 2312 882 2312 882
-wire segment m1 14.0 2516 903 2516 991 -noendcap
-wire segment m1 14.0 2305 910 2523 910 -noendcap
-wire segment m1 14.0 2312 875 2312 917 -noendcap
-box 2509.0 903.0 2523.0 991.0
+wire segment m1 14.0 2516 913 2516 991 -noendcap
+wire segment m2 38.0 2516 920 2516 920
+wire segment via1 26.0 2516 920 2516 920
+wire segment m1 38.0 2516 920 2516 920
+wire segment m2 14.0 2399 920 2523 920 -noendcap
+wire segment m2 38.0 2406 920 2406 920
+wire segment via1 26.0 2406 920 2406 920
+wire segment m1 38.0 2406 920 2406 920
+wire segment m1 14.0 2305 920 2413 920 -noendcap
+wire segment m1 14.0 2312 875 2312 927 -noendcap
+box 2509.0 913.0 2523.0 991.0
 label Vmid_x1_x2 1 10 0 0 0 center m1
 wire segment m1 30.0 1770 1458 1770 1458
 wire segment mcon 18.0 1770 1458 1770 1458
@@ -183,20 +195,20 @@ wire segment m1 30.0 1878 1802 1878 1802
 wire segment mcon 18.0 1878 1802 1878 1802
 wire segment m1 14.0 1770 1451 1770 1547 -noendcap
 wire segment m1 14.0 1763 1540 1891 1540 -noendcap
-wire segment m1 14.0 1871 1540 1891 1540 -noendcap
-wire segment m2 38.0 1878 1540 1878 1540
-wire segment via1 26.0 1878 1540 1878 1540
-wire segment m1 38.0 1878 1540 1878 1540
-wire segment m3 44.0 1878 1540 1878 1540
-wire segment via2 28.0 1878 1540 1878 1540
-wire segment m2 44.0 1878 1540 1878 1540
-wire segment m3 30.0 1878 1525 1878 1817 -noendcap
-wire segment m3 44.0 1878 1802 1878 1802
-wire segment via2 28.0 1878 1802 1878 1802
-wire segment m2 44.0 1878 1802 1878 1802
-wire segment m2 38.0 1878 1802 1878 1802
-wire segment via1 26.0 1878 1802 1878 1802
-wire segment m1 38.0 1878 1802 1878 1802
+wire segment m2 38.0 1884 1540 1884 1540
+wire segment via1 26.0 1884 1540 1884 1540
+wire segment m1 38.0 1884 1540 1884 1540
+wire segment m3 44.0 1884 1540 1884 1540
+wire segment via2 28.0 1884 1540 1884 1540
+wire segment m2 44.0 1884 1540 1884 1540
+wire segment m3 30.0 1884 1525 1884 1817 -noendcap
+wire segment m3 44.0 1884 1802 1884 1802
+wire segment via2 28.0 1884 1802 1884 1802
+wire segment m2 44.0 1884 1802 1884 1802
+wire segment m2 38.0 1884 1802 1884 1802
+wire segment via1 26.0 1884 1802 1884 1802
+wire segment m1 38.0 1884 1802 1884 1802
+wire segment m1 14.0 1871 1802 1891 1802 -noendcap
 box 1763.0 1451.0 1777.0 1547.0
 label VbiasP_x3 1 10 0 0 0 center m1
 wire segment m1 30.0 2190 948 2190 948
@@ -212,11 +224,13 @@ wire segment mcon 18.0 2286 480 2286 480
 wire segment m1 30.0 2202 480 2202 480
 wire segment mcon 18.0 2202 480 2202 480
 wire segment m1 14.0 2195 480 2293 480 -noendcap
-wire segment m1 14.0 2183 948 2209 948 -noendcap
-wire segment m2 38.0 2202 948 2202 948
-wire segment via1 26.0 2202 948 2202 948
-wire segment m1 38.0 2202 948 2202 948
-wire segment m2 14.0 2202 473 2202 955 -noendcap
+wire segment m1 14.0 2183 948 2231 948 -noendcap
+wire segment m2 38.0 2224 948 2224 948
+wire segment via1 26.0 2224 948 2224 948
+wire segment m1 38.0 2224 948 2224 948
+wire segment m2 14.0 2217 948 2286 948 -noendcap
+wire segment m2 14.0 2279 473 2279 955 -noendcap
+wire segment m2 14.0 2195 480 2286 480 -noendcap
 wire segment m2 38.0 2202 480 2202 480
 wire segment via1 26.0 2202 480 2202 480
 wire segment m1 38.0 2202 480 2202 480
@@ -268,16 +282,13 @@ wire segment m1 30.0 888 928 888 928
 wire segment mcon 18.0 888 928 888 928
 wire segment m1 30.0 964 1166 964 1166
 wire segment mcon 18.0 964 1166 964 1166
-wire segment m1 14.0 888 663 888 763 -noendcap
-wire segment m1 14.0 881 756 983 756 -noendcap
-wire segment m1 14.0 976 749 976 935 -noendcap
-wire segment m1 14.0 881 928 983 928 -noendcap
+wire segment m1 14.0 888 663 888 935 -noendcap
 wire segment m1 30.0 888 670 888 670
 wire segment mcon 18.0 888 670 888 670
 wire segment m1 30.0 888 928 888 928
 wire segment mcon 18.0 888 928 888 928
 wire segment m1 14.0 964 921 964 1173 -noendcap
-wire segment m1 14.0 957 928 977 928 -noendcap
+wire segment m1 14.0 881 928 971 928 -noendcap
 wire segment m1 30.0 1254 734 1254 734
 wire segment mcon 18.0 1254 734 1254 734
 wire segment m1 30.0 1254 864 1254 864
@@ -287,21 +298,21 @@ wire segment m1 30.0 1254 734 1254 734
 wire segment mcon 18.0 1254 734 1254 734
 wire segment m1 30.0 1254 864 1254 864
 wire segment mcon 18.0 1254 864 1254 864
-wire segment m1 14.0 969 756 1261 756 -noendcap
+wire segment m1 14.0 957 928 1261 928 -noendcap
+wire segment m1 14.0 1254 857 1254 935 -noendcap
 wire segment m1 14.0 1254 213 1254 741 -noendcap
-wire segment m1 14.0 1247 220 1447 220 -noendcap
-wire segment m2 38.0 1440 220 1440 220
-wire segment via1 26.0 1440 220 1440 220
-wire segment m1 38.0 1440 220 1440 220
-wire segment m2 14.0 1433 220 1522 220 -noendcap
-wire segment m3 44.0 1515 220 1515 220
-wire segment via2 28.0 1515 220 1515 220
-wire segment m2 44.0 1515 220 1515 220
-wire segment m4 48.0 1515 220 1515 220
-wire segment via3 32.0 1515 220 1515 220
-wire segment m3 50.0 1515 220 1515 220
-wire segment m4 30.0 1197 220 1530 220 -noendcap
-box 969.0 749.0 1261.0 763.0
+wire segment m1 14.0 1247 220 1527 220 -noendcap
+wire segment m2 38.0 1520 220 1520 220
+wire segment via1 26.0 1520 220 1520 220
+wire segment m1 38.0 1520 220 1520 220
+wire segment m3 44.0 1520 220 1520 220
+wire segment via2 28.0 1520 220 1520 220
+wire segment m2 44.0 1520 220 1520 220
+wire segment m4 48.0 1520 220 1520 220
+wire segment via3 32.0 1520 220 1520 220
+wire segment m3 50.0 1520 220 1520 220
+wire segment m4 30.0 1197 220 1535 220 -noendcap
+box 957.0 921.0 1261.0 935.0
 label Vop1_x1 1 10 0 0 0 center m1
 wire segment m1 30.0 808 734 808 734
 wire segment mcon 18.0 808 734 808 734
@@ -340,19 +351,16 @@ wire segment m1 30.0 2028 1048 2028 1048
 wire segment mcon 18.0 2028 1048 2028 1048
 wire segment m1 14.0 2021 1012 2273 1012 -noendcap
 wire segment m1 14.0 2028 1005 2028 1055 -noendcap
-wire segment m1 14.0 801 864 853 864 -noendcap
-wire segment m1 14.0 846 857 846 1063 -noendcap
-wire segment m2 38.0 846 1056 846 1056
-wire segment via1 26.0 846 1056 846 1056
-wire segment m1 38.0 846 1056 846 1056
-wire segment m2 14.0 846 1049 846 1125 -noendcap
-wire segment m2 14.0 839 1118 1574 1118 -noendcap
-wire segment m2 38.0 1567 1118 1567 1118
-wire segment via1 26.0 1567 1118 1567 1118
-wire segment m1 38.0 1567 1118 1567 1118
-wire segment m1 14.0 1560 1118 1777 1118 -noendcap
-wire segment m1 14.0 1770 1041 1770 1125 -noendcap
-box 801.0 857.0 853.0 871.0
+wire segment m1 14.0 808 857 808 899 -noendcap
+wire segment m2 38.0 808 892 808 892
+wire segment via1 26.0 808 892 808 892
+wire segment m1 38.0 808 892 808 892
+wire segment m2 14.0 808 885 808 1055 -noendcap
+wire segment m2 14.0 801 1048 1777 1048 -noendcap
+wire segment m2 38.0 1770 1048 1770 1048
+wire segment via1 26.0 1770 1048 1770 1048
+wire segment m1 38.0 1770 1048 1770 1048
+box 801.0 857.0 815.0 899.0
 label Vcmmfb 1 10 0 0 0 center m1
 wire segment m1 30.0 708 1166 708 1166
 wire segment mcon 18.0 708 1166 708 1166
@@ -362,9 +370,14 @@ wire segment m1 30.0 672 928 672 928
 wire segment mcon 18.0 672 928 672 928
 wire segment m1 30.0 708 1166 708 1166
 wire segment mcon 18.0 708 1166 708 1166
-wire segment m1 14.0 391 670 679 670 -noendcap
-wire segment m1 14.0 398 663 398 935 -noendcap
-wire segment m1 14.0 391 928 679 928 -noendcap
+wire segment m1 14.0 672 663 672 699 -noendcap
+wire segment m2 38.0 672 692 672 692
+wire segment via1 26.0 672 692 672 692
+wire segment m1 38.0 672 692 672 692
+wire segment m2 14.0 672 685 672 935 -noendcap
+wire segment m2 38.0 672 928 672 928
+wire segment via1 26.0 672 928 672 928
+wire segment m1 38.0 672 928 672 928
 wire segment m1 30.0 672 670 672 670
 wire segment mcon 18.0 672 670 672 670
 wire segment m1 30.0 672 928 672 928
@@ -380,25 +393,23 @@ wire segment m1 30.0 78 734 78 734
 wire segment mcon 18.0 78 734 78 734
 wire segment m1 30.0 78 864 78 864
 wire segment mcon 18.0 78 864 78 864
-wire segment m1 14.0 398 733 398 763 -noendcap
-wire segment m2 38.0 398 740 398 740
-wire segment via1 26.0 398 740 398 740
-wire segment m1 38.0 398 740 398 740
-wire segment m2 14.0 71 740 405 740 -noendcap
-wire segment m2 38.0 78 740 78 740
-wire segment via1 26.0 78 740 78 740
-wire segment m1 38.0 78 740 78 740
-wire segment m1 14.0 78 733 78 763 -noendcap
-wire segment m2 14.0 314 667 314 747 -noendcap
-wire segment m2 14.0 285 674 321 674 -noendcap
-wire segment m3 44.0 292 674 292 674
-wire segment via2 28.0 292 674 292 674
-wire segment m2 44.0 292 674 292 674
-wire segment m4 48.0 292 674 292 674
-wire segment via3 32.0 292 674 292 674
-wire segment m3 50.0 292 674 292 674
-wire segment m4 30.0 292 351 292 689 -noendcap
-box 391.0 733.0 405.0 763.0
+wire segment m1 14.0 78 699 78 741 -noendcap
+wire segment m2 38.0 78 706 78 706
+wire segment via1 26.0 78 706 78 706
+wire segment m1 38.0 78 706 78 706
+wire segment m2 38.0 78 691 78 713 -noendcap
+wire segment m3 44.0 78 698 78 698
+wire segment via2 28.0 78 698 78 698
+wire segment m2 44.0 78 698 78 698
+wire segment m4 48.0 78 698 78 698
+wire segment via3 32.0 78 698 78 698
+wire segment m3 50.0 78 698 78 698
+wire segment m4 30.0 78 351 78 713 -noendcap
+wire segment m4 30.0 63 366 307 366 -noendcap
+wire segment m2 14.0 672 691 672 728 -noendcap
+wire segment m2 14.0 71 721 679 721 -noendcap
+wire segment m2 14.0 78 691 78 728 -noendcap
+box 71.0 699.0 85.0 741.0
 label Von1_x1 1 10 0 0 0 center m1
 wire segment m1 30.0 934 798 934 798
 wire segment mcon 18.0 934 798 934 798
@@ -412,20 +423,18 @@ wire segment m1 30.0 626 798 626 798
 wire segment mcon 18.0 626 798 626 798
 wire segment m1 30.0 1022 798 1022 798
 wire segment mcon 18.0 1022 798 1022 798
+wire segment m1 28 920 798 1036 798 -noendcap
 wire segment m2 38.0 934 798 934 798
 wire segment via1 26.0 934 798 934 798
 wire segment m1 38.0 934 798 934 798
-wire segment m2 28 920 798 1036 798 -noendcap
-wire segment m2 38.0 1022 798 1022 798
-wire segment via1 26.0 1022 798 1022 798
-wire segment m1 38.0 1022 798 1022 798
-wire segment m1 28 907 798 948 798 -noendcap
-wire segment m2 38.0 921 798 921 798
-wire segment via1 26.0 921 798 921 798
-wire segment m1 38.0 921 798 921 798
-wire segment m2 38.0 921 755 921 812 -noendcap
-wire segment m2 28 612 769 935 769 -noendcap
-wire segment m2 38.0 626 755 626 812 -noendcap
+wire segment m2 28 703 798 948 798 -noendcap
+wire segment m3 44.0 717 798 717 798
+wire segment via2 28.0 717 798 717 798
+wire segment m2 44.0 717 798 717 798
+wire segment m3 30.0 611 798 732 798 -noendcap
+wire segment m3 44.0 626 798 626 798
+wire segment via2 28.0 626 798 626 798
+wire segment m2 44.0 626 798 626 798
 wire segment m2 38.0 626 798 626 798
 wire segment via1 26.0 626 798 626 798
 wire segment m1 38.0 626 798 626 798
@@ -447,24 +456,20 @@ wire segment mcon 18.0 1480 798 1480 798
 wire segment m1 30.0 1532 798 1532 798
 wire segment mcon 18.0 1532 798 1532 798
 wire segment m1 28 1466 798 1546 798 -noendcap
-wire segment m2 38.0 626 798 626 798
-wire segment via1 26.0 626 798 626 798
-wire segment m1 38.0 626 798 626 798
-wire segment m2 28 342 798 640 798 -noendcap
-wire segment m2 38.0 356 798 356 798
-wire segment via1 26.0 356 798 356 798
-wire segment m1 38.0 356 798 356 798
-wire segment m1 28 1008 798 1221 798 -noendcap
-wire segment m1 28 1207 784 1207 933 -noendcap
-wire segment m1 28 1193 919 1311 919 -noendcap
-wire segment m2 38.0 1297 919 1297 919
-wire segment via1 26.0 1297 919 1297 919
-wire segment m1 38.0 1297 919 1297 919
-wire segment m2 28 1283 919 1494 919 -noendcap
-wire segment m2 38.0 1480 919 1480 919
-wire segment via1 26.0 1480 919 1480 919
-wire segment m1 38.0 1480 919 1480 919
-wire segment m1 28 1480 784 1480 933 -noendcap
+wire segment m1 28 342 798 640 798 -noendcap
+wire segment m2 38.0 1022 798 1022 798
+wire segment via1 26.0 1022 798 1022 798
+wire segment m1 38.0 1022 798 1022 798
+wire segment m3 44.0 1022 798 1022 798
+wire segment via2 28.0 1022 798 1022 798
+wire segment m2 44.0 1022 798 1022 798
+wire segment m3 30.0 1007 798 1495 798 -noendcap
+wire segment m3 44.0 1480 798 1480 798
+wire segment via2 28.0 1480 798 1480 798
+wire segment m2 44.0 1480 798 1480 798
+wire segment m2 38.0 1480 798 1480 798
+wire segment via1 26.0 1480 798 1480 798
+wire segment m1 38.0 1480 798 1480 798
 wire segment m1 30.0 1900 784 1900 784
 wire segment mcon 18.0 1900 784 1900 784
 wire segment m1 30.0 1900 1092 1900 1092
@@ -478,10 +483,13 @@ wire segment mcon 18.0 1900 1092 1900 1092
 wire segment m1 30.0 1900 696 1900 696
 wire segment mcon 18.0 1900 696 1900 696
 wire segment m1 28 1900 682 1900 798 -noendcap
-wire segment m2 38.0 1900 784 1900 784
-wire segment via1 26.0 1900 784 1900 784
-wire segment m1 38.0 1900 784 1900 784
-wire segment m2 28 1900 770 1900 1097 -noendcap
+wire segment m1 28 1886 784 1935 784 -noendcap
+wire segment m2 38.0 1921 784 1921 784
+wire segment via1 26.0 1921 784 1921 784
+wire segment m1 38.0 1921 784 1921 784
+wire segment m2 28 1907 784 1995 784 -noendcap
+wire segment m2 28 1981 770 1981 1097 -noendcap
+wire segment m2 28 1886 1083 1995 1083 -noendcap
 wire segment m2 38.0 1900 1083 1900 1083
 wire segment via1 26.0 1900 1083 1900 1083
 wire segment m1 38.0 1900 1083 1900 1083
@@ -494,26 +502,20 @@ wire segment m1 30.0 2000 1414 2000 1414
 wire segment mcon 18.0 2000 1414 2000 1414
 wire segment m1 30.0 1884 1362 1884 1362
 wire segment mcon 18.0 1884 1362 1884 1362
-wire segment m1 28 1870 1414 2014 1414 -noendcap
-wire segment m1 28 1884 1348 1884 1428 -noendcap
-wire segment m1 28 1870 1092 1914 1092 -noendcap
-wire segment m1 28 1884 1069 1884 1106 -noendcap
-wire segment m2 38.0 1884 1083 1884 1083
-wire segment via1 26.0 1884 1083 1884 1083
-wire segment m1 38.0 1884 1083 1884 1083
-wire segment m2 28 1884 1069 1884 1223 -noendcap
-wire segment m2 38.0 1884 1209 1884 1209
-wire segment via1 26.0 1884 1209 1884 1209
-wire segment m1 38.0 1884 1209 1884 1209
-wire segment m1 28 1884 1195 1884 1376 -noendcap
-wire segment m1 28 1532 755 1532 812 -noendcap
-wire segment m2 38.0 1532 769 1532 769
-wire segment via1 26.0 1532 769 1532 769
-wire segment m1 38.0 1532 769 1532 769
-wire segment m2 28 1518 769 1914 769 -noendcap
-wire segment m2 28 1900 755 1900 811 -noendcap
-box 1870.0 1078.0 1914.0 1106.0
-label VPWR 1 10 0 0 0 center m1
+wire segment m1 28 2000 1348 2000 1428 -noendcap
+wire segment m1 28 1870 1362 2014 1362 -noendcap
+wire segment m2 28 1929 1083 1995 1083 -noendcap
+wire segment m2 28 1943 1069 1943 1223 -noendcap
+wire segment m2 38.0 1943 1209 1943 1209
+wire segment via1 26.0 1943 1209 1943 1209
+wire segment m1 38.0 1943 1209 1943 1209
+wire segment m1 28 1943 1195 1943 1376 -noendcap
+wire segment m1 28 1929 1362 1995 1362 -noendcap
+wire segment m1 28 1518 798 1737 798 -noendcap
+wire segment m1 28 1723 770 1723 812 -noendcap
+wire segment m1 28 1709 784 1914 784 -noendcap
+box 1929.0 1069.0 1995.0 1097.0
+label VPWR 1 10 0 0 0 center m2
 wire segment m1 30.0 1386 670 1386 670
 wire segment mcon 18.0 1386 670 1386 670
 wire segment m1 30.0 1386 928 1386 928
@@ -526,12 +528,25 @@ wire segment m1 30.0 1386 2010 1386 2010
 wire segment mcon 18.0 1386 2010 1386 2010
 wire segment m1 30.0 1386 2468 1386 2468
 wire segment mcon 18.0 1386 2468 1386 2468
-wire segment m1 28 1386 656 1386 942 -noendcap
+wire segment m1 28 1386 656 1386 765 -noendcap
+wire segment m2 38.0 1386 751 1386 751
+wire segment via1 26.0 1386 751 1386 751
+wire segment m1 38.0 1386 751 1386 751
+wire segment m2 28 1386 737 1386 942 -noendcap
+wire segment m2 38.0 1386 928 1386 928
+wire segment via1 26.0 1386 928 1386 928
+wire segment m1 38.0 1386 928 1386 928
 wire segment m1 30.0 1386 670 1386 670
 wire segment mcon 18.0 1386 670 1386 670
 wire segment m1 30.0 1386 928 1386 928
 wire segment mcon 18.0 1386 928 1386 928
-wire segment m1 28 1386 1080 1386 1566 -noendcap
+wire segment m2 38.0 1386 1094 1386 1094
+wire segment via1 26.0 1386 1094 1386 1094
+wire segment m1 38.0 1386 1094 1386 1094
+wire segment m2 28 1386 1080 1386 1566 -noendcap
+wire segment m2 38.0 1386 1552 1386 1552
+wire segment via1 26.0 1386 1552 1386 1552
+wire segment m1 38.0 1386 1552 1386 1552
 wire segment m2 38.0 1386 1552 1386 1552
 wire segment via1 26.0 1386 1552 1386 1552
 wire segment m1 38.0 1386 1552 1386 1552
@@ -542,11 +557,10 @@ wire segment m1 38.0 1386 2010 1386 2010
 wire segment m2 38.0 1386 2010 1386 2010
 wire segment via1 26.0 1386 2010 1386 2010
 wire segment m1 38.0 1386 2010 1386 2010
-wire segment m2 28 1386 1996 1386 2297 -noendcap
-wire segment m2 38.0 1386 2283 1386 2283
-wire segment via1 26.0 1386 2283 1386 2283
-wire segment m1 38.0 1386 2283 1386 2283
-wire segment m1 28 1386 2269 1386 2482 -noendcap
+wire segment m2 28 1386 1996 1386 2482 -noendcap
+wire segment m2 38.0 1386 2468 1386 2468
+wire segment via1 26.0 1386 2468 1386 2468
+wire segment m1 38.0 1386 2468 1386 2468
 wire segment m1 30.0 1386 1094 1386 1094
 wire segment mcon 18.0 1386 1094 1386 1094
 wire segment m1 30.0 1386 1552 1386 1552
@@ -571,19 +585,20 @@ wire segment m1 30.0 2618 64 2618 64
 wire segment mcon 18.0 2618 64 2618 64
 wire segment m1 30.0 2618 64 2618 64
 wire segment mcon 18.0 2618 64 2618 64
-wire segment m4 30.0 1411 560 1592 560 -noendcap
-wire segment m4 48.0 1577 560 1577 560
-wire segment via3 32.0 1577 560 1577 560
-wire segment m3 48.0 1577 560 1577 560
-wire segment m3 30.0 1562 560 2633 560 -noendcap
-wire segment m3 30.0 2618 49 2618 575 -noendcap
-wire segment m3 44.0 2618 64 2618 64
-wire segment via2 28.0 2618 64 2618 64
-wire segment m2 44.0 2618 64 2618 64
+wire segment m4 30.0 1411 560 1594 560 -noendcap
+wire segment m4 48.0 1579 560 1579 560
+wire segment via3 32.0 1579 560 1579 560
+wire segment m3 48.0 1579 560 1579 560
+wire segment m3 30.0 1564 560 2420 560 -noendcap
+wire segment m3 44.0 2405 560 2405 560
+wire segment via2 28.0 2405 560 2405 560
+wire segment m2 44.0 2405 560 2405 560
+wire segment m2 28 2405 50 2405 574 -noendcap
+wire segment m2 28 2391 64 2632 64 -noendcap
 wire segment m2 38.0 2618 64 2618 64
 wire segment via1 26.0 2618 64 2618 64
 wire segment m1 38.0 2618 64 2618 64
-box 1411.0 545.0 1592.0 575.0
+box 1411.0 545.0 1594.0 575.0
 label Vop 1 10 0 0 0 center m4
 wire segment m1 30.0 850 1492 850 1492
 wire segment mcon 18.0 850 1492 850 1492
@@ -647,21 +662,10 @@ wire segment m1 30.0 1258 2124 1258 2124
 wire segment mcon 18.0 1258 2124 1258 2124
 wire segment m1 30.0 1258 2354 1258 2354
 wire segment mcon 18.0 1258 2354 1258 2354
-wire segment m1 14.0 850 1449 850 1499 -noendcap
-wire segment m1 14.0 843 1456 1265 1456 -noendcap
-wire segment m1 14.0 793 1456 857 1456 -noendcap
-wire segment m2 38.0 800 1456 800 1456
-wire segment via1 26.0 800 1456 800 1456
-wire segment m1 38.0 800 1456 800 1456
-wire segment m2 14.0 687 1456 807 1456 -noendcap
-wire segment m2 14.0 694 1365 694 1463 -noendcap
-wire segment m2 14.0 261 1372 701 1372 -noendcap
-wire segment m2 14.0 268 1267 268 1379 -noendcap
-wire segment m2 38.0 268 1274 268 1274
-wire segment via1 26.0 268 1274 268 1274
-wire segment m1 38.0 268 1274 268 1274
-wire segment m1 14.0 77 1274 275 1274 -noendcap
-wire segment m1 14.0 84 1267 84 1463 -noendcap
+wire segment m1 14.0 843 1492 1265 1492 -noendcap
+wire segment m1 14.0 1258 1485 1258 1517 -noendcap
+wire segment m1 14.0 77 1492 857 1492 -noendcap
+wire segment m1 14.0 84 1485 84 1517 -noendcap
 wire segment m1 30.0 2592 868 2592 868
 wire segment mcon 18.0 2592 868 2592 868
 wire segment m1 30.0 2592 868 2592 868
@@ -680,23 +684,30 @@ wire segment m1 30.0 2294 2134 2294 2134
 wire segment mcon 18.0 2294 2134 2294 2134
 wire segment m1 14.0 2603 2234 2693 2234 -noendcap
 wire segment m1 14.0 2686 2113 2686 2241 -noendcap
-wire segment m1 14.0 2547 2120 2693 2120 -noendcap
-wire segment m1 14.0 2554 2113 2554 2282 -noendcap
-wire segment m1 14.0 2245 2275 2561 2275 -noendcap
-wire segment m1 14.0 2252 2127 2252 2282 -noendcap
+wire segment m1 14.0 2591 2120 2693 2120 -noendcap
+wire segment m1 14.0 2598 2113 2598 2267 -noendcap
+wire segment m1 14.0 2245 2260 2605 2260 -noendcap
+wire segment m1 14.0 2252 2127 2252 2267 -noendcap
 wire segment m1 14.0 2245 2134 2301 2134 -noendcap
-wire segment m1 14.0 1251 2156 1445 2156 -noendcap
-wire segment m1 14.0 1438 2149 1438 2289 -noendcap
-wire segment m1 14.0 1431 2282 1527 2282 -noendcap
-wire segment m1 14.0 1520 2175 1520 2289 -noendcap
-wire segment m1 14.0 1513 2182 2259 2182 -noendcap
-wire segment m1 14.0 2252 2149 2252 2189 -noendcap
+wire segment m2 38.0 1258 2156 1258 2156
+wire segment via1 26.0 1258 2156 1258 2156
+wire segment m1 38.0 1258 2156 1258 2156
+wire segment m3 44.0 1258 2156 1258 2156
+wire segment via2 28.0 1258 2156 1258 2156
+wire segment m2 44.0 1258 2156 1258 2156
+wire segment m3 30.0 1243 2156 2267 2156 -noendcap
+wire segment m3 44.0 2252 2156 2252 2156
+wire segment via2 28.0 2252 2156 2252 2156
+wire segment m2 44.0 2252 2156 2252 2156
+wire segment m2 38.0 2252 2156 2252 2156
+wire segment via1 26.0 2252 2156 2252 2156
+wire segment m1 38.0 2252 2156 2252 2156
 wire segment m1 14.0 2598 2039 2598 2127 -noendcap
 wire segment m1 14.0 2591 2046 2613 2046 -noendcap
 wire segment m1 14.0 2606 861 2606 2053 -noendcap
 wire segment m1 14.0 2585 868 2613 868 -noendcap
-box 1251.0 2149.0 1445.0 2163.0
-label Vbias 1 10 0 0 0 center m1
+box 1243.0 2141.0 2267.0 2171.0
+label Vbias 1 10 0 0 0 center m3
 wire segment m1 30.0 964 1370 964 1370
 wire segment mcon 18.0 964 1370 964 1370
 wire segment m1 30.0 850 1316 850 1316
@@ -721,7 +732,14 @@ wire segment m1 30.0 304 2240 304 2240
 wire segment mcon 18.0 304 2240 304 2240
 wire segment m1 30.0 358 1782 358 1782
 wire segment mcon 18.0 358 1782 358 1782
-wire segment m1 28 304 1310 304 1796 -noendcap
+wire segment m1 28 304 1310 304 1381 -noendcap
+wire segment m2 38.0 304 1367 304 1367
+wire segment via1 26.0 304 1367 304 1367
+wire segment m1 38.0 304 1367 304 1367
+wire segment m2 28 304 1353 304 1796 -noendcap
+wire segment m2 38.0 304 1782 304 1782
+wire segment via1 26.0 304 1782 304 1782
+wire segment m1 38.0 304 1782 304 1782
 wire segment m1 28 304 1768 304 2254 -noendcap
 wire segment m1 30.0 304 1324 304 1324
 wire segment mcon 18.0 304 1324 304 1324
@@ -754,13 +772,16 @@ wire segment m1 28 1466 1782 1548 1782 -noendcap
 wire segment m2 38.0 984 1367 984 1367
 wire segment via1 26.0 984 1367 984 1367
 wire segment m1 38.0 984 1367 984 1367
-wire segment m2 28 970 1367 1357 1367 -noendcap
-wire segment m2 28 1343 1353 1343 1425 -noendcap
-wire segment m2 28 1329 1411 1494 1411 -noendcap
-wire segment m2 38.0 1480 1411 1480 1411
-wire segment via1 26.0 1480 1411 1480 1411
-wire segment m1 38.0 1480 1411 1480 1411
-wire segment m1 28 1480 1353 1480 1425 -noendcap
+wire segment m3 44.0 984 1367 984 1367
+wire segment via2 28.0 984 1367 984 1367
+wire segment m2 44.0 984 1367 984 1367
+wire segment m3 30.0 969 1367 1495 1367 -noendcap
+wire segment m3 44.0 1480 1367 1480 1367
+wire segment via2 28.0 1480 1367 1480 1367
+wire segment m2 44.0 1480 1367 1480 1367
+wire segment m2 38.0 1480 1367 1480 1367
+wire segment via1 26.0 1480 1367 1480 1367
+wire segment m1 38.0 1480 1367 1480 1367
 wire segment m1 28 290 1367 864 1367 -noendcap
 wire segment m1 30.0 2470 754 2470 754
 wire segment mcon 18.0 2470 754 2470 754
@@ -792,7 +813,14 @@ wire segment m1 30.0 2244 644 2244 644
 wire segment mcon 18.0 2244 644 2244 644
 wire segment m1 28 2700 466 2700 658 -noendcap
 wire segment m1 28 2230 644 2714 644 -noendcap
-wire segment m1 28 1774 644 2258 644 -noendcap
+wire segment m1 28 1971 644 2258 644 -noendcap
+wire segment m2 38.0 1985 644 1985 644
+wire segment via1 26.0 1985 644 1985 644
+wire segment m1 38.0 1985 644 1985 644
+wire segment m2 28 1774 644 1999 644 -noendcap
+wire segment m2 38.0 1788 644 1788 644
+wire segment via1 26.0 1788 644 1788 644
+wire segment m1 38.0 1788 644 1788 644
 wire segment m1 28 1788 466 1788 658 -noendcap
 wire segment m1 28 2327 734 2378 734 -noendcap
 wire segment m1 28 2341 630 2341 748 -noendcap
@@ -824,22 +852,12 @@ wire segment m1 28 2512 2106 2512 2232 -noendcap
 wire segment m1 28 2280 2218 2526 2218 -noendcap
 wire segment m1 28 2460 1706 2460 1982 -noendcap
 wire segment m1 28 2280 1720 2474 1720 -noendcap
-wire segment m1 28 1709 1720 2474 1720 -noendcap
-wire segment m1 28 1723 1357 1723 1734 -noendcap
-wire segment m2 38.0 1723 1371 1723 1371
-wire segment via1 26.0 1723 1371 1723 1371
-wire segment m1 38.0 1723 1371 1723 1371
-wire segment m2 28 1723 955 1723 1385 -noendcap
-wire segment m2 38.0 1723 969 1723 969
-wire segment via1 26.0 1723 969 1723 969
-wire segment m1 38.0 1723 969 1723 969
-wire segment m1 28 1723 635 1723 983 -noendcap
-wire segment m1 28 1709 649 2432 649 -noendcap
-wire segment m1 28 2418 635 2418 882 -noendcap
-wire segment m1 28 1520 1782 1841 1782 -noendcap
-wire segment m1 28 1827 1706 1827 1796 -noendcap
-wire segment m1 28 1813 1720 2308 1720 -noendcap
-box 1709.0 1706.0 2474.0 1734.0
+wire segment m1 28 2460 854 2460 1734 -noendcap
+wire segment m1 28 2404 868 2474 868 -noendcap
+wire segment m1 28 1520 1782 1845 1782 -noendcap
+wire segment m1 28 1831 1706 1831 1796 -noendcap
+wire segment m1 28 1817 1720 2308 1720 -noendcap
+box 2446.0 854.0 2474.0 1734.0
 label VGND 1 10 0 0 0 center m1
 wire segment m1 30.0 210 670 210 670
 wire segment mcon 18.0 210 670 210 670
@@ -861,9 +879,7 @@ wire segment mcon 18.0 210 928 210 928
 wire segment m2 38.0 210 1094 210 1094
 wire segment via1 26.0 210 1094 210 1094
 wire segment m1 38.0 210 1094 210 1094
-wire segment m2 28 2 1094 224 1094 -noendcap
-wire segment m2 28 16 1080 16 1566 -noendcap
-wire segment m2 28 2 1552 224 1552 -noendcap
+wire segment m2 28 210 1080 210 1566 -noendcap
 wire segment m2 38.0 210 1552 210 1552
 wire segment via1 26.0 210 1552 210 1552
 wire segment m1 38.0 210 1552 210 1552
@@ -878,35 +894,29 @@ wire segment mcon 18.0 210 2010 210 2010
 wire segment m1 30.0 210 2468 210 2468
 wire segment mcon 18.0 210 2468 210 2468
 wire segment m1 28 210 914 210 1108 -noendcap
-wire segment m1 28 2 670 224 670 -noendcap
-wire segment m2 38.0 16 670 16 670
-wire segment via1 26.0 16 670 16 670
-wire segment m1 38.0 16 670 16 670
-wire segment m3 44.0 16 670 16 670
-wire segment via2 28.0 16 670 16 670
-wire segment m2 44.0 16 670 16 670
-wire segment m4 48.0 16 670 16 670
-wire segment via3 32.0 16 670 16 670
-wire segment m3 50.0 16 670 16 670
-wire segment m4 30.0 16 11 16 685 -noendcap
+wire segment m2 38.0 210 670 210 670
+wire segment via1 26.0 210 670 210 670
+wire segment m1 38.0 210 670 210 670
+wire segment m2 28 210 12 210 684 -noendcap
+wire segment m2 28 2 26 224 26 -noendcap
+wire segment m2 44.0 16 7 16 40 -noendcap
+wire segment m3 44.0 16 21 16 21
+wire segment via2 28.0 16 21 16 21
+wire segment m2 44.0 16 21 16 21
+wire segment m4 48.0 16 21 16 21
+wire segment via3 32.0 16 21 16 21
+wire segment m3 50.0 16 21 16 21
+wire segment m4 48.0 16 6 16 41 -noendcap
 wire segment m4 30.0 1 26 91 26 -noendcap
 wire segment m1 30.0 1870 64 1870 64
 wire segment mcon 18.0 1870 64 1870 64
 wire segment m1 30.0 1870 64 1870 64
 wire segment mcon 18.0 1870 64 1870 64
-wire segment m4 30.0 1 26 91 26 -noendcap
-wire segment m4 30.0 16 11 16 766 -noendcap
-wire segment m4 48.0 16 751 16 751
-wire segment via3 32.0 16 751 16 751
-wire segment m3 48.0 16 751 16 751
-wire segment m3 44.0 16 751 16 751
-wire segment via2 28.0 16 751 16 751
-wire segment m2 44.0 16 751 16 751
-wire segment m2 28 16 50 16 765 -noendcap
-wire segment m2 28 2 64 580 64 -noendcap
-wire segment m2 38.0 566 64 566 64
-wire segment via1 26.0 566 64 566 64
-wire segment m1 38.0 566 64 566 64
-wire segment m1 28 552 64 1884 64 -noendcap
-box 1.0 11.0 91.0 41.0
-label Von 1 10 0 0 0 center m4
+wire segment m2 28 196 26 1884 26 -noendcap
+wire segment m2 28 1870 12 1870 143 -noendcap
+wire segment m2 38.0 1870 129 1870 129
+wire segment via1 26.0 1870 129 1870 129
+wire segment m1 38.0 1870 129 1870 129
+wire segment m1 28 1870 50 1870 143 -noendcap
+box 196.0 12.0 1884.0 40.0
+label Von 1 10 0 0 0 center m2
