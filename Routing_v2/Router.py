@@ -214,7 +214,7 @@ class Router:
                 
                 #obstacles are stored unexpanded -> 
                 # expand the wire by the minimum space 
-                offset = layer.width/2+layer.minSpace
+                offset = layer.width/2 #+layer.minSpace
                 
                 #calc the boundary of the wire
                 bound_3d = (min(neighbor.coordinate[0], node.coordinate[0])-offset,
@@ -233,7 +233,7 @@ class Router:
                     cost = neighbor.layer.resistivity * GridNode.get_distance_between(node, neighbor)/layer.width
                     
                     # add the wire width to the cost
-                    # -> wires which need less resources shall be preffered
+                    # -> wires which need less resources shall be preferred
                     cost += layer.width
                     
                     # check if the wire will form a bend
@@ -245,9 +245,9 @@ class Router:
                             cost *= 10
                     
                     if neighbor in self._trial_nodes:
-                            # if the node were allready used by a previous path-finding 
+                            # if the node were already used by a previous path-finding 
                             # increase the cost tremendously
-                            # -> avoid a node that is likely to result in no path beeing found
+                            # -> avoid a node that is likely to result in no path being found
                             cost *= 100
 
                     
@@ -304,10 +304,10 @@ class Router:
                 
                 #check if the via don't intersects with a obstacle
                 #setup the areas of the via for obstacle checking
-                offset_bottom = via_layer.width/2+via_layer.minEnclosure_bottom+via_layer.bottom_layer.minSpace
+                offset_bottom = via_layer.width/2+via_layer.minEnclosure_bottom #+via_layer.bottom_layer.minSpace
                 via_width_bottom = (via_layer.width+2*via_layer.minEnclosure_bottom)
                 
-                offset_top = via_layer.width/2+via_layer.minEnclosure_top+via_layer.top_layer.minSpace
+                offset_top = via_layer.width/2+via_layer.minEnclosure_top #+via_layer.top_layer.minSpace
                 via_width_top = (via_layer.width+2*via_layer.minEnclosure_top)
                 
                 bound_3d_bottom = (bottom_node.coordinate[0]-offset_bottom,
@@ -342,9 +342,9 @@ class Router:
                         cost += via_width_bottom + via_width_top
                         
                         if neighbor in self._trial_nodes:
-                            # if the node were allready used by a previous path-finding 
+                            # if the node were already used by a previous path-finding 
                             # increase the cost tremendously
-                            # -> avoid a node that is likely to result in no path beeing found
+                            # -> avoid a node that is likely to result in no path being found
                             cost *= 100
                         
                         

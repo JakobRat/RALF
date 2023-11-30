@@ -837,10 +837,10 @@ class PathObstacle(Obstacle):
         for primitive in self._path.primitives:
             #add the blocked area of each primitive to the areas
             if type(primitive)==Via:
-                areas.append(primitive.bottom_plate.bound3d())
-                areas.append(primitive.top_plate.bound3d())
+                areas.append(primitive.bottom_plate.blockage3d())
+                areas.append(primitive.top_plate.blockage3d())
             else:
-                areas.append(primitive.bound3d())
+                areas.append(primitive.blockage3d())
         return areas
 
     def get_area_enlarged(self, pdk: PDK) -> list[tuple[int, int, int, int]]:
@@ -894,9 +894,9 @@ class PinObstacle(Obstacle):
     
     def get_area_3d(self) -> list[tuple[int, int, int, int, int, int]]:
         if type(self._primitive)==Via:
-            return [self._primitive.bottom_plate.bound3d(), self._primitive.top_plate.bound3d()]
+            return [self._primitive.bottom_plate.blockage3d(), self._primitive.top_plate.blockage3d()]
         else:
-            return [self._primitive.bound3d()]
+            return [self._primitive.blockage3d()]
     
     def get_area_enlarged(self, pdk: PDK) -> list[tuple[int, int, int, int]]:
         areas = []
@@ -942,9 +942,9 @@ class DiePinObstacle(Obstacle):
     
     def get_area_3d(self) -> list[tuple[int, int, int, int, int, int]]:
         if type(self._primitive)==Via:
-            return [self._primitive.bottom_plate.bound3d(), self._primitive.top_plate.bound3d()]
+            return [self._primitive.bottom_plate.blockage3d(), self._primitive.top_plate.blockage3d()]
         else:
-            return [self._primitive.bound3d()]
+            return [self._primitive.blockage3d()]
         
     def get_area_enlarged(self, pdk: PDK) -> list[tuple[int, int, int, int]]:
         areas = []
