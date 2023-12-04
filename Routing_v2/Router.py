@@ -410,7 +410,10 @@ class Router:
             dmin = w1/2+e1+space+e2+w2/2
             
             #max space between two touching vias.
-            dmin_without_space = w1/2+e1+e2+w2/2
+            if via1_layer == via2_layer:
+                dmin_without_space = w1/2+w2/2
+            else:
+                dmin_without_space = w1/2+e1+e2+w2/2
             
             dx = abs(node1.coordinate[0]-node2.coordinate[0])
             dy = abs(node1.coordinate[1]-node2.coordinate[1])
