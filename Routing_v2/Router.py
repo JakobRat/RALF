@@ -37,6 +37,7 @@ from Routing_v2.Geometrics import Rectangle
 import networkx as nx
 
 DEBUG = True
+USE_ASTAR_MULTI = False
 import time
 
 class Router:
@@ -107,50 +108,72 @@ class Router:
                     heapq.heappush(distances, (dist, (node1, node2)))
             path = None
 
-            #try each node pair until a path were found, starting by the 
-            # nodes which are mimimum spaced
-            while path is None and len(distances)>0:
-                dist, next_nodes = heapq.heappop(distances)
-                if DEBUG:
-                    print(f"Finding path for nodes {next_nodes[0]}-{next_nodes[1]} for net {self._net}.")
+            if not USE_ASTAR_MULTI:
+                #try each node pair until a path were found, starting by the 
+                # nodes which are minimum spaced
+                while path is None and len(distances)>0:
+                    dist, next_nodes = heapq.heappop(distances)
+                    if DEBUG:
+                        print(f"Finding path for nodes {next_nodes[0]}-{next_nodes[1]} for net {self._net}.")
 
-                
-                
-                start = GridNode(*next_nodes[0])
-                goal = GridNode(*next_nodes[1])
-                
-                #calculate the area which were spanned by the nodes
-                area = (min(start.coordinate[0], goal.coordinate[0]),
-                        min(start.coordinate[1], goal.coordinate[1]),
-                        max(start.coordinate[0], goal.coordinate[0]),
-                        max(start.coordinate[1], goal.coordinate[1]))
-                
+                    
+                    start = GridNode(*next_nodes[0])
+                    goal = GridNode(*next_nodes[1])
+                    
+                    #calculate the area which were spanned by the nodes
+                    area = (min(start.coordinate[0], goal.coordinate[0]),
+                            min(start.coordinate[1], goal.coordinate[1]),
+                            max(start.coordinate[0], goal.coordinate[0]),
+                            max(start.coordinate[1], goal.coordinate[1]))
+                    
 
-                if self._route.get_route_planner() is None:
-                    # if the route has no global route
-                    # -> setup the grid, such that only obstacles in the 
-                    #    area spannend by the nodes are considered
-                    global_obstacles.setup_obstacle_grid_for_area(area, pdk=self._pdk, net=self._net)
-                else:
-                    # Route has a global routing
-                    # -> setup the grid, such that only the obstacles 
-                    #    in the GCells are considerd.
-                    global_obstacles.setup_obstacle_grid_for_route_planner(plan=self._route.get_route_planner(), pdk=self._pdk, net=self._net)
-                
-                #add grid-lines for the start and goal node
-                global_grid.setup_grid_for_path(next_nodes[0], next_nodes[1])
-                
-                if self._route_lines_V or self._route_lines_H:
-                    #if there are extra grid-lines, add them
-                    global_grid.add_grid_lines(self._route_lines_V, self._route_lines_H)
-                
-                #find a path using the astar algorithm
-                path = self.astar(start, goal)
+                    if self._route.get_route_planner() is None:
+                        # if the route has no global route
+                        # -> setup the grid, such that only obstacles in the 
+                        #    area spannend by the nodes are considered
+                        global_obstacles.setup_obstacle_grid_for_area(area, pdk=self._pdk, net=self._net)
+                    else:
+                        # Route has a global routing
+                        # -> setup the grid, such that only the obstacles 
+                        #    in the GCells are considered.
+                        global_obstacles.setup_obstacle_grid_for_route_planner(plan=self._route.get_route_planner(), pdk=self._pdk, net=self._net)
+                    
+                    #add grid-lines for the start and goal node
+                    global_grid.setup_grid_for_path(next_nodes[0], next_nodes[1])
+                    
+                    if self._route_lines_V or self._route_lines_H:
+                        #if there are extra grid-lines, add them
+                        global_grid.add_grid_lines(self._route_lines_V, self._route_lines_H)   
 
-                if path is None:
-                    print(f"No path found, trying next.")
+                    #find a path using the astar algorithm
+                    path = self.astar(start, goal)
+                    
+                    if path is None:
+                        print(f"No path found, trying next.")
 
-            
+            else:
+                
+                #setup the obstacles
+                global_obstacles.setup_obstacle_rtree_for_net(self._net)
+
+                #setup the grid
+                global_obstacles.setup_obstacle_grid_for_pdk(self._pdk)
+
+                lines_x = []
+                lines_y = []
+                for node in path1_nodes:
+                    lines_x.append(node.coordinate[0])
+                    lines_y.append(node.coordinate[1])
+
+                for node in path2_nodes:
+                    lines_x.append(node.coordinate[0])
+                    lines_y.append(node.coordinate[1])
+
+                global_grid.add_grid_lines(lines_x, lines_y)
+
+                #find a path
+                path = self.astar_multi(path1_nodes, path2_nodes)
+                
             if path:
                 # if a path were found -> break
                 break
@@ -521,7 +544,7 @@ class Router:
         pos2 = goal.coordinate
         layer1 = hash(node.layer)
         layer2 = hash(goal.layer)
-        return (abs(pos1[0]-pos2[0])+abs(pos1[1]-pos2[1])+abs(layer1-layer2)*10)
+        return (abs(pos1[0]-pos2[0])+abs(pos1[1]-pos2[1])+abs(layer1-layer2))
 
     def heuristic_multi(self, node : GridNode, goals : list[GridNode]):
         dists = [self.heuristic(node, goal) for goal in goals]
