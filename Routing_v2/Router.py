@@ -544,7 +544,9 @@ class Router:
         pos2 = goal.coordinate
         layer1 = hash(node.layer)
         layer2 = hash(goal.layer)
-        return (abs(pos1[0]-pos2[0])+abs(pos1[1]-pos2[1])+abs(layer1-layer2))
+        res = min(node.layer.resistivity, goal.layer.resistivity)
+        w = max(node.layer.width, goal.layer.width)
+        return (abs(pos1[0]-pos2[0])+abs(pos1[1]-pos2[1]))*res/w + (abs(layer1-layer2)*100)
 
     def heuristic_multi(self, node : GridNode, goals : list[GridNode]):
         dists = [self.heuristic(node, goal) for goal in goals]
