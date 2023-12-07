@@ -28,7 +28,7 @@ import pickle
 from Magic.utils import place_circuit
 
 
-CIRCUIT_NAME = "OpAmp"  #Name of the circuit
+CIRCUIT_NAME = "FlashADC"  #Name of the circuit
 
 #load the placed circuit 
 file = open(f"PlacementCircuits/{CIRCUIT_NAME}_placement.pkl", 'rb')
