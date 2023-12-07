@@ -189,7 +189,7 @@ class RString(PrimitiveDeviceComposition):
 
         Args:
             devices (list[ThreeTermResistor]): Resistors which form a RString, ordered according their connection.
-                                                E.g. If R1<->R2<->R3 form a RString they list must be [R1, R2, R3]!
+                                                E.g. If R1<->R2<->R3 form a RString the list must be [R1, R2, R3]!
 
             use_dummies (bool, optional): Define if the RString shall use dummies. Defaults to True.
 
