@@ -1,25 +1,27 @@
-*.subckt DiffAmp Vdd Vbias2 Von Vop Vp Vn Vbias1 Vss
+** sch_path: /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/DiffAmp.sch
+**.subckt DiffAmp Vdd Vss Vp Vn Vbn Vbp Vop Von
 *.iopin Vdd
 *.iopin Vss
 *.ipin Vp
 *.ipin Vn
-*.ipin Vbias1
-*.ipin Vbias2
+*.ipin Vbn
+*.ipin Vbp
 *.opin Vop
 *.opin Von
-XM1 Vop Vp Vmid Vss sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XM1 Vop Vp vmid Vss sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
-XM2 Von Vn Vmid Vss sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XM2 Von Vn vmid Vss sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
-XM3 Vop Vbias2 Vdd Vdd sky130_fd_pr__pfet_01v8 L=1 W=2 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XM3 Vop Vbp Vdd Vdd sky130_fd_pr__pfet_01v8 L=1 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
-XM4 Von Vbias2 Vdd Vdd sky130_fd_pr__pfet_01v8 L=1 W=2 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XM4 Von Vbp Vdd Vdd sky130_fd_pr__pfet_01v8 L=1 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
-XM5 Vmid Vbias1 Vss Vss sky130_fd_pr__nfet_01v8 L=2 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
+XM5 vmid Vbn Vss Vss sky130_fd_pr__nfet_01v8 L=2 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
 + sa=0 sb=0 sd=0 mult=1 m=1
-.ends
+**.ends
+.end

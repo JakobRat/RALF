@@ -1,0 +1,308 @@
+Title: ** sch_path: /home/jakob/documents/ralf/circuits/examples/invamp/invamp_tb.sch
+Date: Thu Dec  7 17:43:54  2023
+Plotname: Operating Point
+Flags: real
+No. Variables: 293
+No. Points: 1
+Variables:
+	0	v(vdd)	voltage
+	1	i(@b.x1.x1.x2.xr1.xsky130_fd_pr__res_xhigh_po_0p35.brbody[i])	current
+	2	i(@b.x1.x1.x2.xr1.xsky130_fd_pr__res_xhigh_po_0p35.brend[i])	current
+	3	i(@b.x1.x1.x2.xr2.xsky130_fd_pr__res_xhigh_po_0p35.brbody[i])	current
+	4	i(@b.x1.x1.x2.xr2.xsky130_fd_pr__res_xhigh_po_0p35.brend[i])	current
+	5	i(@b.x1.x1.x2.xr3.xsky130_fd_pr__res_xhigh_po_0p35.brbody[i])	current
+	6	i(@b.x1.x1.x2.xr3.xsky130_fd_pr__res_xhigh_po_0p35.brend[i])	current
+	7	i(@b.x1.x1.x2.xr4.xsky130_fd_pr__res_xhigh_po_0p35.brbody[i])	current
+	8	i(@b.x1.x1.x2.xr4.xsky130_fd_pr__res_xhigh_po_0p35.brend[i])	current
+	9	i(@b.x1.x1.x2.xr5.xsky130_fd_pr__res_xhigh_po_0p35.brbody[i])	current
+	10	i(@b.x1.x1.x2.xr5.xsky130_fd_pr__res_xhigh_po_0p35.brend[i])	current
+	11	i(@b.x1.x1.x2.xr6.xsky130_fd_pr__res_xhigh_po_0p35.brbody[i])	current
+	12	i(@b.x1.x1.x2.xr6.xsky130_fd_pr__res_xhigh_po_0p35.brend[i])	current
+	13	i(@b.x1.x1.x2.xr7.xsky130_fd_pr__res_xhigh_po_0p35.brbody[i])	current
+	14	i(@b.x1.x1.x2.xr7.xsky130_fd_pr__res_xhigh_po_0p35.brend[i])	current
+	15	i(@b.x1.x1.x2.xr8.xsky130_fd_pr__res_xhigh_po_0p35.brbody[i])	current
+	16	i(@b.x1.x1.x2.xr8.xsky130_fd_pr__res_xhigh_po_0p35.brend[i])	current
+	17	i(@b.x1.x1.x2.xr9.xsky130_fd_pr__res_xhigh_po_0p35.brbody[i])	current
+	18	i(@b.x1.x1.x2.xr9.xsky130_fd_pr__res_xhigh_po_0p35.brend[i])	current
+	19	i(@b.x1.x1.x2.xr10.xsky130_fd_pr__res_xhigh_po_0p35.brbody[i])	current
+	20	i(@b.x1.x1.x2.xr10.xsky130_fd_pr__res_xhigh_po_0p35.brend[i])	current
+	21	i(@b.x1.x1.x3.xr6.xsky130_fd_pr__res_xhigh_po_0p35.brbody[i])	current
+	22	i(@b.x1.x1.x3.xr6.xsky130_fd_pr__res_xhigh_po_0p35.brend[i])	current
+	23	i(@b.x1.xr1.xsky130_fd_pr__res_xhigh_po_0p35.brbody[i])	current
+	24	i(@b.x1.xr1.xsky130_fd_pr__res_xhigh_po_0p35.brend[i])	current
+	25	i(@b.x1.xr2.xsky130_fd_pr__res_xhigh_po_0p35.brbody[i])	current
+	26	i(@b.x1.xr2.xsky130_fd_pr__res_xhigh_po_0p35.brend[i])	current
+	27	i(@b.x1.xr3.xsky130_fd_pr__res_xhigh_po_0p35.brbody[i])	current
+	28	i(@b.x1.xr3.xsky130_fd_pr__res_xhigh_po_0p35.brend[i])	current
+	29	i(@b.x1.xr4.xsky130_fd_pr__res_xhigh_po_0p35.brbody[i])	current
+	30	i(@b.x1.xr4.xsky130_fd_pr__res_xhigh_po_0p35.brend[i])	current
+	31	i(@b.x1.xr5.xsky130_fd_pr__res_xhigh_po_0p35.brbody[i])	current
+	32	i(@b.x1.xr5.xsky130_fd_pr__res_xhigh_po_0p35.brend[i])	current
+	33	i(@b.x1.xr6.xsky130_fd_pr__res_xhigh_po_0p35.brbody[i])	current
+	34	i(@b.x1.xr6.xsky130_fd_pr__res_xhigh_po_0p35.brend[i])	current
+	35	i(@c.x1.x1.x1.xc1.c1[i])	current
+	36	i(@c.x1.x1.x1.xc2.c1[i])	current
+	37	i(@c.x1.x1.x2.xr1.xsky130_fd_pr__res_xhigh_po_0p35.c1[i])	current
+	38	i(@c.x1.x1.x2.xr1.xsky130_fd_pr__res_xhigh_po_0p35.c2[i])	current
+	39	i(@c.x1.x1.x2.xr2.xsky130_fd_pr__res_xhigh_po_0p35.c1[i])	current
+	40	i(@c.x1.x1.x2.xr2.xsky130_fd_pr__res_xhigh_po_0p35.c2[i])	current
+	41	i(@c.x1.x1.x2.xr3.xsky130_fd_pr__res_xhigh_po_0p35.c1[i])	current
+	42	i(@c.x1.x1.x2.xr3.xsky130_fd_pr__res_xhigh_po_0p35.c2[i])	current
+	43	i(@c.x1.x1.x2.xr4.xsky130_fd_pr__res_xhigh_po_0p35.c1[i])	current
+	44	i(@c.x1.x1.x2.xr4.xsky130_fd_pr__res_xhigh_po_0p35.c2[i])	current
+	45	i(@c.x1.x1.x2.xr5.xsky130_fd_pr__res_xhigh_po_0p35.c1[i])	current
+	46	i(@c.x1.x1.x2.xr5.xsky130_fd_pr__res_xhigh_po_0p35.c2[i])	current
+	47	i(@c.x1.x1.x2.xr6.xsky130_fd_pr__res_xhigh_po_0p35.c1[i])	current
+	48	i(@c.x1.x1.x2.xr6.xsky130_fd_pr__res_xhigh_po_0p35.c2[i])	current
+	49	i(@c.x1.x1.x2.xr7.xsky130_fd_pr__res_xhigh_po_0p35.c1[i])	current
+	50	i(@c.x1.x1.x2.xr7.xsky130_fd_pr__res_xhigh_po_0p35.c2[i])	current
+	51	i(@c.x1.x1.x2.xr8.xsky130_fd_pr__res_xhigh_po_0p35.c1[i])	current
+	52	i(@c.x1.x1.x2.xr8.xsky130_fd_pr__res_xhigh_po_0p35.c2[i])	current
+	53	i(@c.x1.x1.x2.xr9.xsky130_fd_pr__res_xhigh_po_0p35.c1[i])	current
+	54	i(@c.x1.x1.x2.xr9.xsky130_fd_pr__res_xhigh_po_0p35.c2[i])	current
+	55	i(@c.x1.x1.x2.xr10.xsky130_fd_pr__res_xhigh_po_0p35.c1[i])	current
+	56	i(@c.x1.x1.x2.xr10.xsky130_fd_pr__res_xhigh_po_0p35.c2[i])	current
+	57	i(@c.x1.x1.x3.xr6.xsky130_fd_pr__res_xhigh_po_0p35.c1[i])	current
+	58	i(@c.x1.x1.x3.xr6.xsky130_fd_pr__res_xhigh_po_0p35.c2[i])	current
+	59	i(@c.x1.xr1.xsky130_fd_pr__res_xhigh_po_0p35.c1[i])	current
+	60	i(@c.x1.xr1.xsky130_fd_pr__res_xhigh_po_0p35.c2[i])	current
+	61	i(@c.x1.xr2.xsky130_fd_pr__res_xhigh_po_0p35.c1[i])	current
+	62	i(@c.x1.xr2.xsky130_fd_pr__res_xhigh_po_0p35.c2[i])	current
+	63	i(@c.x1.xr3.xsky130_fd_pr__res_xhigh_po_0p35.c1[i])	current
+	64	i(@c.x1.xr3.xsky130_fd_pr__res_xhigh_po_0p35.c2[i])	current
+	65	i(@c.x1.xr4.xsky130_fd_pr__res_xhigh_po_0p35.c1[i])	current
+	66	i(@c.x1.xr4.xsky130_fd_pr__res_xhigh_po_0p35.c2[i])	current
+	67	i(@c.x1.xr5.xsky130_fd_pr__res_xhigh_po_0p35.c1[i])	current
+	68	i(@c.x1.xr5.xsky130_fd_pr__res_xhigh_po_0p35.c2[i])	current
+	69	i(@c.x1.xr6.xsky130_fd_pr__res_xhigh_po_0p35.c1[i])	current
+	70	i(@c.x1.xr6.xsky130_fd_pr__res_xhigh_po_0p35.c2[i])	current
+	71	i(@c1[i])	current
+	72	i(@c2[i])	current
+	73	i(@m.x1.x1.x1.x1.xm1.msky130_fd_pr__nfet_01v8[ib])	current dims=0
+	74	i(@m.x1.x1.x1.x1.xm1.msky130_fd_pr__nfet_01v8[id])	current
+	75	i(@m.x1.x1.x1.x1.xm1.msky130_fd_pr__nfet_01v8[ig])	current dims=0
+	76	i(@m.x1.x1.x1.x1.xm1.msky130_fd_pr__nfet_01v8[is])	current dims=0
+	77	i(@m.x1.x1.x1.x1.xm2.msky130_fd_pr__nfet_01v8[ib])	current dims=0
+	78	i(@m.x1.x1.x1.x1.xm2.msky130_fd_pr__nfet_01v8[id])	current
+	79	i(@m.x1.x1.x1.x1.xm2.msky130_fd_pr__nfet_01v8[ig])	current dims=0
+	80	i(@m.x1.x1.x1.x1.xm2.msky130_fd_pr__nfet_01v8[is])	current dims=0
+	81	i(@m.x1.x1.x1.x1.xm3.msky130_fd_pr__pfet_01v8[ib])	current dims=0
+	82	i(@m.x1.x1.x1.x1.xm3.msky130_fd_pr__pfet_01v8[id])	current
+	83	i(@m.x1.x1.x1.x1.xm3.msky130_fd_pr__pfet_01v8[ig])	current dims=0
+	84	i(@m.x1.x1.x1.x1.xm3.msky130_fd_pr__pfet_01v8[is])	current dims=0
+	85	i(@m.x1.x1.x1.x1.xm4.msky130_fd_pr__pfet_01v8[ib])	current dims=0
+	86	i(@m.x1.x1.x1.x1.xm4.msky130_fd_pr__pfet_01v8[id])	current
+	87	i(@m.x1.x1.x1.x1.xm4.msky130_fd_pr__pfet_01v8[ig])	current dims=0
+	88	i(@m.x1.x1.x1.x1.xm4.msky130_fd_pr__pfet_01v8[is])	current dims=0
+	89	i(@m.x1.x1.x1.x1.xm5.msky130_fd_pr__nfet_01v8[ib])	current dims=0
+	90	i(@m.x1.x1.x1.x1.xm5.msky130_fd_pr__nfet_01v8[id])	current
+	91	i(@m.x1.x1.x1.x1.xm5.msky130_fd_pr__nfet_01v8[ig])	current dims=0
+	92	i(@m.x1.x1.x1.x1.xm5.msky130_fd_pr__nfet_01v8[is])	current dims=0
+	93	i(@m.x1.x1.x1.x2.xm1.msky130_fd_pr__pfet_01v8[ib])	current dims=0
+	94	i(@m.x1.x1.x1.x2.xm1.msky130_fd_pr__pfet_01v8[id])	current
+	95	i(@m.x1.x1.x1.x2.xm1.msky130_fd_pr__pfet_01v8[ig])	current dims=0
+	96	i(@m.x1.x1.x1.x2.xm1.msky130_fd_pr__pfet_01v8[is])	current dims=0
+	97	i(@m.x1.x1.x1.x2.xm2.msky130_fd_pr__nfet_01v8[ib])	current dims=0
+	98	i(@m.x1.x1.x1.x2.xm2.msky130_fd_pr__nfet_01v8[id])	current
+	99	i(@m.x1.x1.x1.x2.xm2.msky130_fd_pr__nfet_01v8[ig])	current dims=0
+	100	i(@m.x1.x1.x1.x2.xm2.msky130_fd_pr__nfet_01v8[is])	current dims=0
+	101	i(@m.x1.x1.x1.x2.xm3.msky130_fd_pr__pfet_01v8[ib])	current dims=0
+	102	i(@m.x1.x1.x1.x2.xm3.msky130_fd_pr__pfet_01v8[id])	current
+	103	i(@m.x1.x1.x1.x2.xm3.msky130_fd_pr__pfet_01v8[ig])	current dims=0
+	104	i(@m.x1.x1.x1.x2.xm3.msky130_fd_pr__pfet_01v8[is])	current dims=0
+	105	i(@m.x1.x1.x1.x2.xm4.msky130_fd_pr__nfet_01v8[ib])	current dims=0
+	106	i(@m.x1.x1.x1.x2.xm4.msky130_fd_pr__nfet_01v8[id])	current
+	107	i(@m.x1.x1.x1.x2.xm4.msky130_fd_pr__nfet_01v8[ig])	current dims=0
+	108	i(@m.x1.x1.x1.x2.xm4.msky130_fd_pr__nfet_01v8[is])	current dims=0
+	109	i(@m.x1.x1.x1.x3.xm1.msky130_fd_pr__pfet_01v8[ib])	current dims=0
+	110	i(@m.x1.x1.x1.x3.xm1.msky130_fd_pr__pfet_01v8[id])	current
+	111	i(@m.x1.x1.x1.x3.xm1.msky130_fd_pr__pfet_01v8[ig])	current dims=0
+	112	i(@m.x1.x1.x1.x3.xm1.msky130_fd_pr__pfet_01v8[is])	current dims=0
+	113	i(@m.x1.x1.x1.x3.xm2.msky130_fd_pr__nfet_01v8[ib])	current dims=0
+	114	i(@m.x1.x1.x1.x3.xm2.msky130_fd_pr__nfet_01v8[id])	current
+	115	i(@m.x1.x1.x1.x3.xm2.msky130_fd_pr__nfet_01v8[ig])	current dims=0
+	116	i(@m.x1.x1.x1.x3.xm2.msky130_fd_pr__nfet_01v8[is])	current dims=0
+	117	i(@m.x1.x1.x1.x3.xm3.msky130_fd_pr__pfet_01v8[ib])	current dims=0
+	118	i(@m.x1.x1.x1.x3.xm3.msky130_fd_pr__pfet_01v8[id])	current
+	119	i(@m.x1.x1.x1.x3.xm3.msky130_fd_pr__pfet_01v8[ig])	current dims=0
+	120	i(@m.x1.x1.x1.x3.xm3.msky130_fd_pr__pfet_01v8[is])	current dims=0
+	121	i(@m.x1.x1.x1.x3.xm4.msky130_fd_pr__nfet_01v8[ib])	current dims=0
+	122	i(@m.x1.x1.x1.x3.xm4.msky130_fd_pr__nfet_01v8[id])	current
+	123	i(@m.x1.x1.x1.x3.xm4.msky130_fd_pr__nfet_01v8[ig])	current dims=0
+	124	i(@m.x1.x1.x1.x3.xm4.msky130_fd_pr__nfet_01v8[is])	current dims=0
+	125	i(@m.x1.x1.x2.x1.xm1.msky130_fd_pr__nfet_01v8[ib])	current dims=0
+	126	i(@m.x1.x1.x2.x1.xm1.msky130_fd_pr__nfet_01v8[id])	current
+	127	i(@m.x1.x1.x2.x1.xm1.msky130_fd_pr__nfet_01v8[ig])	current dims=0
+	128	i(@m.x1.x1.x2.x1.xm1.msky130_fd_pr__nfet_01v8[is])	current dims=0
+	129	i(@m.x1.x1.x2.x1.xm2.msky130_fd_pr__nfet_01v8[ib])	current dims=0
+	130	i(@m.x1.x1.x2.x1.xm2.msky130_fd_pr__nfet_01v8[id])	current
+	131	i(@m.x1.x1.x2.x1.xm2.msky130_fd_pr__nfet_01v8[ig])	current dims=0
+	132	i(@m.x1.x1.x2.x1.xm2.msky130_fd_pr__nfet_01v8[is])	current dims=0
+	133	i(@m.x1.x1.x2.x1.xm3.msky130_fd_pr__pfet_01v8[ib])	current dims=0
+	134	i(@m.x1.x1.x2.x1.xm3.msky130_fd_pr__pfet_01v8[id])	current
+	135	i(@m.x1.x1.x2.x1.xm3.msky130_fd_pr__pfet_01v8[ig])	current dims=0
+	136	i(@m.x1.x1.x2.x1.xm3.msky130_fd_pr__pfet_01v8[is])	current dims=0
+	137	i(@m.x1.x1.x2.x1.xm4.msky130_fd_pr__pfet_01v8[ib])	current dims=0
+	138	i(@m.x1.x1.x2.x1.xm4.msky130_fd_pr__pfet_01v8[id])	current
+	139	i(@m.x1.x1.x2.x1.xm4.msky130_fd_pr__pfet_01v8[ig])	current dims=0
+	140	i(@m.x1.x1.x2.x1.xm4.msky130_fd_pr__pfet_01v8[is])	current dims=0
+	141	i(@m.x1.x1.x2.x1.xm5.msky130_fd_pr__nfet_01v8[ib])	current dims=0
+	142	i(@m.x1.x1.x2.x1.xm5.msky130_fd_pr__nfet_01v8[id])	current
+	143	i(@m.x1.x1.x2.x1.xm5.msky130_fd_pr__nfet_01v8[ig])	current dims=0
+	144	i(@m.x1.x1.x2.x1.xm5.msky130_fd_pr__nfet_01v8[is])	current dims=0
+	145	i(@m.x1.x1.x3.xm1.msky130_fd_pr__pfet_01v8[ib])	current dims=0
+	146	i(@m.x1.x1.x3.xm1.msky130_fd_pr__pfet_01v8[id])	current
+	147	i(@m.x1.x1.x3.xm1.msky130_fd_pr__pfet_01v8[ig])	current dims=0
+	148	i(@m.x1.x1.x3.xm1.msky130_fd_pr__pfet_01v8[is])	current dims=0
+	149	i(@m.x1.x1.x3.xm2.msky130_fd_pr__pfet_01v8[ib])	current dims=0
+	150	i(@m.x1.x1.x3.xm2.msky130_fd_pr__pfet_01v8[id])	current
+	151	i(@m.x1.x1.x3.xm2.msky130_fd_pr__pfet_01v8[ig])	current dims=0
+	152	i(@m.x1.x1.x3.xm2.msky130_fd_pr__pfet_01v8[is])	current dims=0
+	153	i(@m.x1.x1.x3.xm3.msky130_fd_pr__nfet_01v8[ib])	current dims=0
+	154	i(@m.x1.x1.x3.xm3.msky130_fd_pr__nfet_01v8[id])	current
+	155	i(@m.x1.x1.x3.xm3.msky130_fd_pr__nfet_01v8[ig])	current dims=0
+	156	i(@m.x1.x1.x3.xm3.msky130_fd_pr__nfet_01v8[is])	current dims=0
+	157	i(@m.x1.x1.x3.xm4.msky130_fd_pr__nfet_01v8[ib])	current dims=0
+	158	i(@m.x1.x1.x3.xm4.msky130_fd_pr__nfet_01v8[id])	current
+	159	i(@m.x1.x1.x3.xm4.msky130_fd_pr__nfet_01v8[ig])	current dims=0
+	160	i(@m.x1.x1.x3.xm4.msky130_fd_pr__nfet_01v8[is])	current dims=0
+	161	i(@m.x1.x1.x3.xm6.msky130_fd_pr__nfet_01v8[ib])	current dims=0
+	162	i(@m.x1.x1.x3.xm6.msky130_fd_pr__nfet_01v8[id])	current
+	163	i(@m.x1.x1.x3.xm6.msky130_fd_pr__nfet_01v8[ig])	current dims=0
+	164	i(@m.x1.x1.x3.xm6.msky130_fd_pr__nfet_01v8[is])	current dims=0
+	165	i(@r.x1.x1.x1.xc1.rs1[i])	current
+	166	i(@r.x1.x1.x1.xc1.rs2[i])	current
+	167	i(@r.x1.x1.x1.xc2.rs1[i])	current
+	168	i(@r.x1.x1.x1.xc2.rs2[i])	current
+	169	i(e1)	current
+	170	i(e2)	current
+	171	v(m.x1.x1.x1.x1.xm1.msky130_fd_pr__nfet_01v8#body)	voltage
+	172	v(m.x1.x1.x1.x1.xm1.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	173	v(m.x1.x1.x1.x1.xm1.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	174	v(m.x1.x1.x1.x1.xm2.msky130_fd_pr__nfet_01v8#body)	voltage
+	175	v(m.x1.x1.x1.x1.xm2.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	176	v(m.x1.x1.x1.x1.xm2.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	177	v(m.x1.x1.x1.x1.xm3.msky130_fd_pr__pfet_01v8#body)	voltage
+	178	v(m.x1.x1.x1.x1.xm3.msky130_fd_pr__pfet_01v8#dbody)	voltage
+	179	v(m.x1.x1.x1.x1.xm3.msky130_fd_pr__pfet_01v8#sbody)	voltage
+	180	v(m.x1.x1.x1.x1.xm4.msky130_fd_pr__pfet_01v8#body)	voltage
+	181	v(m.x1.x1.x1.x1.xm4.msky130_fd_pr__pfet_01v8#dbody)	voltage
+	182	v(m.x1.x1.x1.x1.xm4.msky130_fd_pr__pfet_01v8#sbody)	voltage
+	183	v(m.x1.x1.x1.x1.xm5.msky130_fd_pr__nfet_01v8#body)	voltage
+	184	v(m.x1.x1.x1.x1.xm5.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	185	v(m.x1.x1.x1.x1.xm5.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	186	v(m.x1.x1.x1.x2.xm1.msky130_fd_pr__pfet_01v8#body)	voltage
+	187	v(m.x1.x1.x1.x2.xm1.msky130_fd_pr__pfet_01v8#dbody)	voltage
+	188	v(m.x1.x1.x1.x2.xm1.msky130_fd_pr__pfet_01v8#sbody)	voltage
+	189	v(m.x1.x1.x1.x2.xm2.msky130_fd_pr__nfet_01v8#body)	voltage
+	190	v(m.x1.x1.x1.x2.xm2.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	191	v(m.x1.x1.x1.x2.xm2.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	192	v(m.x1.x1.x1.x2.xm3.msky130_fd_pr__pfet_01v8#body)	voltage
+	193	v(m.x1.x1.x1.x2.xm3.msky130_fd_pr__pfet_01v8#dbody)	voltage
+	194	v(m.x1.x1.x1.x2.xm3.msky130_fd_pr__pfet_01v8#sbody)	voltage
+	195	v(m.x1.x1.x1.x2.xm4.msky130_fd_pr__nfet_01v8#body)	voltage
+	196	v(m.x1.x1.x1.x2.xm4.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	197	v(m.x1.x1.x1.x2.xm4.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	198	v(m.x1.x1.x1.x3.xm1.msky130_fd_pr__pfet_01v8#body)	voltage
+	199	v(m.x1.x1.x1.x3.xm1.msky130_fd_pr__pfet_01v8#dbody)	voltage
+	200	v(m.x1.x1.x1.x3.xm1.msky130_fd_pr__pfet_01v8#sbody)	voltage
+	201	v(m.x1.x1.x1.x3.xm2.msky130_fd_pr__nfet_01v8#body)	voltage
+	202	v(m.x1.x1.x1.x3.xm2.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	203	v(m.x1.x1.x1.x3.xm2.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	204	v(m.x1.x1.x1.x3.xm3.msky130_fd_pr__pfet_01v8#body)	voltage
+	205	v(m.x1.x1.x1.x3.xm3.msky130_fd_pr__pfet_01v8#dbody)	voltage
+	206	v(m.x1.x1.x1.x3.xm3.msky130_fd_pr__pfet_01v8#sbody)	voltage
+	207	v(m.x1.x1.x1.x3.xm4.msky130_fd_pr__nfet_01v8#body)	voltage
+	208	v(m.x1.x1.x1.x3.xm4.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	209	v(m.x1.x1.x1.x3.xm4.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	210	v(m.x1.x1.x2.x1.xm1.msky130_fd_pr__nfet_01v8#body)	voltage
+	211	v(m.x1.x1.x2.x1.xm1.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	212	v(m.x1.x1.x2.x1.xm1.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	213	v(m.x1.x1.x2.x1.xm2.msky130_fd_pr__nfet_01v8#body)	voltage
+	214	v(m.x1.x1.x2.x1.xm2.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	215	v(m.x1.x1.x2.x1.xm2.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	216	v(m.x1.x1.x2.x1.xm3.msky130_fd_pr__pfet_01v8#body)	voltage
+	217	v(m.x1.x1.x2.x1.xm3.msky130_fd_pr__pfet_01v8#dbody)	voltage
+	218	v(m.x1.x1.x2.x1.xm3.msky130_fd_pr__pfet_01v8#sbody)	voltage
+	219	v(m.x1.x1.x2.x1.xm4.msky130_fd_pr__pfet_01v8#body)	voltage
+	220	v(m.x1.x1.x2.x1.xm4.msky130_fd_pr__pfet_01v8#dbody)	voltage
+	221	v(m.x1.x1.x2.x1.xm4.msky130_fd_pr__pfet_01v8#sbody)	voltage
+	222	v(m.x1.x1.x2.x1.xm5.msky130_fd_pr__nfet_01v8#body)	voltage
+	223	v(m.x1.x1.x2.x1.xm5.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	224	v(m.x1.x1.x2.x1.xm5.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	225	v(m.x1.x1.x3.xm1.msky130_fd_pr__pfet_01v8#body)	voltage
+	226	v(m.x1.x1.x3.xm1.msky130_fd_pr__pfet_01v8#dbody)	voltage
+	227	v(m.x1.x1.x3.xm1.msky130_fd_pr__pfet_01v8#sbody)	voltage
+	228	v(m.x1.x1.x3.xm2.msky130_fd_pr__pfet_01v8#body)	voltage
+	229	v(m.x1.x1.x3.xm2.msky130_fd_pr__pfet_01v8#dbody)	voltage
+	230	v(m.x1.x1.x3.xm2.msky130_fd_pr__pfet_01v8#sbody)	voltage
+	231	v(m.x1.x1.x3.xm3.msky130_fd_pr__nfet_01v8#body)	voltage
+	232	v(m.x1.x1.x3.xm3.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	233	v(m.x1.x1.x3.xm3.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	234	v(m.x1.x1.x3.xm4.msky130_fd_pr__nfet_01v8#body)	voltage
+	235	v(m.x1.x1.x3.xm4.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	236	v(m.x1.x1.x3.xm4.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	237	v(m.x1.x1.x3.xm6.msky130_fd_pr__nfet_01v8#body)	voltage
+	238	v(m.x1.x1.x3.xm6.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	239	v(m.x1.x1.x3.xm6.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	240	i(v3)	current
+	241	v(vcmm)	voltage
+	242	i(vcmm)	current
+	243	v(vd)	voltage
+	244	i(vd)	current
+	245	v(vn)	voltage
+	246	v(voutn)	voltage
+	247	v(voutp)	voltage
+	248	v(vp)	voltage
+	249	v(x1.net1)	voltage
+	250	v(x1.net2)	voltage
+	251	v(x1.net3)	voltage
+	252	v(x1.net4)	voltage
+	253	v(x1.net5)	voltage
+	254	v(x1.x1.vbias)	voltage
+	255	v(x1.x1.vcmfb)	voltage
+	256	v(x1.x1.x1.von1)	voltage
+	257	v(x1.x1.x1.vop1)	voltage
+	258	v(x1.x1.x1.x1.vmid)	voltage
+	259	v(x1.x1.x1.xc1.a)	voltage
+	260	v(x1.x1.x1.xc1.b1)	voltage
+	261	v(x1.x1.x1.xc2.a)	voltage
+	262	v(x1.x1.x1.xc2.b1)	voltage
+	263	v(x1.x1.x2.net1)	voltage
+	264	v(x1.x1.x2.net2)	voltage
+	265	v(x1.x1.x2.net3)	voltage
+	266	v(x1.x1.x2.net4)	voltage
+	267	v(x1.x1.x2.net5)	voltage
+	268	v(x1.x1.x2.net6)	voltage
+	269	v(x1.x1.x2.net7)	voltage
+	270	v(x1.x1.x2.net8)	voltage
+	271	v(x1.x1.x2.vcmi)	voltage
+	272	v(x1.x1.x2.vdts)	voltage
+	273	v(x1.x1.x2.x1.vmid)	voltage
+	274	v(x1.x1.x2.xr1.xsky130_fd_pr__res_xhigh_po_0p35.ra)	voltage
+	275	v(x1.x1.x2.xr2.xsky130_fd_pr__res_xhigh_po_0p35.ra)	voltage
+	276	v(x1.x1.x2.xr3.xsky130_fd_pr__res_xhigh_po_0p35.ra)	voltage
+	277	v(x1.x1.x2.xr4.xsky130_fd_pr__res_xhigh_po_0p35.ra)	voltage
+	278	v(x1.x1.x2.xr5.xsky130_fd_pr__res_xhigh_po_0p35.ra)	voltage
+	279	v(x1.x1.x2.xr6.xsky130_fd_pr__res_xhigh_po_0p35.ra)	voltage
+	280	v(x1.x1.x2.xr7.xsky130_fd_pr__res_xhigh_po_0p35.ra)	voltage
+	281	v(x1.x1.x2.xr8.xsky130_fd_pr__res_xhigh_po_0p35.ra)	voltage
+	282	v(x1.x1.x2.xr9.xsky130_fd_pr__res_xhigh_po_0p35.ra)	voltage
+	283	v(x1.x1.x2.xr10.xsky130_fd_pr__res_xhigh_po_0p35.ra)	voltage
+	284	v(x1.x1.x3.net1)	voltage
+	285	v(x1.x1.x3.v1)	voltage
+	286	v(x1.x1.x3.xr6.xsky130_fd_pr__res_xhigh_po_0p35.ra)	voltage
+	287	v(x1.xr1.xsky130_fd_pr__res_xhigh_po_0p35.ra)	voltage
+	288	v(x1.xr2.xsky130_fd_pr__res_xhigh_po_0p35.ra)	voltage
+	289	v(x1.xr3.xsky130_fd_pr__res_xhigh_po_0p35.ra)	voltage
+	290	v(x1.xr4.xsky130_fd_pr__res_xhigh_po_0p35.ra)	voltage
+	291	v(x1.xr5.xsky130_fd_pr__res_xhigh_po_0p35.ra)	voltage
+	292	v(x1.xr6.xsky130_fd_pr__res_xhigh_po_0p35.ra)	voltage
+Binary:
+"­ÌÌÌÌü?¨¦H|Î™;¾:	2±á˜;¾#ë~;ƒ£&>Rä\¥&>f]iRÿ ¾T¦b±% ¾´;œ~Ë6¾Á#(«Þ6¾Â-ÇI‘¾å¦•¾ÙaLáÜ™;¾á8ð˜;¾TÚ8ƒ‘¾ß5š³Ï¾×
+!ÿÙ6¾°õ²+í6¾ŸÔG ¾ð©Ó¦B ¾,¯0Xf£&>®É© @¥&>
+÷áþv¾aþ¼áþv¾Ìxhèé¾¾äòâoçé¾¾¸Îc»Nó¾¾ŸÃÈMó¾¾çF]«9¿¾Á×1pª9¿¾±2^èçé¾>e håèé¾>YS‚Õ«9¿¾Emèª9¿¾É¥3Oó¾¾ßANó¾¾aò¼•ér†¾³•Á¾ér†¾‚Qá´v3¾ÙwÁ¾#þ¥gZ#>‚Qá´v3¾÷Dx]ä>#þ¥gZ#>r.ìïR0 ¾÷Dx]ä>”¶œÏqªá½r.ìïR0 ¾ºýÚ´v3¾G
+õû
+Á¾”¶œÏqªá½²íR0 ¾²íR0 ¾iä>iä>õÞ¯gZ#>õÞ¯gZ#>ºýÚ´v3¾ëºwþ_>         ´y˜"¸ë=&~âT‘¨ë½rˆ®öY°û½O‚§·¡—A¾O‚§·¡—A¾*Ó›H¾õ¶¦¨ë½ ´y˜"¸ë=zŸ2¶¡—A¾žâ*€H¾¼—ŸY°û½zŸ2¶¡—A¾YKý>f·¾„fXf·¾        <ûÃOhe>                        …ì:ÝOhe>                        ÆÜ»B ª8<                        ž•êC ª8<                        ~ý‘hgu>                        F‰ì€vˆ>                        XÓq4ï²>                        F‰ì€vˆ>                        XÓq4ï²>                        ·®À’vˆ>                        §t?4ï²>                        ·®À’vˆ>                        §t?4ï²>                        ú·)º)Np>                        ƒÀþÒ'S>                        ^‰åBq>                        dÍzŽ>DV>                        Ò®ÊÆhu>                        %`	Ájdw>                        YˆÂw>                        úá^×5w>                        -%Éc¬´=                        Ñæ›dÁOv>                õöðr†¾M`µ`ør†¾ê;!ñr†¾^W‰ør†¾¯¢)Æê¾¾Ü,x¦Æê¾¾hM$+¿a¾î6¹¶Êƒ¾°4—Ù>}o¾h	è¿a¾Ì]É«Êƒ¾-¢Ä>}o¾þÄÝÌÌü?Ýœ ®ÌÌü?•^ØÌÌü?ÅÝÌÌü? ®ÌÌü? •^ØÌÌü?h·M¢¯}‡>½)+°e<x>Oø–¶`èv>¢ým`ÏÌü?ªp¨ÎÌü?"ˆ/ÊÎÌü?¸ë/)I¾¾Hl3[M½¾¬¬¢Â‰³¾¢ým`ÏÌü?ªp¨ÎÌü?"ˆ/ÊÎÌü?¸ë/)I¾¾Hl3[M½¾¬¬¢Â‰³¾>úm`ÏÌü?Xo¨ÎÌü?p†/ÊÎÌü?0¢o,)I¾¾Ä—1TM½¾ÆNÁ‰³¾@úm`ÏÌü?Zo¨ÎÌü?p†/ÊÎÌü?À—o,)I¾¾ä}1TM½¾ÍÀNÁ‰³¾ÈîÐ£Kr¾¹DžºYl¾¤‰Ã1¬h¾`iá™©Öm¾ ¶¢rŒ]¾|ê6Æ–a¾¥lÕËÌÌü?ÊËÌÌü?x¼ÍÌÌü?%›OÐÌÌü?!MaÔÌÌü?)ÐÌÌü?¸²‹G¦ †>$ôŒLíou>á”ôúì9u>–ÊSÉÍÌü?™²ïkÍÌü?¸jqÍÌü?î]]®ÍÌü?dPRÍÌü?4Ì*`ÍÌü?\ Ò8âz„>h‡L¢ q>¬ LÙàTy>ð±|áù[…¾›%ÕO)s|¾œÆø²\|r¾`”Åt|‰>ÙÍkÏÑ€>¶ŒZ\dx>  yš£¾"­ÌÌÌÌì?²*)‡–åÎ¾                wÌÌÌÌì?Û‰±Òëê?”fÚÏëê?wÌÌÌÌì?Î³“Çü,ì?--ð*üŒë?â’†*üŒë?¾À—Éü,ì?Â¨/–ÅQì?ª]Ÿ¡á?ØŒïó˜ü?ùB»«;ì?ŒŠ9à«;ì?PoµçÛÓ?
+OeÈëê?Ô»Ìëê?°+ŽÅëê?‚˜ÆÉëê?"}jH¥ìê?È~3ìê?Ô!S„ìê?QB8bíê?÷$F¥ìê?ÈÒX|3ìê?:&þQ„ìê?"7°7bíê?B šríê?|KØH‡ì?|ÒÝñÓ?·]h¾—ëê?©rt¢ìê?eV›Ì5ìê?‹Z¸¨Šìê?×æècíê?\•»—ëê?LYècíê?MÖ˜§Šìê?FBêÊ5ìê?Æ(2¢ìê?W6‘5!°A?Ì­\ød%í?ä°¤Nte
+?,&mÛ5ì?*µµ‚Ý•ë?/þ7Y…ôê?xíØ&îÃì?«WƒV…ôê?V™n‚Ý•ë?

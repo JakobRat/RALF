@@ -1,0 +1,163 @@
+** sch_path: /home/jakob/Documents/RALF/Circuits/Examples/InvAmp/InvAmp.sch
+**.subckt InvAmp VPWR VGND Vcmref Vin Vip Vop Von
+*.iopin VPWR
+*.iopin VGND
+*.ipin Vcmref
+*.ipin Vin
+*.ipin Vip
+*.opin Vop
+*.opin Von
+x1 VPWR Vcmref Vop Von vp vn VGND OpAmp
+XR1 vp Vin VGND sky130_fd_pr__res_xhigh_po_0p35 L=1.75 mult=1 m=1
+XR2 v1 vp VGND sky130_fd_pr__res_xhigh_po_0p35 L=1.75 mult=1 m=1
+XR3 Von v1 VGND sky130_fd_pr__res_xhigh_po_0p35 L=1.75 mult=1 m=1
+XR4 Vip vn VGND sky130_fd_pr__res_xhigh_po_0p35 L=1.75 mult=1 m=1
+XR6 Vop v2 VGND sky130_fd_pr__res_xhigh_po_0p35 L=1.75 mult=1 m=1
+XR5 v2 vn VGND sky130_fd_pr__res_xhigh_po_0p35 L=1.75 mult=1 m=1
+**.ends
+
+* expanding   symbol:  /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/OpAmp.sym # of pins=7
+** sym_path: /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/OpAmp.sym
+** sch_path: /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/OpAmp.sch
+.subckt OpAmp VPWR Vcmref Vop Von Vp Vn VGND
+*.opin Von
+*.opin Vop
+*.ipin Vcmref
+*.ipin Vp
+*.ipin Vn
+*.iopin VPWR
+*.iopin VGND
+x2 VPWR Vcmref Von vcmfb Vop vbias VGND CMMFeedback
+x3 VPWR vbias VGND GmBias
+x1 VPWR Von vcmfb Vp Vn vbias vbias Vop VGND MillerOpAmp
+.ends
+
+
+* expanding   symbol:  /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/CMMFeedback.sym # of
+*+ pins=7
+** sym_path: /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/CMMFeedback.sym
+** sch_path: /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/CMMFeedback.sch
+.subckt CMMFeedback Vdd Vcmref Vp Vout Vn Vbdan Vss
+*.ipin Vbdan
+*.opin Vout
+*.ipin Vp
+*.ipin Vcmref
+*.ipin Vn
+*.iopin Vss
+*.iopin Vdd
+XR1 Vp net1 Vss sky130_fd_pr__res_xhigh_po_0p35 L=3.5 mult=1 m=1
+XR2 net1 net2 Vss sky130_fd_pr__res_xhigh_po_0p35 L=3.5 mult=1 m=1
+XR3 net2 net3 Vss sky130_fd_pr__res_xhigh_po_0p35 L=3.5 mult=1 m=1
+XR4 net3 net4 Vss sky130_fd_pr__res_xhigh_po_0p35 L=3.5 mult=1 m=1
+XR5 net4 vcmi Vss sky130_fd_pr__res_xhigh_po_0p35 L=3.5 mult=1 m=1
+XR6 Vn net5 Vss sky130_fd_pr__res_xhigh_po_0p35 L=3.5 mult=1 m=1
+XR10 net5 net6 Vss sky130_fd_pr__res_xhigh_po_0p35 L=3.5 mult=1 m=1
+XR9 net6 net7 Vss sky130_fd_pr__res_xhigh_po_0p35 L=3.5 mult=1 m=1
+XR8 net7 net8 Vss sky130_fd_pr__res_xhigh_po_0p35 L=3.5 mult=1 m=1
+XR7 net8 vcmi Vss sky130_fd_pr__res_xhigh_po_0p35 L=3.5 mult=1 m=1
+x1 Vdd vdts Vout vdts Vcmref vcmi Vbdan Vss DiffAmp
+.ends
+
+
+* expanding   symbol:  /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/GmBias.sym # of pins=3
+** sym_path: /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/GmBias.sym
+** sch_path: /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/GmBias.sch
+.subckt GmBias Vdd Vbias Vss
+*.opin Vbias
+*.iopin Vss
+*.iopin Vdd
+XM6 Vbias Vbias Vss Vss sky130_fd_pr__nfet_01v8 L=2 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 v1 v1 Vdd Vdd sky130_fd_pr__pfet_01v8 L=1 W=4 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM1 Vbias v1 Vdd Vdd sky130_fd_pr__pfet_01v8 L=1 W=4 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM3 v1 Vbias net1 Vss sky130_fd_pr__nfet_01v8 L=2 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XR6 Vss net1 Vss sky130_fd_pr__res_xhigh_po_0p35 L=1 mult=1 m=1
+XM4 v1 v1 Vbias Vss sky130_fd_pr__nfet_01v8 L=2 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+
+* expanding   symbol:  /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/MillerOpAmp.sym # of
+*+ pins=9
+** sym_path: /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/MillerOpAmp.sym
+** sch_path: /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/MillerOpAmp.sch
+.subckt MillerOpAmp VPWR Von Vbdap Vp Vn Vbdan Vbcsn Vop VGND
+*.opin Von
+*.opin Vop
+*.ipin Vbcsn
+*.ipin Vp
+*.ipin Vn
+*.ipin Vbdan
+*.iopin VPWR
+*.iopin VGND
+*.ipin Vbdap
+XC1 von1 Von sky130_fd_pr__cap_mim_m3_1 W=4 L=4 MF=1 m=1
+XC2 vop1 Vop sky130_fd_pr__cap_mim_m3_1 W=4 L=4 MF=1 m=1
+x1 VPWR Vbdap von1 vop1 Vp Vn Vbdan VGND DiffAmp
+x2 VPWR von1 Von Vbcsn VGND CSAmp
+x3 VPWR vop1 Vop Vbcsn VGND CSAmp
+.ends
+
+
+* expanding   symbol:  /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/DiffAmp.sym # of pins=8
+** sym_path: /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/DiffAmp.sym
+** sch_path: /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/DiffAmp.sch
+.subckt DiffAmp Vdd Vbp Von Vop Vp Vn Vbn Vss
+*.iopin Vdd
+*.iopin Vss
+*.ipin Vp
+*.ipin Vn
+*.ipin Vbn
+*.ipin Vbp
+*.opin Vop
+*.opin Von
+XM1 Vop Vp vmid Vss sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 Von Vn vmid Vss sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM3 Vop Vbp Vdd Vdd sky130_fd_pr__pfet_01v8 L=1 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM4 Von Vbp Vdd Vdd sky130_fd_pr__pfet_01v8 L=1 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM5 vmid Vbn Vss Vss sky130_fd_pr__nfet_01v8 L=2 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+
+* expanding   symbol:  /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/CSAmp.sym # of pins=5
+** sym_path: /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/CSAmp.sym
+** sch_path: /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/CSAmp.sch
+.subckt CSAmp Vdd Vi Vo Vbn Vss
+*.ipin Vbn
+*.ipin Vi
+*.iopin Vdd
+*.iopin Vss
+*.opin Vo
+XM1 Vo Vi Vdd Vdd sky130_fd_pr__pfet_01v8 L=1 W=8 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 Vo Vbn Vss Vss sky130_fd_pr__nfet_01v8 L=2 W=10 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM3 Vo Vi Vdd Vdd sky130_fd_pr__pfet_01v8 L=1 W=8 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM4 Vo Vbn Vss Vss sky130_fd_pr__nfet_01v8 L=2 W=10 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+.end
