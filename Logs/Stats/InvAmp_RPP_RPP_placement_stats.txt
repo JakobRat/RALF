@@ -1,0 +1,12 @@
++----------------+-------------+
+|      Name      |    Value    |
++----------------+-------------+
+|    Circuit     |  InvAmp_RPP |
+| Time taken [s] |     919     |
+|   Placements   |    50000    |
+|   Total HPWL   |   21526.75  |
+|   Congestion   |  742831.13  |
+|  Total width   |    3156.5   |
+|  Total height  |    3599.5   |
+|      Area      | 11361821.75 |
++----------------+-------------+

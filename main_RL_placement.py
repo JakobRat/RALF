@@ -36,9 +36,9 @@ from logging.handlers import RotatingFileHandler
 USE_LOGGER = False                  #If True, debug information will be logged under "Logs/{CIRCUIT_NAME}_placement.log".
 INSTANTIATE_CELLS_IN_MAGIC = True   #If True, the devices cell-view will be instantiated in Magic
 N_ITERATIONS = 2500                    #Number of RL-training iterations
-CIRCUIT_FILE = "Circuits/Examples/CCLatch.spice"    #Input spice-netlist
-CIRCUIT_NAME = "CCLatch_RLP"            #Name of the circuit
-NET_RULES_FILE = "NetRules/net_rules_CCLatch.json"               #Net-rules definition file
+CIRCUIT_FILE = "Circuits/Examples/InvAmp.spice"    #Input spice-netlist
+CIRCUIT_NAME = "InvAmp_RLP"            #Name of the circuit
+NET_RULES_FILE = "NetRules/net_rules_InvAmp.json"               #Net-rules definition file
 DEF_FILE = None                     #Def file of the circuit
 SHOW_STATS = True                   #Show statistics of the placement
 
