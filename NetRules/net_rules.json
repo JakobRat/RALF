@@ -1,13 +1,13 @@
 [    
     ["MinNetWireWidth",
     {
-        "net" : "Vmid",
+        "net" : "vmid",
         "min_width" : 20
     }
     ],
     ["Ports",
     {
-        "nets" : ["Vss", "Vdd", "Vp", "Vn", "Vbias1", "Vbias2", "Vop","Von"]
+        "nets" : ["Vss", "Vdd", "Vp", "Vn", "Vbp", "Vbn", "Vop","Von"]
     }
     ],
     ["PowerNets",
