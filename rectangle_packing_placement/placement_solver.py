@@ -36,6 +36,7 @@ import random
 import sys
 import signal
 import math
+import pandas
 
 class PlacementSolver(Solver):
     def __init__(self) -> None:
@@ -92,7 +93,10 @@ class PlacementSolver(Solver):
 
         signal.signal(signal.SIGINT, exit_handler)
         rpp.copy_strategy = "slice"  # We use "slice" since the state is a list
-        rpp.set_schedule(rpp.auto(minutes=simanneal_minutes, steps=simanneal_steps))
+        schedule = rpp.auto(minutes=simanneal_minutes, steps=simanneal_steps)
+        schedule['steps'] = simanneal_steps #override the number of performed steps as the given
+        schedule['updates'] = simanneal_steps #update the logging after each step
+        rpp.set_schedule(schedule)
         final_state, _ = rpp.anneal()
 
         # Convert simanneal's final_state to a Solution object
@@ -100,12 +104,45 @@ class PlacementSolver(Solver):
         seqpair = PlacementSequencePair(pair=(gp, gn))
         floorplan = seqpair.decode(problem=problem, rotations=rotations)
 
+        data = pandas.DataFrame(rpp.logger)
+        data.to_csv(f"Logs/{problem.circuit.name}_simanneal_log.csv")
+
         return PlacementSolution(sequence_pair=seqpair, floorplan=floorplan, problem=problem)
 
 
 class PlacementRectanglePackingProblemAnnealerHard(RectanglePackingProblemAnnealerHard):
     def __init__(self, state: List[int], problem: PlacementProblem, width_limit: float | None = None, height_limit: float | None = None, show_progress: bool = False) -> None:
         super().__init__(state, problem, width_limit, height_limit, show_progress)
+        self.logger = {
+            'step' : [],
+            'T' : [],
+            'E' : [],
+            'acceptance' : [],
+            'improvement' : [],
+        }
+
+    def logging(self, step, T, E, acceptance, improvement):
+        """Add the actual data to the logger.
+
+        Args:
+            step (int): Current step
+            T (float): Current temperature
+            E (float): Current energy
+            acceptance (float): Acceptance rate
+            improvement (float): Improvement rate
+        """
+        self.logger['step'].append(step)
+        self.logger['T'].append(T)
+        self.logger['E'].append(E)
+        self.logger['acceptance'].append(acceptance)
+        self.logger['improvement'].append(improvement)
+
+    def update(self, step: int, T: int, E: float, acceptance: float, improvement: float) -> None:
+        """Add the logging to the update method.
+        """
+        super().update(step, T, E, acceptance, improvement)
+        self.logging(step, T, E, acceptance, improvement)    
+
 
     def energy(self) -> float:
         """
@@ -129,6 +166,35 @@ class PlacementRectanglePackingProblemAnnealerHard(RectanglePackingProblemAnneal
 class PlacementRectanglePackingProblemAnnealerSoft(RectanglePackingProblemAnnealerSoft):
     def __init__(self, state: List[int], problem: PlacementProblem, width_limit: float | None = None, height_limit: float | None = None, show_progress: bool = False) -> None:
         super().__init__(state, problem, width_limit, height_limit, show_progress)
+        self.logger = {
+            'step' : [],
+            'T' : [],
+            'E' : [],
+            'acceptance' : [],
+            'improvement' : [],
+        }
+
+    def logging(self, step, T, E, acceptance, improvement):
+        """Add the actual data to the logger.
+
+        Args:
+            step (int): Current step
+            T (float): Current temperature
+            E (float): Current energy
+            acceptance (float): Acceptance rate
+            improvement (float): Improvement rate
+        """
+        self.logger['step'].append(step)
+        self.logger['T'].append(T)
+        self.logger['E'].append(E)
+        self.logger['acceptance'].append(acceptance)
+        self.logger['improvement'].append(improvement)
+
+    def update(self, step: int, T: int, E: float, acceptance: float, improvement: float) -> None:
+        """Add the logging to the update method.
+        """
+        super().update(step, T, E, acceptance, improvement)
+        self.logging(step, T, E, acceptance, improvement)
 
     def energy(self) -> float:
         """

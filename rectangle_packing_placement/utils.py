@@ -37,8 +37,10 @@ from Magic.MacroCell import MacroCell
 from SchematicCapture.Devices import SubDevice
 
 from rectangle_packing_solver.cell_sliding import cell_slide3
+from prettytable import PrettyTable
+import time
 
-def do_placement(circuit : Circuit, width_limit = None, height_limit = None, simanneal_minutes = 0.1, simanneal_steps = 200, fig_path = None) -> Circuit:
+def do_placement(circuit : Circuit, width_limit = None, height_limit = None, simanneal_minutes = 0.1, simanneal_steps = 200, fig_path = None, show_stats = True) -> Circuit:
     """Perfom a placement of circuit <circuit> by using a sequence-pair representation of the placement and performing
     optimization per simulated annealing.
 
@@ -53,6 +55,9 @@ def do_placement(circuit : Circuit, width_limit = None, height_limit = None, sim
     Returns:
         Circuit: Circuit with placed cells.
     """
+    #measure the taken time
+    start = time.time()
+
     #setup a placement problem
     problem = PlacementProblem(circuit=circuit)
     #find a solution for the problem
@@ -68,9 +73,42 @@ def do_placement(circuit : Circuit, width_limit = None, height_limit = None, sim
     cell_list = [device.cell for device in solution.problem.circuit.devices.values()]
     cell_slide3(cells=cell_list)
     
+    if show_stats:
+        name = solution.problem.circuit.name
+        HPWL = solution.floorplan.HPWL()
+        congestion = solution.floorplan.rudy_congestion()
+        taken_time = int(time.time() - start)
+        n_placements = simanneal_steps
+        
+        bounding_box = [float('inf'),float('inf'),-float('inf'),-float('inf')]
+        for cell in cell_list:
+            bound = cell.get_bounding_box()
+            bounding_box[0] = min(bounding_box[0], bound[0])
+            bounding_box[1] = min(bounding_box[1], bound[1])
+            bounding_box[2] = max(bounding_box[2], bound[2])
+            bounding_box[3] = max(bounding_box[3], bound[3])
+
+        height = bounding_box[3]-bounding_box[1]
+        width = bounding_box[2]-bounding_box[0]
+
+        area = round(height*width,2)
+
+        table = PrettyTable(['Name', 'Value'])
+        table.add_row(['Circuit', name])
+        table.add_row(['Time taken [s]', taken_time])
+        table.add_row(['Placements', n_placements])
+        table.add_row(['Total HPWL', round(HPWL,2)])
+        table.add_row(['Congestion', round(congestion,2)])
+        table.add_row(['Total width', width])
+        table.add_row(['Total height', height])
+        table.add_row(['Area', area])
+        
+        print(table)
+        
+
     return solution.problem.circuit
 
-def do_bottom_up_placement(die : MagicDie, simanneal_minutes = 0.1, simanneal_steps = 200, fig_path = None) -> Circuit:
+def do_bottom_up_placement(die : MagicDie, simanneal_minutes = 0.1, simanneal_steps = 200, fig_path = None, show_stats=True) -> Circuit:
     """ Perform a placement in a bottom-up fashion on the circuit defined in <die>.
 
     Args:
@@ -113,7 +151,7 @@ def do_bottom_up_placement(die : MagicDie, simanneal_minutes = 0.1, simanneal_st
             #place the circuit
             if len(c.devices)>1:
                 best_circuit = do_placement(c, height_limit=max_height, width_limit=max_width, 
-                                            simanneal_minutes=simanneal_minutes, simanneal_steps=simanneal_steps, fig_path=fig_path)
+                                            simanneal_minutes=simanneal_minutes, simanneal_steps=simanneal_steps, fig_path=fig_path, show_stats=show_stats)
                 circ_dict[c.name] = get_cell_locations(best_circuit)
             else:
                 #if there is only one device, do no placing
