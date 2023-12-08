@@ -40,7 +40,7 @@ from rectangle_packing_solver.cell_sliding import cell_slide3
 from prettytable import PrettyTable
 import time
 
-def do_placement(circuit : Circuit, width_limit = None, height_limit = None, simanneal_minutes = 0.1, simanneal_steps = 200, fig_path = None, show_stats = True) -> Circuit:
+def do_placement(circuit : Circuit, width_limit = None, height_limit = None, simanneal_minutes = 0.1, simanneal_steps = 200, n_placements = 100, fig_path = None, show_stats = True) -> Circuit:
     """Perfom a placement of circuit <circuit> by using a sequence-pair representation of the placement and performing
     optimization per simulated annealing.
 
@@ -50,6 +50,7 @@ def do_placement(circuit : Circuit, width_limit = None, height_limit = None, sim
         height_limit (_type_, optional): Maximum height of the placement. Defaults to None.
         simanneal_minutes (float, optional): Set the maximum duration of the annealing. Defaults to 0.1.
         simanneal_steps (int, optional): Set the maximum steps which will be performed by the annealing. Defaults to 200.
+        n_placements (int, optional): Set the number of total placements. Defaults to 100.
         fig_path (_type_, optional): Path to store a figure of the placement. Defaults to None.
 
     Returns:
@@ -63,7 +64,7 @@ def do_placement(circuit : Circuit, width_limit = None, height_limit = None, sim
     #find a solution for the problem
     print(f"Finding placement for circuit {circuit.name}.")
     solution = PlacementSolver().solve(problem=problem, height_limit=height_limit, width_limit=width_limit, 
-                              simanneal_minutes=simanneal_minutes, simanneal_steps=simanneal_steps, show_progress=True)
+                              simanneal_minutes=simanneal_minutes, simanneal_steps=simanneal_steps, n_placements=n_placements, show_progress=True)
 
     if fig_path:
         #save a figure of the placement
@@ -78,8 +79,7 @@ def do_placement(circuit : Circuit, width_limit = None, height_limit = None, sim
         HPWL = solution.floorplan.HPWL()
         congestion = solution.floorplan.rudy_congestion()
         taken_time = int(time.time() - start)
-        n_placements = simanneal_steps
-        
+                
         bounding_box = [float('inf'),float('inf'),-float('inf'),-float('inf')]
         for cell in cell_list:
             bound = cell.get_bounding_box()
@@ -106,20 +106,21 @@ def do_placement(circuit : Circuit, width_limit = None, height_limit = None, sim
         print(table)
 
         try:
-            print(table, file=open(f'Logs/Stats/{name}_RPS_placement_stats.txt','w'))
+            print(table, file=open(f'Logs/Stats/{name}_RPP_placement_stats.txt','w'))
         except:
-            print(table, file=open(f'Logs/Stats/{name}_RPS_placement_stats.txt','a'))
+            print(table, file=open(f'Logs/Stats/{name}_RPP_placement_stats.txt','a'))
         
 
     return solution.problem.circuit
 
-def do_bottom_up_placement(die : MagicDie, simanneal_minutes = 0.1, simanneal_steps = 200, fig_path = None, show_stats=True) -> Circuit:
+def do_bottom_up_placement(die : MagicDie, simanneal_minutes = 0.1, simanneal_steps = 200, n_placements = 100, fig_path = None, show_stats=True) -> Circuit:
     """ Perform a placement in a bottom-up fashion on the circuit defined in <die>.
 
     Args:
         die (MagicDie): Die for which a placement shall be found.
         simanneal_minutes (float, optional): Set the maximum duration of the annealing. Defaults to 0.1.
         simanneal_steps (int, optional): Set the maximum steps which will be performed by the annealing. Defaults to 200.
+        n_placements (int, optional): Set the number of total placements. Defaults to 100.
         fig_path (_type_, optional): Path to store a figure of the placement. Defaults to None.
     """
     #get the circuit
@@ -156,7 +157,8 @@ def do_bottom_up_placement(die : MagicDie, simanneal_minutes = 0.1, simanneal_st
             #place the circuit
             if len(c.devices)>1:
                 best_circuit = do_placement(c, height_limit=max_height, width_limit=max_width, 
-                                            simanneal_minutes=simanneal_minutes, simanneal_steps=simanneal_steps, fig_path=fig_path, show_stats=show_stats)
+                                            simanneal_minutes=simanneal_minutes, simanneal_steps=simanneal_steps, 
+                                            n_placements=n_placements, fig_path=fig_path, show_stats=show_stats)
                 circ_dict[c.name] = get_cell_locations(best_circuit)
             else:
                 #if there is only one device, do no placing

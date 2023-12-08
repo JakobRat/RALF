@@ -6,7 +6,7 @@
 # - Updated SequencePair to PlacementSequencePair
 # - Introduced PlacementRectanglePackingProblemAnnealerSoft for the placement task
 # - Introduced PlacementRectanglePackingProblemAnnealerHard for the placement task
-#
+# - Introduced n_placements to control the number of done placements
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -42,12 +42,93 @@ class PlacementSolver(Solver):
     def __init__(self) -> None:
         super().__init__()
 
+    def solve(
+        self,
+        problem: Problem,
+        width_limit: Optional[float] = None,
+        height_limit: Optional[float] = None,
+        simanneal_minutes: float = 0.1,
+        simanneal_steps: int = 100,
+        n_placements: int = 100,
+        show_progress: bool = False,
+        seed: Optional[int] = None,
+    ) -> PlacementSolution:
+        if seed:
+            random.seed(seed)
+
+        if not isinstance(problem, Problem):
+            raise TypeError("Invalid argument: 'problem' must be an instance of Problem.")
+
+        # If width/height limits are not given...
+        if (width_limit is None) and (height_limit is None):
+            return self._solve_with_strategy(
+                problem,
+                width_limit,
+                height_limit,
+                None,
+                simanneal_minutes,
+                simanneal_steps,
+                n_placements,
+                show_progress,
+                strategy="hard",
+            )
+
+        # If width/height limits are given...
+        if width_limit is None:
+            width_limit = sys.float_info.max
+        if height_limit is None:
+            height_limit = sys.float_info.max
+        max_width = max([min(r["width"], r["height"]) if r["rotatable"] else r["width"] for r in problem.rectangles])
+        max_height = max([min(r["width"], r["height"]) if r["rotatable"] else r["height"] for r in problem.rectangles])
+        if width_limit < max_width:
+            raise ValueError(
+                f"'width_limit' must be greater than or equal to {max_width} "
+                + "(= the largest width of the given problem)."
+            )
+        if height_limit < max_height:
+            raise ValueError(
+                f"'height_limit' must be greater than or equal to {max_height} "
+                + "(= the largest height of the given problem)."
+            )
+
+        # If constraints of width and/or hight are given,
+        # we can use two kinds of annealer in a hybrid way.
+        # - 1) Hard constraints strategy:
+        #      Find a solution so that the width/height limits must be met. Sometimes no solutions will be found.
+        # - 2) Soft constraints strategy:
+        #      Find a solution with smallest area as possible, the width/height limits may not be met.
+        if (width_limit < sys.float_info.max) and (height_limit < sys.float_info.max):
+            return self._solve_with_strategy(
+                problem,
+                width_limit,
+                height_limit,
+                None,
+                simanneal_minutes,
+                simanneal_steps,
+                n_placements,
+                show_progress,
+                strategy="soft",
+            )
+        else:
+            return self._solve_with_strategy(
+                problem,
+                width_limit,
+                height_limit,
+                None,
+                simanneal_minutes,
+                simanneal_steps,
+                n_placements,
+                show_progress,
+                strategy="hard",
+            )
+
     def _solve_with_strategy(self, problem: PlacementProblem, 
                              width_limit: float | None = None, 
                              height_limit: float | None = None, 
                              initial_state: List[int] | None = None, 
                              simanneal_minutes: float = 0.1, 
-                             simanneal_steps: int = 100, 
+                             simanneal_steps: int = 100,
+                             n_placements: int = 100, 
                              show_progress: bool = False, 
                              strategy: str = None) -> PlacementSolution:
         
@@ -94,8 +175,11 @@ class PlacementSolver(Solver):
         signal.signal(signal.SIGINT, exit_handler)
         rpp.copy_strategy = "slice"  # We use "slice" since the state is a list
         schedule = rpp.auto(minutes=simanneal_minutes, steps=simanneal_steps)
-        schedule['steps'] = simanneal_steps #override the number of performed steps as the given
-        schedule['updates'] = simanneal_steps #update the logging after each step
+
+        #if the number of placements were specified
+        if not (n_placements is None):
+            schedule['steps'] = n_placements #override the number of performed steps as the given
+            schedule['updates'] = n_placements #update the logging after each step
         rpp.set_schedule(schedule)
         final_state, _ = rpp.anneal()
 

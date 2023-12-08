@@ -35,8 +35,8 @@ from Routing_v2.utils import route
 import time
 import matplotlib.pyplot as plt
 
-CIRCUIT_NAME = "FlashADC"            #Name of the circuit
-PLAN_WIRES = True                   #If True, before detail-routing, wire-planning (global-routing) will be performed
+CIRCUIT_NAME = "CCLatch_RPP"            #Name of the circuit
+PLAN_WIRES = False                   #If True, before detail-routing, wire-planning (global-routing) will be performed
 N_PLANNING_ITERATIONS = 20          #Number of wire-planning iterations
 GCELL_LENGTH = 150                  #Length of a wire-planning cell (in units of lambda)
 LAYERS = ['m1','m2','m3','m4']                #Layers which will be used for wire-planning

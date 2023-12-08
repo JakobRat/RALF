@@ -1,0 +1,12 @@
++----------------+-------------+
+|      Name      |    Value    |
++----------------+-------------+
+|    Circuit     | DiffAmp_RPP |
+| Time taken [s] |     1666    |
+|   Placements   |    250000   |
+|   Total HPWL   |    2148.0   |
+|   Congestion   |   10212.37  |
+|  Total width   |    737.0    |
+|  Total height  |    692.5    |
+|      Area      |   510372.5  |
++----------------+-------------+
