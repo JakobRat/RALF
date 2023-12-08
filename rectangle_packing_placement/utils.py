@@ -104,6 +104,11 @@ def do_placement(circuit : Circuit, width_limit = None, height_limit = None, sim
         table.add_row(['Area', area])
         
         print(table)
+
+        try:
+            print(table, file=open(f'Logs/Stats/{name}_RPS_placement_stats.txt','w'))
+        except:
+            print(table, file=open(f'Logs/Stats/{name}_RPS_placement_stats.txt','a'))
         
 
     return solution.problem.circuit

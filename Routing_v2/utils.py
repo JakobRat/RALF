@@ -157,7 +157,12 @@ def route(circuit : Circuit, routing_name : str, plan_wires : bool = True, plann
         table.add_row(['Total', total_length, total_vias])
 
         print(table)
-    
+
+        try:
+            print(table, file=open(f'Logs/Stats/{circuit.name}_routing_stats.txt','w'))
+        except:
+            print(table, file=open(f'Logs/Stats/{circuit.name}_routing_stats.txt','a'))
+
     if ax:
         for route in route_order:
             route.plot(ax)
