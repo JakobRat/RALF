@@ -1,13 +1,13 @@
 ** sch_path: /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/OpAmp.sch
-**.subckt OpAmp Von Vop Vcmref Vp Vn VPWR VGND
+**.subckt OpAmp Von Vop Vocm Vp Vn VPWR VGND
 *.opin Von
 *.opin Vop
-*.ipin Vcmref
+*.ipin Vocm
 *.ipin Vp
 *.ipin Vn
 *.iopin VPWR
 *.iopin VGND
-x2 VPWR Vcmref Von vcmfb Vop vbias VGND CMMFeedback
+x2 VPWR Vocm Von vcmfb Vop vbias VGND CMMFeedback
 x3 VPWR vbias VGND GmBias
 x1 VPWR Von vcmfb Vp Vn vbias vbias Vop VGND MillerOpAmp
 **.ends

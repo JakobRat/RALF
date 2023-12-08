@@ -1,13 +1,13 @@
 ** sch_path: /home/jakob/Documents/RALF/Circuits/Examples/InvAmp/InvAmp.sch
-**.subckt InvAmp VPWR VGND Vcmref Vin Vip Vop Von
+**.subckt InvAmp VPWR VGND Vocm Vin Vip Vop Von
 *.iopin VPWR
 *.iopin VGND
-*.ipin Vcmref
+*.ipin Vocm
 *.ipin Vin
 *.ipin Vip
 *.opin Vop
 *.opin Von
-x1 VPWR Vcmref Vop Von vp vn VGND OpAmp
+x1 VPWR Vocm Vop Von vp vn VGND OpAmp
 XR1 vp Vin VGND sky130_fd_pr__res_xhigh_po_0p35 L=1.75 mult=1 m=1
 XR2 v1 vp VGND sky130_fd_pr__res_xhigh_po_0p35 L=1.75 mult=1 m=1
 XR3 Von v1 VGND sky130_fd_pr__res_xhigh_po_0p35 L=1.75 mult=1 m=1
@@ -19,15 +19,15 @@ XR5 v2 vn VGND sky130_fd_pr__res_xhigh_po_0p35 L=1.75 mult=1 m=1
 * expanding   symbol:  /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/OpAmp.sym # of pins=7
 ** sym_path: /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/OpAmp.sym
 ** sch_path: /home/jakob/Documents/RALF/Circuits/Examples/OpAmp/OpAmp.sch
-.subckt OpAmp VPWR Vcmref Vop Von Vp Vn VGND
+.subckt OpAmp VPWR Vocm Vop Von Vp Vn VGND
 *.opin Von
 *.opin Vop
-*.ipin Vcmref
+*.ipin Vocm
 *.ipin Vp
 *.ipin Vn
 *.iopin VPWR
 *.iopin VGND
-x2 VPWR Vcmref Von vcmfb Vop vbias VGND CMMFeedback
+x2 VPWR Vocm Von vcmfb Vop vbias VGND CMMFeedback
 x3 VPWR vbias VGND GmBias
 x1 VPWR Von vcmfb Vp Vn vbias vbias Vop VGND MillerOpAmp
 .ends

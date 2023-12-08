@@ -146,6 +146,6 @@ C {devices/ipin.sym} 800 -350 0 1 {name=p4 lab=inn}
 C {devices/ipin.sym} 440 -150 0 0 {name=p5 lab=clk}
 C {devices/opin.sym} 500 -460 0 0 {name=p7 lab=outn}
 C {devices/opin.sym} 620 -460 0 1 {name=p8 lab=out}
-C {devices/lab_wire.sym} 560 -240 0 0 {name=p9 sig_type=std_logic lab=Vmid}
+C {devices/lab_wire.sym} 560 -240 0 0 {name=p9 sig_type=std_logic lab=vmid}
 C {devices/lab_wire.sym} 560 -350 0 0 {name=p10 sig_type=std_logic lab=Vss}
 C {devices/title.sym} 160 0 0 0 {name=l1 author="Jakob Ratschenberger"}

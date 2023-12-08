@@ -39,11 +39,12 @@ import pickle
 USE_LOGGER = False                  #If True, debug information will be logged under "Logs/{CIRCUIT_NAME}_placement.log".
 INSTANTIATE_CELLS_IN_MAGIC = True   #If True, the devices cell-view will be instantiated in Magic
 SIM_ANNEAL_MIN = 0.1                  #Maximum spend time for simulated annealing (per placement)
-CIRCUIT_FILE = "Circuits/Examples/FlashADC/FlashADC.spice"    #Input spice-netlist
-CIRCUIT_NAME = "FlashADC"            #Name of the circuit
+SIM_ANNEAL_PLACEMENTS = 100                  #Number of placements done by the simulated annealing (per placement)
+CIRCUIT_FILE = "Circuits/Examples/DiffAmp.spice"    #Input spice-netlist
+CIRCUIT_NAME = "DiffAmp"            #Name of the circuit
 NET_RULES_FILE = None#"NetRules/net_rules.json"               #Net-rules definition file
 DEF_FILE = None                     #Def file of the circuit
-
+SHOW_STATS = True                   #Show statistics of the placement
 
 def main():
 
@@ -72,7 +73,7 @@ def main():
 
     #do the placement per simulated annealing
     #and store images of the placement under "Images"
-    do_bottom_up_placement(die, fig_path="Images", simanneal_minutes=SIM_ANNEAL_MIN)
+    do_bottom_up_placement(die, fig_path="Images", simanneal_minutes=SIM_ANNEAL_MIN, simanneal_steps=SIM_ANNEAL_PLACEMENTS, show_stats=SHOW_STATS)
 
     #save the placed circuit
     file = open(f"PlacementCircuits/{CIRCUIT_NAME}_placement.pkl", 'wb')

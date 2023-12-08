@@ -93,7 +93,7 @@ C {devices/lab_wire.sym} 990 -190 0 1 {name=p2 sig_type=std_logic lab=vcmfb}
 C {devices/opin.sym} 530 -210 3 0 {name=p3 lab=Von}
 C {devices/opin.sym} 570 -210 3 0 {name=p4 lab=Vop}
 C {devices/lab_wire.sym} 1040 -110 0 0 {name=p5 sig_type=std_logic lab=vbias}
-C {devices/ipin.sym} 70 -270 0 0 {name=p6 lab=Vcmref}
+C {devices/ipin.sym} 70 -270 0 0 {name=p6 lab=Vocm}
 C {devices/ipin.sym} 70 -190 0 0 {name=p7 lab=Vp}
 C {devices/ipin.sym} 70 -170 0 0 {name=p8 lab=Vn}
 C {devices/iopin.sym} 70 -310 0 1 {name=p9 lab=VPWR}

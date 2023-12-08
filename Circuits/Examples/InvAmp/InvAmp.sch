@@ -120,7 +120,7 @@ spiceprefix=X
 mult=1}
 C {devices/iopin.sym} 280 -580 0 1 {name=p1 lab=VPWR}
 C {devices/iopin.sym} 280 -60 0 1 {name=p2 lab=VGND}
-C {devices/ipin.sym} 280 -520 0 0 {name=p3 lab=Vcmref}
+C {devices/ipin.sym} 280 -520 0 0 {name=p3 lab=Vocm}
 C {devices/ipin.sym} 280 -360 0 0 {name=p4 lab=Vin}
 C {devices/ipin.sym} 280 -260 0 0 {name=p5 lab=Vip}
 C {devices/opin.sym} 900 -320 0 0 {name=p6 lab=Vop}

@@ -10,17 +10,17 @@ import networkx as nx
 import tikzplotlib
 
 #global variables to control the placement 
-CIRCUIT_FILE = "Circuits/Examples/InvAmp.spice"    #Input spice-netlist
-CIRCUIT_NAME = "InvAmp"            #Name of the circuit
+CIRCUIT_FILE = "Circuits/Examples/CCLatch.spice"    #Input spice-netlist
+CIRCUIT_NAME = "CCLatch"            #Name of the circuit
 NET_RULES_FILE = None#"NetRules/net_rules.json"               #Net-rules definition file
 
 
 #setup the circuit
 C = setup_circuit(CIRCUIT_FILE, CIRCUIT_NAME, [], net_rules_file=NET_RULES_FILE)
 
-#topology = get_top_down_topology(C)
+topology = get_top_down_topology(C)
 
-topology = [(1, C)]
+#topology = [(1, C)]
 circuit_graphs = [(c, c.get_bipartite_graph()) for t,c in topology]
 
 #include primitive compositions into the circuit
