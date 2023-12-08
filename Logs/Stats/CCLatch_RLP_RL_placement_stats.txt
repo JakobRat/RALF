@@ -1,0 +1,16 @@
++----------------------+-------------+
+|         Name         |    Value    |
++----------------------+-------------+
+|       Circuit        | CCLatch_RLP |
+|    Time taken [s]    |     8184    |
+|      Placements      |    250000   |
+| Placements per batch |     100     |
+|      Env. size       |  1495x1495  |
+|  Solution placement  |    88961    |
+|      Total HPWL      |    2591.0   |
+|      Congestion      |   21185.64  |
+|        Reward        |   -2736.55  |
+|     Total width      |    721.0    |
+|     Total height     |    1039.0   |
+|         Area         |   749119.0  |
++----------------------+-------------+

@@ -31,7 +31,8 @@ csv_files = list(path.glob('*.csv'))
 dataframes = {}
 
 for file in csv_files:
-    dataframes[file.name[:-len("_training_log.csv")]] = pd.read_csv(file, index_col=0)
+    if file.name.endswith("_training_log.csv"):
+        dataframes[file.name[:-len("_training_log.csv")]] = pd.read_csv(file, index_col=0)
 
 
 for (k,v) in dataframes.items():

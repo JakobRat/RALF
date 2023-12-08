@@ -1,0 +1,16 @@
++----------------------+-------------+
+|         Name         |    Value    |
++----------------------+-------------+
+|       Circuit        | DiffAmp_RLP |
+|    Time taken [s]    |     8851    |
+|      Placements      |    250000   |
+| Placements per batch |     100     |
+|      Env. size       |  1558x1558  |
+|  Solution placement  |    54058    |
+|      Total HPWL      |    1964.0   |
+|      Congestion      |   4122.89   |
+|        Reward        |   -2028.21  |
+|     Total width      |    737.0    |
+|     Total height     |    854.0    |
+|         Area         |   629398.0  |
++----------------------+-------------+

@@ -35,7 +35,7 @@ from Routing_v2.utils import route
 import time
 import matplotlib.pyplot as plt
 
-CIRCUIT_NAME = "CCLatch_RPP"            #Name of the circuit
+CIRCUIT_NAME = "CCLatch_RLP"            #Name of the circuit
 PLAN_WIRES = False                   #If True, before detail-routing, wire-planning (global-routing) will be performed
 N_PLANNING_ITERATIONS = 20          #Number of wire-planning iterations
 GCELL_LENGTH = 150                  #Length of a wire-planning cell (in units of lambda)
