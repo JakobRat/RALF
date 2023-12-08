@@ -30,11 +30,14 @@ from PPO.utils import train
 from Environment.Environment import Placement
 from SchematicCapture.utils import get_bottom_up_topology
 from SchematicCapture.Devices import SubDevice, Device
+from Environment.RUDY import RUDY
 
 import logging
 logger = logging.getLogger(__name__)
+from prettytable import PrettyTable
+import time
 
-def do_placement(circ : Circuit, name :str, n_iterations : int, placements_per_iteration = 100, use_weights = False):
+def do_placement(circ : Circuit, name :str, n_iterations : int, placements_per_iteration = 100, use_weights = False, show_stats = True):
     """Performs the placement of circuit <circ>.
 
     Args:
@@ -46,6 +49,8 @@ def do_placement(circ : Circuit, name :str, n_iterations : int, placements_per_i
     Returns:
         Circuit: Circuit of best placement.
     """
+    #measure the taken time
+    start = time.time()
 
     #setup the environment
     logger.info(f"Doing placement {name} of circuit {circ.name} for maximum {n_iterations} iterations.")
@@ -66,7 +71,7 @@ def do_placement(circ : Circuit, name :str, n_iterations : int, placements_per_i
     #setup a environment
     env = Placement(circ, name, (side_length, side_length), exclude_nets=[])
 
-    logger.info(f"Setted up placement environment with size {env.size}.")
+    logger.info(f"Set up placement environment with size {env.size}.")
     logger.debug(f"Environment: type {type(env)}, id {id(env)}")
 
     placements_per_batch = placements_per_iteration
@@ -103,9 +108,53 @@ def do_placement(circ : Circuit, name :str, n_iterations : int, placements_per_i
 
     print(f"Placement of {name} done with reward {best_rew}, found at placement #{best_placement_number}.")
 
+    if show_stats:
+        time_taken = int(time.time()-start)
+        HPWL = 0
+        rudy_congestion = RUDY(env._pdk)
+        for net in best_placement.nets.values():
+            HPWL += net.HPWL()
+            rudy_congestion.add_net(net)
+        
+        congestion = rudy_congestion.congestion()
+
+        bounding_box = [float('inf'),float('inf'),-float('inf'),-float('inf')]
+        for device in best_placement.devices.values():
+            bound = device.cell.get_bounding_box()
+            bounding_box[0] = min(bounding_box[0], bound[0])
+            bounding_box[1] = min(bounding_box[1], bound[1])
+            bounding_box[2] = max(bounding_box[2], bound[2])
+            bounding_box[3] = max(bounding_box[3], bound[3])
+
+        height = bounding_box[3]-bounding_box[1]
+        width = bounding_box[2]-bounding_box[0]
+
+        area = round(height*width,2)
+
+        table = PrettyTable(['Name', 'Value'])
+        table.add_row(['Circuit', name])
+        table.add_row(['Time taken [s]', time_taken])
+        table.add_row(['Placements', total_placements])
+        table.add_row(['Placements per batch', placements_per_batch])
+        table.add_row(['Env. size', f"{side_length}x{side_length}"])
+        table.add_row(['Solution placement', best_placement_number])
+        table.add_row(['Total HPWL', round(HPWL,2)])
+        table.add_row(['Congestion', round(congestion,2)])
+        table.add_row(['Reward', round(best_rew,2)])
+        table.add_row(['Total width', width])
+        table.add_row(['Total height', height])
+        table.add_row(['Area', area])
+        
+        print(table)
+
+        try:
+            print(table, file=open(f'Logs/Stats/{name}_RL_placement_stats.txt','w'))
+        except:
+            print(table, file=open(f'Logs/Stats/{name}_RL_placement_stats.txt','a'))
+
     return best_placement
 
-def do_bottom_up_placement(circ : Circuit, n_iterations : int, use_weights = False):
+def do_bottom_up_placement(circ : Circuit, n_iterations : int, use_weights = False, show_stats=True):
     """Perform a placement in a bottom-up fashion on circuit <circ>.
 
     Args:
@@ -130,7 +179,7 @@ def do_bottom_up_placement(circ : Circuit, n_iterations : int, use_weights = Fal
         else:
             #place circuit
             if len(c.devices)>1:
-                best_circuit = do_placement(c, c.name, n_iterations=n_iterations, use_weights=use_weights)
+                best_circuit = do_placement(c, c.name, n_iterations=n_iterations, use_weights=use_weights, show_stats=show_stats)
                 circ_dict[c.name] = copy.deepcopy(best_circuit)
                 logger.debug(f"Best-circuit: type {type(best_circuit)}, id {id(best_circuit)}")
             else:
