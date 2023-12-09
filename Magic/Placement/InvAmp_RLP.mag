@@ -1,0 +1,120 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1702113397
+<< checkpaint >>
+rect 3724 8552 8140 8763
+rect 2289 8358 8140 8552
+rect 2289 8150 9524 8358
+rect 1592 7043 9524 8150
+rect 1592 4838 11975 7043
+rect 2250 4521 11975 4838
+rect 1327 3457 11975 4521
+rect 1327 2439 11495 3457
+rect -1656 2374 11495 2439
+rect -2208 2208 11495 2374
+rect -2374 1911 11495 2208
+rect -2374 1178 10429 1911
+rect -2374 -357 9383 1178
+rect -2374 -2208 2374 -357
+rect 4095 -543 9383 -357
+rect 4095 -738 8199 -543
+rect -2208 -2374 2208 -2208
+rect -1656 -2439 1656 -2374
+use XC1_x1_x1  XC1_x1_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067091
+transform 0 1 8729 -1 0 3024
+box -586 -440 586 440
+use XC2_x1_x1  XC2_x1_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067091
+transform 0 1 6205 -1 0 3466
+box -586 -440 586 440
+use XDL_XM1_XM2_x3_x1  XDL_XM1_XM2_x3_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067090
+transform 0 -1 4247 1 0 5673
+box -425 -737 425 737
+use XDL_XM3_XM4_x1_x1_x1  XDL_XM3_XM4_x1_x1_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067092
+transform 0 1 7861 -1 0 3906
+box -296 -737 296 737
+use XDL_XM3_XM4_x1_x2_x1  XDL_XM3_XM4_x1_x2_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067091
+transform 1 0 7968 0 1 6361
+box -296 -737 296 737
+use XDP_XM1_XM2_x1_x1_x1  XDP_XM1_XM2_x1_x1_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067092
+transform 1 0 7731 0 1 4481
+box -425 -279 425 279
+use XDP_XM1_XM2_x1_x2_x1  XDP_XM1_XM2_x1_x2_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067091
+transform 0 -1 7393 1 0 6231
+box -425 -279 425 279
+use XM1_x2_x1_x1  XM1_x2_x1_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067093
+transform -1 0 7827 0 -1 1701
+box -296 -984 296 984
+use XM1_x3_x1_x1  XM1_x3_x1_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067093
+transform -1 0 5059 0 -1 2082
+box -296 -984 296 984
+use XM2_x2_x1_x1  XM2_x2_x1_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067093
+transform -1 0 6543 0 -1 1701
+box -396 -1179 396 1179
+use XM2_x3_x1_x1  XM2_x3_x1_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067093
+transform -1 0 3775 0 -1 2082
+box -396 -1179 396 1179
+use XM3_x2_x1_x1  XM3_x2_x1_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067093
+transform -1 0 7235 0 -1 1701
+box -296 -984 296 984
+use XM3_x3_x1  XM3_x3_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067090
+transform 0 -1 4247 1 0 6494
+box -396 -279 396 279
+use XM3_x3_x1_x1  XM3_x3_x1_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067093
+transform -1 0 4467 0 -1 2082
+box -296 -984 296 984
+use XM4_x2_x1_x1  XM4_x2_x1_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067093
+transform -1 0 5751 0 -1 1701
+box -396 -1179 396 1179
+use XM4_x3_x1  XM4_x3_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067090
+transform 0 -1 3689 1 0 6494
+box -396 -279 396 279
+use XM4_x3_x1_x1  XM4_x3_x1_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067093
+transform -1 0 2983 0 -1 2082
+box -396 -1179 396 1179
+use XM5_x1_x1_x1  XM5_x1_x1_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067092
+transform 0 -1 7027 1 0 4598
+box -396 -279 396 279
+use XM5_x1_x2_x1  XM5_x1_x2_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067091
+transform -1 0 7276 0 -1 5527
+box -396 -279 396 279
+use XM6_x3_x1  XM6_x3_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067090
+transform 0 -1 3131 1 0 6494
+box -396 -279 396 279
+use XR6_x3_x1  XR6_x3_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067090
+transform 0 -1 4247 1 0 7091
+box -201 -698 201 698
+use XRSTR_0_x2_x1  XRSTR_0_x2_x1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067090
+transform 0 -1 5932 1 0 6389
+box -1114 -948 1114 948
+use XRSTR_1  XRSTR_1_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067089
+transform 0 -1 9942 1 0 5250
+box -533 -773 533 773
+use XRSTR_2  XRSTR_2_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702067089
+transform 1 0 9702 0 1 3944
+box -533 -773 533 773
+<< end >>

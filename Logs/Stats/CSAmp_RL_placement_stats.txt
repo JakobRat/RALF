@@ -1,0 +1,16 @@
++----------------------+-----------+
+|         Name         |   Value   |
++----------------------+-----------+
+|       Circuit        |   CSAmp   |
+|    Time taken [s]    |    2592   |
+|      Placements      |   50000   |
+| Placements per batch |    100    |
+|      Env. size       | 4326x4326 |
+|  Solution placement  |     5     |
+|      Total HPWL      |   2661.0  |
+|      Congestion      |    0.0    |
+|        Reward        |  -2661.0  |
+|     Total width      |   1384.0  |
+|     Total height     |   1179.0  |
+|         Area         | 1631736.0 |
++----------------------+-----------+

@@ -1,0 +1,16 @@
++----------------------+------------+
+|         Name         |   Value    |
++----------------------+------------+
+|       Circuit        |   OpAmp    |
+|    Time taken [s]    |    2336    |
+|      Placements      |   50000    |
+| Placements per batch |    100     |
+|      Env. size       | 5997x5997  |
+|  Solution placement  |   15737    |
+|      Total HPWL      |  23229.5   |
+|      Congestion      | 816322.39  |
+|        Reward        | -24133.01  |
+|     Total width      |   3490.5   |
+|     Total height     |   3291.0   |
+|         Area         | 11487235.5 |
++----------------------+------------+

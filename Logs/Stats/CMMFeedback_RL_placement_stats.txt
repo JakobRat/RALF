@@ -1,0 +1,16 @@
++----------------------+-------------+
+|         Name         |    Value    |
++----------------------+-------------+
+|       Circuit        | CMMFeedback |
+|    Time taken [s]    |     1352    |
+|      Placements      |    50000    |
+| Placements per batch |     100     |
+|      Env. size       |  2039x2039  |
+|  Solution placement  |     136     |
+|      Total HPWL      |    4063.0   |
+|      Congestion      |   20439.49  |
+|        Reward        |   -4205.97  |
+|     Total width      |    1640.0   |
+|     Total height     |    1127.5   |
+|         Area         |  1849100.0  |
++----------------------+-------------+

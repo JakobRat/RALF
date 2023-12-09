@@ -1,0 +1,16 @@
++----------------------+-----------+
+|         Name         |   Value   |
++----------------------+-----------+
+|       Circuit        |   GmBias  |
+|    Time taken [s]    |    3114   |
+|      Placements      |   50000   |
+| Placements per batch |    100    |
+|      Env. size       | 2623x2623 |
+|  Solution placement  |     14    |
+|      Total HPWL      |   4470.0  |
+|      Congestion      |  60582.55 |
+|        Reward        |  -4716.14 |
+|     Total width      |   1022.0  |
+|     Total height     |   1066.0  |
+|         Area         | 1089452.0 |
++----------------------+-----------+
