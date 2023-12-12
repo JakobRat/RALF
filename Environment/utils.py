@@ -37,23 +37,29 @@ logger = logging.getLogger(__name__)
 from prettytable import PrettyTable
 import time
 
-def do_placement(circ : Circuit, name :str, n_iterations : int, placements_per_iteration = 100, use_weights = False, show_stats = True):
+def do_placement(circ : Circuit, name :str, n_placements : int, placements_per_rollout = 100, use_weights = False, show_stats = True):
     """Performs the placement of circuit <circ>.
 
     Args:
         circ (Circuit): Circuit to be placed.
         name (str): Name of the placement.
-        n_iterations (int): Number of iterations to be done.
-        placements_per_iteration (int): Number of placements per iteration. optional, default: 100
+        n_placements (int): Number of total placements to be done.
+        placements_per_rollout (int): Number of placements per iteration. optional, default: 100
         use_weights (bool): If True, network-weights of a previous run will be used.
     Returns:
         Circuit: Circuit of best placement.
     """
+    assert n_placements%placements_per_rollout==0, f"Number of total placements not divisible by the number of placements per rollout!"
+
+    placements_per_batch = placements_per_rollout
+    total_placements = n_placements
+    n_rollouts = total_placements/placements_per_batch
+
     #measure the taken time
     start = time.time()
 
     #setup the environment
-    logger.info(f"Doing placement {name} of circuit {circ.name} for maximum {n_iterations} iterations.")
+    logger.info(f"Doing placement {name} of circuit {circ.name} for {n_rollouts} rollouts.")
     logger.debug(f"Circuit: type {type(circ)}, id {id(circ)}")
 
     #get maximum side-length of the placement
@@ -65,7 +71,7 @@ def do_placement(circ : Circuit, name :str, n_iterations : int, placements_per_i
         side_length += max(cell.width, cell.height)
     side_length = int(side_length)
     
-    print(f"Doing placement {name} of circuit {circ.name} for maximum {n_iterations} iterations.")
+    print(f"Doing placement {name} of circuit {circ.name} for {n_rollouts} rollouts.")
     print(f"Using an environment with dimension {side_length}x{side_length}.")
 
     #setup a environment
@@ -74,9 +80,7 @@ def do_placement(circ : Circuit, name :str, n_iterations : int, placements_per_i
     logger.info(f"Set up placement environment with size {env.size}.")
     logger.debug(f"Environment: type {type(env)}, id {id(env)}")
 
-    placements_per_batch = placements_per_iteration
-    total_placements = n_iterations * placements_per_batch
-
+    
     #setup the hyperparameters for the PPO algorithm
     hyperparameters = {
 
@@ -154,17 +158,18 @@ def do_placement(circ : Circuit, name :str, n_iterations : int, placements_per_i
 
     return best_placement
 
-def do_bottom_up_placement(circ : Circuit, n_iterations : int, use_weights = False, show_stats=True):
+def do_bottom_up_placement(circ : Circuit, n_placements : int, placements_per_rollout : int = 100, use_weights = False, show_stats=True):
     """Perform a placement in a bottom-up fashion on circuit <circ>.
 
     Args:
         circ (Circuit): Circuit which shall be placed.
-        n_iterations (int): Number of RL-training iterations.
+        n_placements (int): Number of total placements per circuit/subcircuit.
+        placements_per_rollout (int): Number of placements per rollout. optional, default: 100
         use_weights (bool, optional): If True, network-weights of a previous run will be used. Defaults to False.
     """
-    logger.info(f"Performing bottom-up placement on circuit {circ.name} for {n_iterations} iterations.")
+    logger.info(f"Performing bottom-up placement on circuit {circ.name} for {n_placements} placements per circuit/subcircuit.")
     logger.debug(f"Circuit: type {type(circ)}, id {id(circ)}")
-
+ 
     placement_order = get_bottom_up_topology(circ)
     logger.debug(f"Placement order: {[(c.name, id(c)) for (t, c) in placement_order]}")
 
@@ -179,7 +184,7 @@ def do_bottom_up_placement(circ : Circuit, n_iterations : int, use_weights = Fal
         else:
             #place circuit
             if len(c.devices)>1:
-                best_circuit = do_placement(c, c.name, n_iterations=n_iterations, use_weights=use_weights, show_stats=show_stats)
+                best_circuit = do_placement(c, c.name, n_placements=n_placements, placements_per_rollout=placements_per_rollout, use_weights=use_weights, show_stats=show_stats)
                 circ_dict[c.name] = copy.deepcopy(best_circuit)
                 logger.debug(f"Best-circuit: type {type(best_circuit)}, id {id(best_circuit)}")
             else:
