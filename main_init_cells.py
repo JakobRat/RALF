@@ -28,7 +28,7 @@ if TYPE_CHECKING:
 from Magic.utils import instantiate_circuit
 import pickle
 
-CIRCUIT_NAME = "OpAmp"  #Name of the circuit
+CIRCUIT_NAME = "CCLatch_RLP"  #Name of the circuit
 
 #load the placed circuit 
 file = open(f"PlacementCircuits/{CIRCUIT_NAME}_placement.pkl", 'rb')
