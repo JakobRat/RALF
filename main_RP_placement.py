@@ -35,15 +35,16 @@ import logging
 from logging.handlers import RotatingFileHandler
 import pickle
 
-#global variables to control the placement 
-USE_LOGGER = False                  #If True, debug information will be logged under "Logs/{CIRCUIT_NAME}_placement.log".
-INSTANTIATE_CELLS_IN_MAGIC = True   #If True, the devices cell-view will be instantiated in Magic
-SIM_ANNEAL_MIN = 0.1                #Maximum spend time for simulated annealing (per placement) when N_PLACEMENT=None
-SIM_ANNEAL_STEPS = 200              #Number of steps done by the simulated annealing to find Tmax and Tmin (per placement)
-N_PLACEMENTS = 50000               #Number of placements done by the simulated annealing (per placement)
+#global variables to control the placement
 CIRCUIT_FILE = "Circuits/Examples/InvAmp.spice"    #Input spice-netlist
 CIRCUIT_NAME = "InvAmp_RPP"            #Name of the circuit
 NET_RULES_FILE = "NetRules/net_rules_InvAmp.json"               #Net-rules definition file
+N_PLACEMENTS = 50000               #Number of trial placements done per circuit/subcircuit
+
+USE_LOGGER = False                  #If True, debug information will be logged under "Logs/{CIRCUIT_NAME}_placement.log".
+INSTANTIATE_CELLS_IN_MAGIC = True   #If True, the devices cell-view will be instantiated in Magic
+SIM_ANNEAL_MIN = 0.1                #Maximum spend time for simulated annealing (per circuit/subcircuit) when N_PLACEMENT=None
+SIM_ANNEAL_STEPS = 200              #Number of steps done by the simulated annealing to find Tmax and Tmin (per circuit/subcircuit)
 DEF_FILE = None                     #Def file of the circuit
 SHOW_STATS = True                   #Show statistics of the placement
 
