@@ -106,9 +106,9 @@ def do_placement(circuit : Circuit, width_limit = None, height_limit = None, sim
         print(table)
 
         try:
-            print(table, file=open(f'Logs/Stats/{name}_RPP_placement_stats.txt','w'))
+            print(table, file=open(f'Logs/Stats/{name}_RP_placement_stats.txt','w'))
         except:
-            print(table, file=open(f'Logs/Stats/{name}_RPP_placement_stats.txt','a'))
+            print(table, file=open(f'Logs/Stats/{name}_RP_placement_stats.txt','a'))
         
 
     return solution.problem.circuit
