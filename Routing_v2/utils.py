@@ -31,6 +31,7 @@ from Routing_v2.PlanningGraph import PlanningGraph
 from PDK.PDK import global_pdk
 
 from prettytable import PrettyTable
+import pandas as pd 
 
 import sys
 import os
@@ -74,7 +75,7 @@ def add_to_dict(net, d, nets):
 
 def route(circuit : Circuit, routing_name : str, plan_wires : bool = True, planning_iterations : int = 20, 
           gcell_length : int = 150, use_layers : list[str] = ['m1', 'm2'], destination_path : str = 'Magic/Routing/',
-          show_stats : bool = False, ax : axes = None):
+          show_stats : bool = False, ax : axes = None, log_wireplan : bool = False):
     """Route a circuit.
 
     Args:
@@ -87,6 +88,7 @@ def route(circuit : Circuit, routing_name : str, plan_wires : bool = True, plann
         destination_path (str, optional): Destination path of the magic-routing .tcl script. Defaults to 'Magic/Routing'.
         show_stats (bool, optional): If True, route specific data will be printed. Defaults to False.
         ax (axes, optional): If given, the route will be plotted on this axis. Defaults to None.
+        log_wireplan(bool, optional): If True, the stats of the wireplanning will be logged to a csv file.
     """
     
     #get all nets of the circuit
@@ -121,6 +123,10 @@ def route(circuit : Circuit, routing_name : str, plan_wires : bool = True, plann
         planning_graph = PlanningGraph(circuit_bound, gcell_length, gcell_length, use_layers)
         wire_planner = plan_routes(routes_list, planning_graph, planning_iterations)
         route_order = wire_planner._get_route_order()
+
+        if log_wireplan:
+            df = pd.DataFrame(wire_planner.log)
+            df.to_csv(f"Logs/Routing/{circuit.name}_wireplan_log.csv")
     else:
         route_order = routes_list
     
@@ -164,8 +170,11 @@ def route(circuit : Circuit, routing_name : str, plan_wires : bool = True, plann
             print(table, file=open(f'Logs/Stats/{circuit.name}_routing_stats.txt','a'))
 
     if ax:
+        if plan_wires:
+            wire_planner.plot_on_ax(ax)
         for route in route_order:
             route.plot(ax)
+
     #generate the tcl. script
     if not os.path.exists(destination_path):
         #generate the path

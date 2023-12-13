@@ -36,6 +36,7 @@ import matplotlib.pyplot as plt
 from matplotlib import cm
 import  matplotlib.patches as mpatches
 
+
 class WirePlanner:
     """Class to plan the wires for multiple nets.
     """
@@ -53,6 +54,10 @@ class WirePlanner:
         self._route_planners = {}
         self._setup_routeplanners() 
 
+        self.log = {'penalty' : [],
+               'crossing_nets' : [],
+               'overflow' : []}
+        
     def _setup_routeplanners(self):
         """Setup a route planner for each route.
         """
@@ -66,6 +71,7 @@ class WirePlanner:
         Args:
             n_iterations (int, optional): Number of planning iterations. Defaults to 1.
         """
+        
         
         super_pbar = tqdm(range(n_iterations), desc = "Wireplanning")
         for i in super_pbar:
@@ -87,8 +93,13 @@ class WirePlanner:
             penalty = round(self._planning_graph.get_total_penalty(),2)
             crossing_nets = self._planning_graph.get_total_crossing_nets()
             overflow = round(self._planning_graph.get_total_overflow_percentage(),2)
+            self.log['penalty'].append(penalty)
+            self.log['crossing_nets'].append(crossing_nets)
+            self.log['overflow'].append(overflow)
+
             super_pbar.set_postfix_str(f"#Crossing-Net-Tiles: {crossing_nets}, Total Penalty: {penalty}, Total Overflow percentage: {overflow}")
-    
+
+        
     def _get_route_order(self) -> list[Route]:
         """Get the order of the routes, for the planning.
             Starting by the route whose route-plan maximizes 
@@ -147,6 +158,20 @@ class WirePlanner:
         fig.legend([mpatches.Patch(color=colors(i), alpha=0.7) for i in range(len(self._route_planners))],
                    [route for route in self._route_planners])
         plt.show()
+
+    def plot_on_ax(self, ax, plot_only = []):
+        """Plot the plan on a axis.
+
+        Args:
+            ax (axis): Axis on which the wire plan shall be plotted.
+            plot_only (list, optional): If specified, only these nets will be plotted. Defaults to [].
+        """
+        for route_plan in self._route_planners.values():
+            if plot_only:
+                if not route_plan._net.name in plot_only:
+                    continue
+
+            route_plan.plot_on_ax(ax)
 
 class RoutePlanner:
     """Class to plan the wires for a net.
@@ -338,7 +363,20 @@ class RoutePlanner:
             for node in self._actual_plan.nodes:
                 ax = layer_ax_mapping[node.layer]
                 node.plot(ax, color=color)
-        
+    
+    def plot_on_ax(self, ax):
+        """Plot the plan on a single axis.
+
+        Args:
+            ax (axis): Axis on which the plan shall be plotted.
+        """
+        if self._actual_plan:
+            cm = plt.get_cmap('Set1')
+            node : Tile
+            for node in self._actual_plan:
+                color = cm(hash(node.layer)%9)
+                node.plot(ax, color)
+
     def _add_plan_to_graph(self, connection_graph : nx.Graph):
         """Add/Update the plan of the route in the planning graph. 
 
