@@ -35,14 +35,19 @@ from Routing_v2.utils import route
 import time
 import matplotlib.pyplot as plt
 
+from PDK.PDK import global_pdk
+
 CIRCUIT_NAME = "DiffAmp_RLP"            #Name of the circuit
+
 PLAN_WIRES = True                   #If True, before detail-routing, wire-planning (global-routing) will be performed
 N_PLANNING_ITERATIONS = 20          #Number of wire-planning iterations
-GCELL_LENGTH = 150                  #Length of a wire-planning cell (in units of lambda)
+GCELL_LENGTH = 50                   #Length of a wire-planning cell (in units of lambda)
 LAYERS = ['m1','m2']                #Layers which will be used for wire-planning
+
 SHOW_STATS = True                   #If True, statistics of the routing will be printed
 DESTINATION_PATH = 'Magic/Routing/' #Destination path of the routing file
-
+PLOT_RESULT = True                  #If True, the result will be plotted
+LOG_WIREPLAN = True                #If True, the stats of the wire-planning iterations will be logged to a csv file
 
 #load the placed circuit 
 file = open(f"PlacementCircuits/{CIRCUIT_NAME}_placement.pkl", 'rb')
@@ -56,14 +61,26 @@ die_obstacles = DieObstacles(die)
 #get the placed circuit
 circuit = die.circuit
 
-fig, ax = plt.subplots(1)
-ax.set_aspect('equal')
-ax.plot()
+#setup a axis for plotting
+if PLOT_RESULT:
+    fig, ax = plt.subplots(1)
+    ax.set_aspect('equal')
+    ax.plot()
+    cm = plt.get_cmap('Set1')
+    for layer in global_pdk.metal_layers.values():
+        color = cm(hash(layer)%9)
+        ax.plot([], color=color, label=str(layer), linewidth=10, alpha=0.5)
+    fig.legend(loc='right')
+else:
+    ax = None
+
 start = time.time()
 #route the circuit
 route(circuit=circuit, routing_name=CIRCUIT_NAME, plan_wires=PLAN_WIRES, 
       planning_iterations=N_PLANNING_ITERATIONS, gcell_length=GCELL_LENGTH, use_layers=LAYERS,
-      destination_path=DESTINATION_PATH, show_stats=SHOW_STATS, ax=ax, log_wireplan=True)
+      destination_path=DESTINATION_PATH, show_stats=SHOW_STATS, ax=ax, log_wireplan=LOG_WIREPLAN)
 
 print(f"Took {round((time.time()-start)*1e3,2)}ms")
-plt.show()
+
+if PLOT_RESULT:
+    plt.show()
