@@ -109,6 +109,7 @@ for net, hpwl in HPWL.items():
 
 #add the data
 table.add_row(['Total HPWL', round(total_HPWL*global_pdk.scale_factor/1e3,2), 'um'])
+table.add_row(['Congestion', congestion, '-'])
 table.add_row(['Width', w, 'um'])
 table.add_row(['Height', h, 'um'])
 table.add_row(['Area', round(w*h,2), 'um2'])
