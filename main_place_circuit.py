@@ -26,9 +26,10 @@ if TYPE_CHECKING:
 
 import pickle
 from Magic.utils import place_circuit, instantiate_circuit
-
+import os
 
 CIRCUIT_NAME = "InvAmp_RLP"  #Name of the circuit
+START_MAGIC = True           #If True, Magic will be started, with the loaded placement
 
 #load the placed circuit 
 file = open(f"PlacementCircuits/{CIRCUIT_NAME}_placement.pkl", 'rb')
@@ -45,3 +46,5 @@ instantiate_circuit(circuit, path='Magic/Devices')
 #place the circuit
 place_circuit(CIRCUIT_NAME, circuit, debug=False)
 
+if START_MAGIC:
+    os.system(f'magic Magic/Placement/{CIRCUIT_NAME}.mag')
