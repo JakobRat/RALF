@@ -2,15 +2,15 @@
 |         Name         |   Value    |
 +----------------------+------------+
 |       Circuit        | InvAmp_RLP |
-|    Time taken [s]    |    2112    |
-|      Placements      |   50000    |
+|    Time taken [s]    |    4222    |
+|      Placements      |   250000   |
 | Placements per batch |    100     |
-|      Env. size       | 5036x5036  |
-|  Solution placement  |   23893    |
-|      Total HPWL      |  23056.5   |
-|      Congestion      | 773264.38  |
-|        Reward        | -23935.85  |
-|     Total width      |   4064.0   |
-|     Total height     |   3490.5   |
-|         Area         | 14185392.0 |
+|      Env. size       | 5174x5174  |
+|  Solution placement  |   81939    |
+|      Total HPWL      |  20092.75  |
+|      Congestion      | 635917.49  |
+|        Reward        | -20890.19  |
+|     Total width      |   3628.5   |
+|     Total height     |   3480.0   |
+|         Area         | 12627180.0 |
 +----------------------+------------+
