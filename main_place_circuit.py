@@ -25,10 +25,10 @@ if TYPE_CHECKING:
     from Magic.MagicDie import MagicDie
 
 import pickle
-from Magic.utils import place_circuit
+from Magic.utils import place_circuit, instantiate_circuit
 
 
-CIRCUIT_NAME = "DiffAmp_RLP"  #Name of the circuit
+CIRCUIT_NAME = "InvAmp_RPP"  #Name of the circuit
 
 #load the placed circuit 
 file = open(f"PlacementCircuits/{CIRCUIT_NAME}_placement.pkl", 'rb')
@@ -38,6 +38,9 @@ file.close()
 
 #get the placed circuit
 circuit = die.circuit
+
+#instantiate the circuit-devices in Magic
+instantiate_circuit(circuit, path='Magic/Devices')
 
 #place the circuit
 place_circuit(CIRCUIT_NAME, circuit, debug=False)
