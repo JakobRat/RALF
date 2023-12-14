@@ -39,10 +39,10 @@ import pickle
 CIRCUIT_FILE = "Circuits/Examples/InvAmp.spice"    #Input spice-netlist
 CIRCUIT_NAME = "InvAmp_RPP"            #Name of the circuit
 NET_RULES_FILE = "NetRules/net_rules_InvAmp.json"               #Net-rules definition file
-N_PLACEMENTS = 50000               #Number of trial placements done per circuit/subcircuit
+N_PLACEMENTS = 250000               #Number of trial placements done per circuit/subcircuit
 
 USE_LOGGER = False                  #If True, debug information will be logged under "Logs/{CIRCUIT_NAME}_placement.log".
-INSTANTIATE_CELLS_IN_MAGIC = True   #If True, the devices cell-view will be instantiated in Magic
+INSTANTIATE_CELLS_IN_MAGIC = False   #If True, the devices cell-view will be instantiated in Magic
 SIM_ANNEAL_MIN = 0.1                #Maximum spend time for simulated annealing (per circuit/subcircuit) when N_PLACEMENT=None
 SIM_ANNEAL_STEPS = 200              #Number of steps done by the simulated annealing to find Tmax and Tmin (per circuit/subcircuit)
 DEF_FILE = None                     #Def file of the circuit
