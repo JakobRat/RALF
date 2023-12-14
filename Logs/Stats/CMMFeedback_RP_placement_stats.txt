@@ -1,0 +1,12 @@
++----------------+-------------+
+|      Name      |    Value    |
++----------------+-------------+
+|    Circuit     | CMMFeedback |
+| Time taken [s] |     1470    |
+|   Placements   |    250000   |
+|   Total HPWL   |    4027.0   |
+|   Congestion   |   20066.19  |
+|  Total width   |    1640.5   |
+|  Total height  |    1114.5   |
+|      Area      |  1828337.25 |
++----------------+-------------+

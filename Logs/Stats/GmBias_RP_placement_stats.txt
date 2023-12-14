@@ -1,0 +1,12 @@
++----------------+----------+
+|      Name      |  Value   |
++----------------+----------+
+|    Circuit     |  GmBias  |
+| Time taken [s] |   1299   |
+|   Placements   |  250000  |
+|   Total HPWL   |  3839.0  |
+|   Congestion   | 51114.43 |
+|  Total width   |  821.5   |
+|  Total height  |  1217.0  |
+|      Area      | 999765.5 |
++----------------+----------+
