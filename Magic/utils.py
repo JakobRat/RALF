@@ -108,6 +108,12 @@ def instantiate_devices(Circuit : Circuit, path = 'Magic/Devices', del_path = Tr
         os.chdir(act_dir)
     else:
         raise KeyError(f"[ERROR] Variable PDKPATH not set!")
+    
+    #if the circuit has already a cell view, update the paths
+    for device in Circuit.devices.values():
+        if not (device.cell is None):
+            if type(device.cell)==Cell:
+                device.cell.add_path(os.path.realpath(f'{path}'))
 
 def generate_cell(name : str, path='Magic/Devices') -> Cell:
     """Generate a Cell-view.
