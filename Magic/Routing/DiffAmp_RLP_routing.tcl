@@ -41,11 +41,9 @@ wire segment m1 30.0 958 1020 958 1020
 wire segment mcon 18.0 958 1020 958 1020
 wire segment m1 30.0 932 1386 932 1386
 wire segment mcon 18.0 932 1386 932 1386
-wire segment m1 14.0 871 1020 965 1020 -noendcap
-wire segment m1 14.0 878 1013 878 1299 -noendcap
-wire segment m1 14.0 871 1292 939 1292 -noendcap
-wire segment m1 14.0 932 1285 932 1393 -noendcap
-box 871.0 1013.0 965.0 1027.0
+wire segment m1 14.0 958 1013 958 1393 -noendcap
+wire segment m1 14.0 925 1386 965 1386 -noendcap
+box 951.0 1013.0 965.0 1393.0
 label Vop 1 10 0 0 0 center m1
 wire segment m1 30.0 1216 1020 1216 1020
 wire segment mcon 18.0 1216 1020 1216 1020
@@ -55,13 +53,9 @@ wire segment m1 30.0 1216 1020 1216 1020
 wire segment mcon 18.0 1216 1020 1216 1020
 wire segment m1 30.0 1248 1386 1248 1386
 wire segment mcon 18.0 1248 1386 1248 1386
-wire segment m1 14.0 1209 1020 1255 1020 -noendcap
-wire segment m1 14.0 1248 1013 1248 1221 -noendcap
-wire segment m1 14.0 1241 1214 1309 1214 -noendcap
-wire segment m1 14.0 1302 1207 1302 1365 -noendcap
-wire segment m1 14.0 1241 1358 1309 1358 -noendcap
-wire segment m1 14.0 1248 1351 1248 1393 -noendcap
-box 1209.0 1013.0 1255.0 1027.0
+wire segment m1 14.0 1216 1013 1216 1393 -noendcap
+wire segment m1 14.0 1209 1386 1255 1386 -noendcap
+box 1209.0 1013.0 1223.0 1393.0
 label Von 1 10 0 0 0 center m1
 wire segment m1 30.0 886 816 886 816
 wire segment mcon 18.0 886 816 886 816
@@ -95,8 +89,13 @@ wire segment m1 30.0 748 1322 748 1322
 wire segment mcon 18.0 748 1322 748 1322
 wire segment m1 28 734 1256 850 1256 -noendcap
 wire segment m1 28 748 1242 748 1336 -noendcap
-wire segment m1 28 836 1242 836 1447 -noendcap
-wire segment m1 28 822 1433 1358 1433 -noendcap
-wire segment m1 28 1344 1242 1344 1447 -noendcap
+wire segment m1 28 822 1256 853 1256 -noendcap
+wire segment m2 38.0 839 1256 839 1256
+wire segment via1 26.0 839 1256 839 1256
+wire segment m1 38.0 839 1256 839 1256
+wire segment m2 28 825 1256 1358 1256 -noendcap
+wire segment m2 38.0 1344 1256 1344 1256
+wire segment via1 26.0 1344 1256 1344 1256
+wire segment m1 38.0 1344 1256 1344 1256
 box 734.0 1242.0 850.0 1270.0
 label Vdd 1 10 0 0 0 center m1
