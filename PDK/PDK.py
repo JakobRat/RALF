@@ -64,6 +64,14 @@ class PDK:
         self._init_layers()
 
     @property
+    def scale_factor(self) -> int:
+        """Get the scale factor of the lambda unit to 1nm.
+            E.g. if the scale factor is 10, 1 lambda = 10nm. 
+        Returns:
+            int: Scale factor.
+        """
+        return self._scale_factor
+    @property
     def metal_layers(self) -> dict[str, Layer]:
         """Get the metal layers.
 
