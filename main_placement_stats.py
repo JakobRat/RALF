@@ -36,7 +36,7 @@ from prettytable import PrettyTable
 ###################################################################
 
 
-CIRCUIT_NAME = "InvAmp_RLP"  #Name of the circuit
+CIRCUIT_NAME = "InvAmp_RPP"  #Name of the circuit
 
 
 ###################################################################

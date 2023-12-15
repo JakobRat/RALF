@@ -1,0 +1,25 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1702633263
+<< checkpaint >>
+rect -1261 2409 1817 2644
+rect -1261 1997 2667 2409
+rect -1556 1851 2667 1997
+rect -1556 1556 2733 1851
+rect -1997 -1261 2733 1556
+rect -1997 -1556 1997 -1261
+rect -1556 -1997 1556 -1556
+use XDL_XM3_XM4  XDL_XM3_XM4_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702633263
+transform 0 1 736 -1 0 295
+box -296 -737 296 737
+use XDP_XM1_XM2  XDP_XM1_XM2_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702633263
+transform 1 0 982 0 1 870
+box -425 -279 425 279
+use XM5  XM5_0 ~/Documents/RALF/Magic/Devices
+timestamp 1702633262
+transform 0 -1 278 1 0 988
+box -396 -279 396 279
+<< end >>
