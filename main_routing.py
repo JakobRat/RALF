@@ -37,16 +37,16 @@ import matplotlib.pyplot as plt
 
 from PDK.PDK import global_pdk
 
-CIRCUIT_NAME = "InvAmp_RLP"            #Name of the circuit
+CIRCUIT_NAME = "DiffAmp_RLP"            #Name of the circuit
 
 PLAN_WIRES = True                   #If True, before detail-routing, wire-planning (global-routing) will be performed
 N_PLANNING_ITERATIONS = 20          #Number of wire-planning iterations
-GCELL_LENGTH = 150                   #Length of a wire-planning cell (in units of lambda)
-LAYERS = ['m1','m2', 'm3','m4']                #Layers which will be used for wire-planning
+GCELL_LENGTH = 50                   #Length of a wire-planning cell (in units of lambda)
+LAYERS = ['m1','m2']                #Layers which will be used for wire-planning
 
 SHOW_STATS = True                   #If True, statistics of the routing will be printed
 DESTINATION_PATH = 'Magic/Routing/' #Destination path of the routing file
-PLOT_RESULT = False                  #If True, the result will be plotted
+PLOT_RESULT = True                  #If True, the result will be plotted
 LOG_WIREPLAN = True                #If True, the stats of the wire-planning iterations will be logged to a csv file
 
 #load the placed circuit 
