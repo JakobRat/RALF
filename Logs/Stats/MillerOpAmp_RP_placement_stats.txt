@@ -1,0 +1,12 @@
++----------------+-------------+
+|      Name      |    Value    |
++----------------+-------------+
+|    Circuit     | MillerOpAmp |
+| Time taken [s] |     2001    |
+|   Placements   |    250000   |
+|   Total HPWL   |   12883.0   |
+|   Congestion   |  174655.06  |
+|  Total width   |    2502.0   |
+|  Total height  |    2076.5   |
+|      Area      |  5195403.0  |
++----------------+-------------+
