@@ -41,7 +41,7 @@ CIRCUIT_NAME = "DiffAmp_RLP"            #Name of the circuit
 
 PLAN_WIRES = True                   #If True, before detail-routing, wire-planning (global-routing) will be performed
 N_PLANNING_ITERATIONS = 15          #Number of wire-planning iterations
-GCELL_LENGTH = 70                   #Length of a wire-planning cell (in units of lambda)
+GCELL_LENGTH = 48                   #Length of a wire-planning cell (in units of lambda)
 LAYERS = ['m1','m2']                #Layers which will be used for wire-planning
 
 SHOW_STATS = True                   #If True, statistics of the routing will be printed
