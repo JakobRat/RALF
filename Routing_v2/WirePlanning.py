@@ -123,9 +123,11 @@ class WirePlanner:
 
         #sort the list in desc order.
         route_order = []
-        for item in order:
-            route_order.insert(0, item[2])
-        
+        #for item in order:
+        #    route_order.insert(0, item[2])
+        while len(order):
+            route_order.insert(0, heapq.heappop(order)[2])
+    
         return route_order
 
     def plot(self, plot_only : list[str] = []):
