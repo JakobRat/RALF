@@ -1,0 +1,29 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1702977093
+<< checkpaint >>
+rect -1461 -1958 1461 1958
+<< pwell >>
+rect -201 -698 201 698
+<< psubdiff >>
+rect -165 628 165 662
+rect -165 -628 -131 628
+rect 131 -628 165 628
+rect -165 -662 -69 -628
+rect 69 -662 165 -628
+<< psubdiffcont >>
+rect -69 -662 69 -628
+<< xpolycontact >>
+rect -35 100 35 532
+rect -35 -532 35 -100
+<< xpolyres >>
+rect -35 -100 35 100
+<< locali >>
+rect -85 -662 -69 -628
+rect 69 -662 85 -628
+<< res0p35 >>
+rect -37 -102 37 102
+<< properties >>
+string FIXED_BBOX -148 -645 148 645
+<< end >>
