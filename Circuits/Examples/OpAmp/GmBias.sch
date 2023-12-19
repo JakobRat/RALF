@@ -19,47 +19,47 @@ N 630 -340 630 -280 {
 lab=Vbias}
 N 630 -340 700 -340 {
 lab=Vbias}
-N 500 -600 500 -570 {
+N 500 -500 500 -470 {
 lab=#net1}
-N 540 -630 560 -630 {
+N 540 -530 560 -530 {
 lab=#net1}
-N 560 -630 560 -580 {
+N 560 -530 560 -480 {
 lab=#net1}
-N 500 -580 560 -580 {
+N 500 -480 560 -480 {
 lab=#net1}
-N 460 -630 500 -630 {
+N 460 -530 500 -530 {
 lab=Vdd}
-N 460 -690 460 -630 {
+N 460 -590 460 -530 {
 lab=Vdd}
-N 460 -690 500 -690 {
+N 460 -590 500 -590 {
 lab=Vdd}
-N 500 -510 500 -470 {
+N 500 -440 500 -400 {
 lab=#net1}
-N 700 -410 700 -360 {
+N 700 -360 700 -340 {
 lab=Vbias}
-N 500 -570 500 -510 {
+N 500 -470 500 -440 {
 lab=#net1}
 N 700 -370 780 -370 {
 lab=Vbias}
-N 500 -690 700 -690 {
+N 500 -590 700 -590 {
 lab=Vdd}
-N 700 -690 700 -660 {
+N 700 -590 700 -560 {
 lab=Vdd}
-N 700 -630 770 -630 {
+N 700 -530 770 -530 {
 lab=Vdd}
-N 770 -690 770 -630 {
+N 770 -590 770 -530 {
 lab=Vdd}
-N 700 -690 770 -690 {
+N 700 -590 770 -590 {
 lab=Vdd}
-N 560 -630 660 -630 {
+N 560 -530 660 -530 {
 lab=#net1}
 N 540 -280 630 -280 {
 lab=Vbias}
 N 500 -250 500 -220 {
 lab=#net2}
-N 500 -470 500 -310 {
+N 500 -400 500 -310 {
 lab=#net1}
-N 700 -600 700 -410 {
+N 700 -500 700 -340 {
 lab=Vbias}
 N 500 -160 500 -130 {
 lab=Vss}
@@ -67,25 +67,25 @@ N 500 -130 700 -130 {
 lab=Vss}
 N 420 -280 500 -280 {
 lab=Vss}
-N 580 -430 580 -280 {
+N 580 -360 580 -280 {
 lab=Vbias}
-N 530 -460 540 -460 {
+N 530 -390 540 -390 {
 lab=#net1}
-N 530 -520 530 -460 {
+N 530 -450 530 -390 {
 lab=#net1}
-N 530 -520 580 -520 {
+N 530 -450 580 -450 {
 lab=#net1}
-N 580 -520 580 -490 {
+N 580 -450 580 -420 {
 lab=#net1}
-N 580 -630 580 -520 {
+N 580 -530 580 -450 {
 lab=#net1}
-N 580 -460 650 -460 {
+N 580 -390 650 -390 {
 lab=Vss}
 N 440 -190 480 -190 {
 lab=Vss}
-N 500 -690 500 -660 {
+N 500 -590 500 -560 {
 lab=Vdd}
-N 600 -730 600 -690 {
+N 600 -630 600 -590 {
 lab=Vdd}
 N 700 -250 700 -220 {
 lab=Vss}
@@ -107,7 +107,7 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {sky130_fd_pr/pfet_01v8.sym} 520 -630 0 1 {name=M2
+C {sky130_fd_pr/pfet_01v8.sym} 520 -530 0 1 {name=M2
 L=1
 W=4
 nf=2
@@ -123,8 +123,8 @@ spiceprefix=X
 }
 C {devices/opin.sym} 780 -370 0 0 {name=p1 sig_type=std_logic lab=Vbias}
 C {devices/iopin.sym} 600 -90 1 0 {name=p2 lab=Vss}
-C {devices/iopin.sym} 600 -730 3 0 {name=p3 lab=Vdd}
-C {sky130_fd_pr/pfet_01v8.sym} 680 -630 0 0 {name=M1
+C {devices/iopin.sym} 600 -630 3 0 {name=p3 lab=Vdd}
+C {sky130_fd_pr/pfet_01v8.sym} 680 -530 0 0 {name=M1
 L=1
 W=4
 nf=2
@@ -158,7 +158,7 @@ model=res_xhigh_po_0p35
 spiceprefix=X
 mult=1}
 C {devices/lab_wire.sym} 420 -280 0 0 {name=p6 sig_type=std_logic lab=Vss}
-C {sky130_fd_pr/nfet_01v8.sym} 560 -460 0 0 {name=M4
+C {sky130_fd_pr/nfet_01v8.sym} 560 -390 0 0 {name=M4
 L=2
 W=1
 nf=1 
@@ -172,7 +172,7 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/lab_wire.sym} 650 -460 0 1 {name=p4 sig_type=std_logic lab=Vss}
+C {devices/lab_wire.sym} 650 -390 0 1 {name=p4 sig_type=std_logic lab=Vss}
 C {devices/lab_wire.sym} 440 -190 0 0 {name=p7 sig_type=std_logic lab=Vss}
 C {devices/title.sym} 160 0 0 0 {name=l1 author="Jakob Ratschenberger"}
-C {devices/lab_wire.sym} 500 -410 0 0 {name=p5 sig_type=std_logic lab=v1}
+C {devices/lab_wire.sym} 500 -340 0 0 {name=p5 sig_type=std_logic lab=v1}

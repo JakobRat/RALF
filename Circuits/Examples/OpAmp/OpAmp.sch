@@ -5,101 +5,99 @@ K {}
 V {}
 S {}
 E {}
-N 70 -270 610 -270 {
-lab=Vcmref}
-N 70 -190 160 -190 {
+N 260 -390 350 -390 {
 lab=Vp}
-N 70 -170 160 -170 {
+N 260 -370 350 -370 {
 lab=Vn}
-N 940 -190 990 -190 {
+N 310 -350 350 -350 {
+lab=vbias}
+N 650 -410 680 -410 {
+lab=VPWR}
+N 320 -410 350 -410 {
 lab=vcmfb}
-N 940 -210 960 -210 {
-lab=VPWR}
-N 940 -170 960 -170 {
+N 310 -350 310 -330 {
+lab=vbias}
+N 310 -330 350 -330 {
+lab=vbias}
+N 650 -350 680 -350 {
 lab=VGND}
-N 130 -110 610 -110 {
+N 270 -330 310 -330 {
 lab=vbias}
-N 120 -150 160 -150 {
-lab=vbias}
-N 460 -210 490 -210 {
-lab=VPWR}
-N 490 -310 490 -210 {
-lab=VPWR}
-N 120 -130 120 -110 {
-lab=vbias}
-N 130 -210 160 -210 {
+N 650 -370 710 -370 {
+lab=Vop}
+N 710 -370 710 -240 {
+lab=Vop}
+N 710 -240 710 -220 {
+lab=Vop}
+N 650 -220 710 -220 {
+lab=Vop}
+N 650 -390 690 -390 {
+lab=Von}
+N 690 -390 690 -240 {
+lab=Von}
+N 650 -240 690 -240 {
+lab=Von}
+N 690 -390 750 -390 {
+lab=Von}
+N 710 -370 750 -370 {
+lab=Vop}
+N 300 -240 350 -240 {
 lab=vcmfb}
-N 120 -150 120 -130 {
+N 270 -110 350 -110 {
 lab=vbias}
-N 120 -130 160 -130 {
-lab=vbias}
-N 530 -210 530 -190 {
-lab=Von}
-N 460 -190 530 -190 {
-lab=Von}
-N 530 -190 640 -190 {
-lab=Von}
-N 570 -210 570 -170 {
-lab=Vop}
-N 460 -170 570 -170 {
-lab=Vop}
-N 570 -170 640 -170 {
-lab=Vop}
-N 610 -150 640 -150 {
-lab=vbias}
-N 610 -150 610 -110 {
-lab=vbias}
-N 460 -150 490 -150 {
-lab=VGND}
-N 490 -150 490 -70 {
-lab=VGND}
-N 610 -270 610 -210 {
-lab=Vcmref}
-N 610 -210 640 -210 {
-lab=Vcmref}
-N 1070 -170 1090 -170 {
-lab=VGND}
-N 1070 -170 1070 -70 {
-lab=VGND}
-N 960 -70 1070 -70 {
-lab=VGND}
-N 1070 -210 1090 -210 {
+N 260 -300 670 -300 {
+lab=Vocm}
+N 670 -300 670 -260 {
+lab=Vocm}
+N 650 -260 670 -260 {
+lab=Vocm}
+N 260 -460 310 -460 {
 lab=VPWR}
-N 1070 -310 1070 -210 {
+N 310 -460 680 -460 {
 lab=VPWR}
-N 960 -310 1070 -310 {
+N 680 -460 680 -410 {
 lab=VPWR}
-N 1050 -190 1090 -190 {
-lab=vbias}
-N 1050 -190 1050 -110 {
-lab=vbias}
-N 610 -110 1050 -110 {
-lab=vbias}
-N 120 -110 130 -110 {
-lab=vbias}
-N 490 -70 960 -70 {
+N 330 -90 350 -90 {
 lab=VGND}
-N 490 -310 960 -310 {
-lab=VPWR}
-N 70 -310 490 -310 {
-lab=VPWR}
-N 960 -310 960 -210 {
-lab=VPWR}
-N 70 -70 490 -70 {
+N 650 -200 680 -200 {
+lab=vbias}
+N 680 -350 730 -350 {
 lab=VGND}
-N 960 -170 960 -70 {
+N 730 -350 730 -60 {
 lab=VGND}
-C {devices/lab_wire.sym} 990 -190 0 1 {name=p2 sig_type=std_logic lab=vcmfb}
-C {devices/opin.sym} 530 -210 3 0 {name=p3 lab=Von}
-C {devices/opin.sym} 570 -210 3 0 {name=p4 lab=Vop}
-C {devices/lab_wire.sym} 1040 -110 0 0 {name=p5 sig_type=std_logic lab=vbias}
-C {devices/ipin.sym} 70 -270 0 0 {name=p6 lab=Vocm}
-C {devices/ipin.sym} 70 -190 0 0 {name=p7 lab=Vp}
-C {devices/ipin.sym} 70 -170 0 0 {name=p8 lab=Vn}
-C {devices/iopin.sym} 70 -310 0 1 {name=p9 lab=VPWR}
-C {devices/iopin.sym} 70 -70 2 0 {name=p10 lab=VGND}
-C {devices/lab_wire.sym} 130 -210 0 0 {name=p1 sig_type=std_logic lab=vcmfb}
+N 330 -60 730 -60 {
+lab=VGND}
+N 330 -220 350 -220 {
+lab=VGND}
+N 330 -220 330 -90 {
+lab=VGND}
+N 310 -260 350 -260 {
+lab=VPWR}
+N 310 -260 310 -130 {
+lab=VPWR}
+N 310 -130 350 -130 {
+lab=VPWR}
+N 330 -90 330 -60 {
+lab=VGND}
+N 260 -60 330 -60 {
+lab=VGND}
+N 270 -190 310 -190 {
+lab=VPWR}
+N 270 -240 300 -240 {}
+C {devices/lab_wire.sym} 270 -240 0 0 {name=p2 sig_type=std_logic lab=vcmfb}
+C {devices/opin.sym} 750 -390 0 0 {name=p3 lab=Von}
+C {devices/opin.sym} 750 -370 0 0 {name=p4 lab=Vop}
+C {devices/ipin.sym} 260 -300 0 0 {name=p6 lab=Vocm}
+C {devices/ipin.sym} 260 -390 0 0 {name=p7 lab=Vp}
+C {devices/ipin.sym} 260 -370 0 0 {name=p8 lab=Vn}
+C {devices/iopin.sym} 260 -460 0 1 {name=p9 lab=VPWR}
+C {devices/iopin.sym} 260 -60 2 0 {name=p10 lab=VGND}
+C {devices/lab_wire.sym} 320 -410 0 0 {name=p1 sig_type=std_logic lab=vcmfb}
 C {devices/title.sym} 160 0 0 0 {name=l1 author="Jakob Ratschenberger"}
-C {/home/jakob/Documents/RALF/Circuits/Examples/OpAmp/CMMFeedback.sym} 790 -180 0 0 {name=x2}
-C {/home/jakob/Documents/RALF/Circuits/Examples/OpAmp/GmBias.sym} 1240 -190 0 1 {name=x3}
-C {/home/jakob/Documents/RALF/Circuits/Examples/OpAmp/MillerOpAmp.sym} 310 -170 0 0 {name=x1}
+C {/home/jakob/Documents/RALF/Circuits/Examples/OpAmp/CMMFeedback.sym} 500 -230 0 1 {name=x2}
+C {/home/jakob/Documents/RALF/Circuits/Examples/OpAmp/GmBias.sym} 500 -110 0 1 {name=x3}
+C {/home/jakob/Documents/RALF/Circuits/Examples/OpAmp/MillerOpAmp.sym} 500 -370 0 0 {name=x1}
+C {devices/lab_wire.sym} 270 -330 0 0 {name=p11 sig_type=std_logic lab=vbias}
+C {devices/lab_wire.sym} 680 -200 0 1 {name=p12 sig_type=std_logic lab=vbias}
+C {devices/lab_wire.sym} 270 -110 0 0 {name=p13 sig_type=std_logic lab=vbias}
+C {devices/lab_wire.sym} 270 -190 0 0 {name=p14 sig_type=std_logic lab=VPWR}
