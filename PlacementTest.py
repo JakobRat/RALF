@@ -23,7 +23,7 @@ import faulthandler
 faulthandler.enable()
 
 from SchematicCapture.utils import setup_circuit, include_primitives_hierarchical
-from Magic.utils import instantiate_circuit, add_cells
+from Magic.utils import instantiate_circuit, add_cells, place_circuit
 from SchematicCapture.RString import include_RStrings_hierarchical
 from Environment.cell_sliding import cell_slide3
 from PDK.PDK import global_pdk
@@ -42,7 +42,7 @@ CIRCUIT_FILE = "Circuits/Examples/DiffAmp.spice"        #Input spice-netlist
 CIRCUIT_NAME = "DiffAmp"                           #Name of the top-circuit
 
 placement = {
-    'XDP_XM1_XM2' : [726, 725, 180],
+    'XDP_XM1_XM2' : [726, 725, 270],
     'XM5' : [846, 725, 90],
     'XDL_XM3_XM4' : [726, 725, 270],    
 }
@@ -64,7 +64,10 @@ add_cells(C, "Magic/Devices")
 cells = []
 for dev_name, action in placement.items():
     C.devices[dev_name].cell.place(tuple([action[0],action[1]]),action[2])
-    cells.append(C.devices[dev_name].cell)
+    cells.insert(0,C.devices[dev_name].cell)
+
+#place cells in magic
+#place_circuit('DiffAmp_non_slid', C)
 
 #plot the placement
 fig, ax = plt.subplots()
@@ -77,6 +80,9 @@ plt.show()
 
 #slide the cells
 cell_slide3(cells)
+
+#place cells in magic
+#place_circuit('DiffAmp_slid', C)
 
 #plot the slid placement
 fig, ax = plt.subplots()
