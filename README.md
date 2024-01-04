@@ -1,7 +1,7 @@
 # RALF - Reinforcement Learning assisted Automated analog Layout design Flow
 
 As part of a master's thesis, at the Institute for Integrated Circuits (IIC), Johannes Kepler University, Linz, Austria,
-a automated analog layout design flow were developed.
+an automated analog layout design flow were developed.
 
 
 ## Getting started
@@ -102,7 +102,7 @@ To use the negotiation based wire-planner before the detailed router set the var
 Don't forget to adapt the variable `CIRCUIT_NAME` to your circuits name!\
 
 Per default, the script generates a `.tcl`-file located under `Magic/Routing/<CIRCUIT_NAME>_routing.tcl`.\
-To view the routing, run the `main_place_route_circuit.py` script. Alternativly the placement can be first viewed in Magic by
+To view the routing, run the `main_place_route_circuit.py` script. Alternatively the placement can be first viewed in Magic by
 ```
 $ magic Magic/Placement/<CIRCUIT_NAME>.mag
 ```
