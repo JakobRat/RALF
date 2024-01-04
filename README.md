@@ -9,11 +9,25 @@ a automated analog layout design flow were developed.
 - [SKY130 PDK](https://github.com/google/skywater-pdk)
     - For easy installation checkout [volare](https://github.com/efabless/volare)
 - [MAGIC](https://github.com/RTimothyEdwards/magic)
-- Python >= 3.10
+- Python >= 3.9 with the installed [requirements](https://github.com/JakobRat/RALF/edit/main/requirements.txt)
 - Path to the sky130A pdk set under `$PDKPATH`, this can look like as follows
 ```
     export PDKPATH=/home/pdks/sky130A
 ```
+### Step 0.1: Optional 
+- Use the [IIC-OSIC-TOOLS](https://github.com/iic-jku/IIC-OSIC-TOOLS) all in one docker container.
+- Generate a virtual environment, for example:
+```
+    python3 -m venv venv 
+```
+- Activate it:
+```
+    source venv/bin/activate
+```
+- Install the requirements:
+```
+    pip install -r requirements.txt
+```     
 ### Step 1: Clone the repository
 ```
     $ git clone https://github.com/JakobRat/RALF
