@@ -32,17 +32,21 @@ import pickle
 import logging
 from logging.handlers import RotatingFileHandler
 
+#########################################################################
+
 #global variables to control the placement
-CIRCUIT_FILE = "Circuits/Examples/CCLatch.spice"        #Input spice-netlist
-CIRCUIT_NAME = "CCLatch_RLP"                           #Name of the top-circuit
-NET_RULES_FILE = "NetRules/net_rules_CCLatch.json"      #Net-rules definition file
-N_PLACEMENTS = 250000                                    #Number of trial placements per circuit/subcircuit
+CIRCUIT_FILE = "Circuits/Examples/DiffAmp.spice"        #Input spice-netlist
+CIRCUIT_NAME = "DiffAmp"                                #Name of the top-circuit
+NET_RULES_FILE = "NetRules/net_rules_DiffAmp.json"      #Net-rules definition file
+N_PLACEMENTS = 1000                                     #Number of trial placements per circuit/subcircuit
 
 USE_LOGGER = False                  #If True, debug information will be logged under "Logs/{CIRCUIT_NAME}_placement.log".
-INSTANTIATE_CELLS_IN_MAGIC = False   #If True, the devices cell-view will be instantiated in Magic
+INSTANTIATE_CELLS_IN_MAGIC = True   #If True, the devices cell-view will be instantiated in Magic
 N_PLACEMENTS_PER_ROLLOUT = 100      #Number of trial placements per RL - rollout
 DEF_FILE = None                     #Def file of the circuit
 SHOW_STATS = True                   #Show statistics of the placement
+
+#########################################################################
 
 def main():
 

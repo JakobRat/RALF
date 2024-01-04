@@ -28,8 +28,12 @@ import pickle
 from Magic.utils import place_circuit, instantiate_circuit
 import os
 
-CIRCUIT_NAME = "CCLatch_RPP"  #Name of the circuit
-START_MAGIC = True           #If True, Magic will be started, with the loaded placement
+###########################################################################
+
+CIRCUIT_NAME = "DiffAmp"  #Name of the circuit
+START_MAGIC = True        #If True, Magic will be started, with the loaded placement
+
+###########################################################################
 
 #load the placed circuit 
 file = open(f"PlacementCircuits/{CIRCUIT_NAME}_placement.pkl", 'rb')

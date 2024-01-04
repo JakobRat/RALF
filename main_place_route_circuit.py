@@ -28,7 +28,11 @@ import pickle
 from Magic.utils import place_circuit, instantiate_circuit
 import os
 
-CIRCUIT_NAME = "InvAmp_RLP"  #Name of the circuit
+###############################################################
+
+CIRCUIT_NAME = "DiffAmp"  #Name of the circuit
+
+###############################################################
 
 #load the placed circuit 
 file = open(f"PlacementCircuits/{CIRCUIT_NAME}_placement.pkl", 'rb')
