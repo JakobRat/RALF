@@ -1,7 +1,7 @@
 # RALF - Reinforcement Learning assisted Automated analog Layout design Flow
 
 As part of a master's thesis, at the Institute for Integrated Circuits (IIC), Johannes Kepler University, Linz, Austria,
-an automated analog layout design flow were developed.
+an automated analog layout design flow was developed.
 
 
 ## Getting started
