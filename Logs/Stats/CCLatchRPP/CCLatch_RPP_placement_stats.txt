@@ -1,0 +1,18 @@
++------------+----------+------+
+| Parameter  |  Value   | Unit |
++------------+----------+------+
+| HPWL(vmid) |   4.33   |  um  |
+| HPWL(clk)  |   1.3    |  um  |
+| HPWL(Vss)  |   2.92   |  um  |
+| HPWL(outn) |   5.32   |  um  |
+| HPWL(out)  |   7.9    |  um  |
+|  HPWL(in)  |   0.0    |  um  |
+| HPWL(inn)  |   0.0    |  um  |
+| HPWL(Vdd)  |   4.53   |  um  |
+| Total HPWL |  26.29   |  um  |
+| Congestion | 19314.53 |  -   |
+|   Width    |   9.04   |  um  |
+|   Height   |   7.75   |  um  |
+|    Area    |  70.06   | um2  |
+|   #Cells   |    3     |  -   |
++------------+----------+------+

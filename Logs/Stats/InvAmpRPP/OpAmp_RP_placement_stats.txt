@@ -1,0 +1,12 @@
++----------------+-----------+
+|      Name      |   Value   |
++----------------+-----------+
+|    Circuit     |   OpAmp   |
+| Time taken [s] |    2136   |
+|   Placements   |   250000  |
+|   Total HPWL   |  21766.75 |
+|   Congestion   | 726675.04 |
+|  Total width   |   3318.0  |
+|  Total height  |  2857.75  |
+|      Area      | 9482014.5 |
++----------------+-----------+

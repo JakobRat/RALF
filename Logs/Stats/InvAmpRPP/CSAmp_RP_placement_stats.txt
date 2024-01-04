@@ -1,0 +1,12 @@
++----------------+-----------+
+|      Name      |   Value   |
++----------------+-----------+
+|    Circuit     |   CSAmp   |
+| Time taken [s] |    907    |
+|   Placements   |   250000  |
+|   Total HPWL   |   2592.0  |
+|   Congestion   |    0.0    |
+|  Total width   |   1384.0  |
+|  Total height  |   1179.0  |
+|      Area      | 1631736.0 |
++----------------+-----------+
