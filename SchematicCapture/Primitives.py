@@ -18,6 +18,7 @@
 # ========================================================================
 
 
+from __future__ import annotations
 from Rules.RoutingRules import RoutingRule
 from SchematicCapture.Devices import NTermDevice, SUPPORTED_DEVICES, PrimitiveDevice
 from PDK.PDK import global_pdk

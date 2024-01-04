@@ -18,6 +18,7 @@
 # ========================================================================
 
 
+from __future__ import annotations
 class Parser:
     """Class to parse a ngspice netlist.
         The following transformations will be applied:

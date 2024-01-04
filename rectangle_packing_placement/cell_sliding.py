@@ -1,11 +1,3 @@
-from __future__ import annotations
-from typing import TYPE_CHECKING
-
-from typing import List
-import numpy as np
-import copy
-from Magic.Cell import Cell
-
 # ========================================================================
 #
 # SPDX-FileCopyrightText: 2023 Jakob Ratschenberger
@@ -24,7 +16,13 @@ from Magic.Cell import Cell
 # limitations under the License.
 # SPDX-License-Identifier: Apache-2.0
 # ========================================================================
+from __future__ import annotations
+from typing import TYPE_CHECKING
 
+from typing import List
+import numpy as np
+import copy
+from Magic.Cell import Cell
 
 def cell_slide(cells : List[Cell]):
     #

@@ -19,6 +19,7 @@
 # SPDX-License-Identifier: Apache-2.0
 # ========================================================================
 
+from __future__ import annotations
 from Magic.Cell import Cell
 from Magic.MacroCell import MacroCell
 from typing import List
