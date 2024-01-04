@@ -876,8 +876,11 @@ class PinObstacle(Obstacle):
             self._primitive = Via(edge)
         else:
             #generate a plate as obstacle
-            node = GridNode(*self._pin.get_coordinate_on_grid(), layer=pin.layer)
             pin_bound = self._pin.get_bounding_box_on_grid()
+            coordinates = pin_bound.bounding_box
+            mean_x = (coordinates[0]+coordinates[2])//2
+            mean_y = (coordinates[1]+coordinates[3])//2
+            node = GridNode(mean_x, mean_y, layer=pin.layer)
             w = pin_bound.width
             h = pin_bound.height
 
@@ -926,9 +929,14 @@ class DiePinObstacle(Obstacle):
             edge = GridEdge(node1, node2)
             self._primitive = Via(edge)
         else:
-            node = GridNode(*self._pin.coordinate, layer=pin.layer)
-            w = self._pin.bounding_box.width
-            h = self._pin.bounding_box.height
+            #generate a plate as obstacle
+            pin_bound = self._pin.get_bounding_box_on_grid()
+            coordinates = pin_bound.bounding_box
+            mean_x = (coordinates[0]+coordinates[2])//2
+            mean_y = (coordinates[1]+coordinates[3])//2
+            node = GridNode(mean_x, mean_y, layer=pin.layer)
+            w = pin_bound.width
+            h = pin_bound.height
 
             self._primitive = Plate(node=node, length=w, width=h)
 
