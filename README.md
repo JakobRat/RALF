@@ -52,8 +52,8 @@ To design your circuit, add the circuits-netlist (only `.spice` formats are supp
     XC1 Vin2 Vss sky130_fd_pr__cap_mim_m3_1 W=4 L=4 MF=1 m=1
 
     .subckt inv A Y Vdd Vss
-    XM1 Y A Vss Vss sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1
-    XM2 Y A Vdd Vdd sky130_fd_pr__pfet_01v8 L=1 W=3 nf=3
+    XM1 Y A Vss Vss sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=1
+    XM2 Y A Vdd Vdd sky130_fd_pr__pfet_01v8 L=1 W=3 nf=3 m=1
     .ends
     .end
 ```
@@ -61,9 +61,15 @@ To design your circuit, add the circuits-netlist (only `.spice` formats are supp
 ## Step 2: Do a placement
 There are two supported placement mechanisms:
 - Reinforcement learning based (`main_RL_placement.py`)
-- Simulated annealing based (`main_RPS_placement.py`)
+- Simulated annealing based (`main_RP_placement.py`)
 
-To do a placement, adapt the global variables according to your circuit, and run the script in a shell.\
+To do a placement, adapt the global variables according to your circuit, and run the script in a shell.
+The most valuable ones are
+- `CIRCUIT_FILE`: Defines the input SPICE-netlist.
+- `CIRCUIT_NAME`: Defines the name of the top-circuit and top-cell.
+- `NET_RULES_FILE`: Defines the net-rules file in the json-format, to specify different net-widths. If not available set the variable to `None`.
+- `N_PLACEMENTS`: Defines the total number of performed trial placements.
+
 For the reinforcement learning based placement run:
 ```
 $ python3 main_RL_placement.py
@@ -87,13 +93,20 @@ The routing of an already placed circuit can be performed by running the script 
 ```
 $ python3 main_routing.py
 ```
+To use the negotiation based wire-planner before the detailed router set the variables
+- `PLAN_WIRES=True`, to activate the planner
+- `N_PLANNING_ITERATIONS`, for defining the number of planning iterations
+- `GCELL_LENGTH`, for defining the width and height of a grid cell (`150` is recommended)
+- `LAYERS`, for defining the usable layers (`['m1','m2','m3','m4']` is recommended)
+  
 Don't forget to adapt the variable `CIRCUIT_NAME` to your circuits name!\
+
 Per default, the script generates a `.tcl`-file located under `Magic/Routing/<CIRCUIT_NAME>_routing.tcl`.\
-To view the routing, open the placement in Magic per (make sure you are in the same directory as `main_routing.py`)
+To view the routing, run the `main_place_route_circuit.py` script. Alternativly the placement can be first viewed in Magic by
 ```
 $ magic Magic/Placement/<CIRCUIT_NAME>.mag
 ```
-then run in the Magic command shell
+and then routed by using the Magic shell:
 ```
 source Magic/Routing/<CIRCUIT_NAME>_routing.tcl
 ```
@@ -109,7 +122,7 @@ A net-rules file contains information for the routing stage.
     }
  ]
  ```
- If the net is located in the top-circuit the prefix `<SubCircuit_Instance>.` hasn't to be specified. The variable `<min_width>` defines the minimum width of the wire, whereby the unit of the width is in $\lambda = 10\,\mathrm{nm}$. 
+ If the net is located in the top-circuit the prefix `<SubCircuit_Instance>.` hasn't to be specified. The variable `<min_width>` defines the minimum width of the wire, whereby the unit of the width is in $\lambda = 10\mathrm{nm}$. 
 
  E.g. for the netlist
  ```
@@ -123,8 +136,8 @@ A net-rules file contains information for the routing stage.
     .ends
 
     .subckt inv A Y Vdd Vss
-    XM1 Y A Vss Vss sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1
-    XM2 Y A Vdd Vdd sky130_fd_pr__pfet_01v8 L=1 W=3 nf=3
+    XM1 Y A Vss Vss sky130_fd_pr__nfet_01v8 L=1 W=1 nf=1 m=1
+    XM2 Y A Vdd Vdd sky130_fd_pr__pfet_01v8 L=1 W=3 nf=3 m=1
     .ends
     .end
 ```
@@ -161,7 +174,7 @@ In the following, the layout generation flow for the circuit `Circuits/Examples/
 ## Placement
 Run for example
 ```
-$ python3 main_RPS_placement.py
+$ python3 main_RP_placement.py
 ```
 and place the circuit in Magic, per
 ```
@@ -182,7 +195,7 @@ $ python3 main_routing.py
 ```
 and show the routing in Magic per
 ```
-source Magic/Routing/DiffAmp_routing.tcl
+python3 main_place_route_circuit.py
 ```
 Resulting routing:
 <p align="left">
