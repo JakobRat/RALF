@@ -12,25 +12,25 @@ an automated analog layout design flow was developed.
 - Python >= 3.9 with the installed [requirements](https://github.com/JakobRat/RALF/edit/main/requirements.txt)
 - Path to the sky130A pdk set under `$PDKPATH`, this can look like as follows
 ```
-    export PDKPATH=/home/pdks/sky130A
+export PDKPATH=/home/pdks/sky130A
 ```
-### Step 0.1: Optional 
+### Step 0.1: Optional (not needed when using IIC-OSIC-TOOLS)
 - Use the [IIC-OSIC-TOOLS](https://github.com/iic-jku/IIC-OSIC-TOOLS) all in one docker container.
 - Generate a virtual environment, for example:
 ```
-    python3 -m venv venv 
+python3 -m venv venv 
 ```
 - Activate it:
 ```
-    source venv/bin/activate
+source venv/bin/activate
 ```
 - Install the requirements:
 ```
-    pip install -r requirements.txt
+pip install -r requirements.txt
 ```     
 ### Step 1: Clone the repository
 ```
-    $ git clone https://github.com/JakobRat/RALF
+git clone https://github.com/iic-jku/IIC-RALF
 ```
 
 ### Step 2: Add your circuits netlist
@@ -72,18 +72,18 @@ The most valuable ones are
 
 For the reinforcement learning based placement run:
 ```
-$ python3 main_RL_placement.py
+python3 main_RL_placement.py
 ```
 For the simulated annealing based placement run:
 ```
-$ python3 main_RPS_placement.py
+python3 main_RPS_placement.py
 ```
 The placed circuit will be stored under `PlacementCircuits/<circuit_name>_placement.pkl`.
 
 ## Step 3: View the placement in Magic
 To view the placement in Magic run the script `main_place_circuit.py`.
 ```
-$ python3 main_place_circuit.py
+python3 main_place_circuit.py
 ```
 Don't forget to adapt the variable `CIRCUIT_NAME` to your circuits name!\
 The generated Magic file of the placement will be located under `Magic/Placement/<CIRCUIT_NAME>.mag`.
@@ -91,7 +91,7 @@ The generated Magic file of the placement will be located under `Magic/Placement
 ## Step 4: Do a routing
 The routing of an already placed circuit can be performed by running the script `main_routing.py`.
 ```
-$ python3 main_routing.py
+python3 main_routing.py
 ```
 To use the negotiation based wire-planner before the detailed router set the variables
 - `PLAN_WIRES=True`, to activate the planner
@@ -104,7 +104,7 @@ Don't forget to adapt the variable `CIRCUIT_NAME` to your circuits name!\
 Per default, the script generates a `.tcl`-file located under `Magic/Routing/<CIRCUIT_NAME>_routing.tcl`.\
 To view the routing, run the `main_place_route_circuit.py` script. Alternatively the placement can be first viewed in Magic by
 ```
-$ magic Magic/Placement/<CIRCUIT_NAME>.mag
+magic Magic/Placement/<CIRCUIT_NAME>.mag
 ```
 and then routed by using the Magic shell:
 ```
@@ -174,11 +174,11 @@ In the following, the layout generation flow for the circuit `Circuits/Examples/
 ## Placement
 Run for example
 ```
-$ python3 main_RP_placement.py
+python3 main_RP_placement.py
 ```
 and place the circuit in Magic, per
 ```
-$ python3 main_place_circuit.py
+python3 main_place_circuit.py
 ```
 
 Resulting placement:
@@ -191,7 +191,7 @@ Resulting placement:
 ## Routing
 Run 
 ```
-$ python3 main_routing.py
+python3 main_routing.py
 ```
 and show the routing in Magic per
 ```
