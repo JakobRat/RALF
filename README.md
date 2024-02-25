@@ -164,7 +164,7 @@ In the following, the layout generation flow for the circuit `Circuits/Examples/
 
 ## Schematic
 
-<p align="left">
+<p align="center">
     <img src="Images/Example/DiffAmp_circuit.png" width="300" />
 <p/>
 
@@ -179,7 +179,7 @@ $ python3 main_place_circuit.py
 ```
 
 Resulting placement:
-<p align="left">
+<p align="center">
     <img src="Images/Example/DiffAmp_placement1.png" width="300" />
     <img src="Images/Example/DiffAmp_placement2.png" width="300" />
 <p/>    
@@ -195,7 +195,7 @@ and show the routing in Magic per
 python3 main_place_route_circuit.py
 ```
 Resulting routing:
-<p align="left">
+<p align="center">
     <img src="Images/Example/DiffAmp_routing1.png" width="300" />
     <img src="Images/Example/DiffAmp_routing2.png" width="300" />
 <p/> 
