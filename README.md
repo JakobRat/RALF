@@ -5,7 +5,10 @@ an automated analog layout design flow was developed.
 
 
 ## Getting started
-### Step 0: Prerequisites
+### Step 0:  (Recommended)
+- Use the [IIC-OSIC-TOOLS](https://github.com/iic-jku/IIC-OSIC-TOOLS) all in one docker container.
+
+### Step 0.1: Prerequisites (Optional)
 - [SKY130 PDK](https://github.com/google/skywater-pdk)
     - For easy installation checkout [volare](https://github.com/efabless/volare)
 - [MAGIC](https://github.com/RTimothyEdwards/magic)
@@ -14,20 +17,7 @@ an automated analog layout design flow was developed.
 ```
     export PDKPATH=/home/pdks/sky130A
 ```
-### Step 0.1: Optional 
-- Use the [IIC-OSIC-TOOLS](https://github.com/iic-jku/IIC-OSIC-TOOLS) all in one docker container.
-- Generate a virtual environment, for example:
-```
-    python3 -m venv venv 
-```
-- Activate it:
-```
-    source venv/bin/activate
-```
-- Install the requirements:
-```
-    pip install -r requirements.txt
-```     
+
 ### Step 1: Clone the repository
 ```
     $ git clone https://github.com/JakobRat/RALF
