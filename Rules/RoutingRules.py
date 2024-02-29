@@ -97,6 +97,6 @@ class ObstacleRule(LayerRule):
         area[2] += self.layer.minSpace
         area[3] += self.layer.minSpace
         
-        return tuple(self.cell.get_bounding_box())
+        return tuple(area)
 
         
