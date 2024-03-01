@@ -3,9 +3,19 @@
 As part of a master's thesis, at the Institute for Integrated Circuits (IIC), Johannes Kepler University, Linz, Austria,
 an automated analog layout design flow was developed.
 
+<p align="center">
+    <img src="Images/RALF_methodology.png" width="600" />
+<p/>
+
+The input of the flow is a netlist in the SPICE format composed of devices using the SkyWater Technologies SKY130 process design kit. Optionally, a file in the json-format that contains information for the routing task, like minimum wire widths, can also be specified. From the netlist, the circuit is captured and converted into an internal data structure, that is capable for the tasks of the remaining flow. The subsequent stage annotates devices which are forming smaller circuits and match those in a precompiled database. Thus, these precompiled circuits allow the finding of differential pairs, differential loads, cross-coupled pairs, and in series connected resistors, so called R-strings. 
+From the annotated circuit, the primitive cells are instantiated, by the use of the parametrized cell generator available in [MAGIC](https://github.com/RTimothyEdwards/magic). The positions of the cells in the layout are then found by using a reinforcement learning algorithm (or optionally by using a simulated annealing algorithm), such that they minimize a cost function based on the estimated total wire length and routing congestion. After the placement is fixed, a two stage routing-algorithm connects the devices. 
+The first stage is a wire-planning algorithm which plans the routes on a rough tile-based grid and provides a guidance to the second stage, which is a detailed router. That one lays out the actual resources by using a gridless approach based on obstacle expansion. The output of the whole flow is a .mag-file which contains the placement, and a Tcl script for generating the routing in [MAGIC](https://github.com/RTimothyEdwards/magic).
 
 ## Getting started
-### Step 0: Prerequisites
+### Step 0: Prerequisites (Recommended)
+- Use the [IIC-OSIC-TOOLS](https://github.com/iic-jku/IIC-OSIC-TOOLS) all in one docker container.
+
+### Step 0.1: Prerequisites (Optional)
 - [SKY130 PDK](https://github.com/google/skywater-pdk)
     - For easy installation checkout [volare](https://github.com/efabless/volare)
 - [MAGIC](https://github.com/RTimothyEdwards/magic)
@@ -14,20 +24,7 @@ an automated analog layout design flow was developed.
 ```
 export PDKPATH=/home/pdks/sky130A
 ```
-### Step 0.1: Optional (not needed when using IIC-OSIC-TOOLS)
-- Use the [IIC-OSIC-TOOLS](https://github.com/iic-jku/IIC-OSIC-TOOLS) all in one docker container.
-- Generate a virtual environment, for example:
-```
-python3 -m venv venv 
-```
-- Activate it:
-```
-source venv/bin/activate
-```
-- Install the requirements:
-```
-pip install -r requirements.txt
-```     
+
 ### Step 1: Clone the repository
 ```
 git clone https://github.com/iic-jku/IIC-RALF
@@ -167,7 +164,7 @@ In the following, the layout generation flow for the circuit `Circuits/Examples/
 
 ## Schematic
 
-<p align="left">
+<p align="center">
     <img src="Images/Example/DiffAmp_circuit.png" width="300" />
 <p/>
 
@@ -182,7 +179,7 @@ python3 main_place_circuit.py
 ```
 
 Resulting placement:
-<p align="left">
+<p align="center">
     <img src="Images/Example/DiffAmp_placement1.png" width="300" />
     <img src="Images/Example/DiffAmp_placement2.png" width="300" />
 <p/>    
@@ -198,7 +195,7 @@ and show the routing in Magic per
 python3 main_place_route_circuit.py
 ```
 Resulting routing:
-<p align="left">
+<p align="center">
     <img src="Images/Example/DiffAmp_routing1.png" width="300" />
     <img src="Images/Example/DiffAmp_routing2.png" width="300" />
 <p/> 
