@@ -544,8 +544,10 @@ class Router:
         pos2 = goal.coordinate
         layer1 = hash(node.layer)
         layer2 = hash(goal.layer)
-        res = min(node.layer.resistivity, goal.layer.resistivity)
-        w = max(node.layer.width, goal.layer.width)
+        #res = min(node.layer.resistivity, goal.layer.resistivity)
+        #w = max(node.layer.width, goal.layer.width)
+        res = min([v.resistivity for (k,v) in node.layer.pdk.metal_layers.items()])
+        w = max([v.width for (k,v) in node.layer.pdk.metal_layers.items()])
         return (abs(pos1[0]-pos2[0])+abs(pos1[1]-pos2[1]))*res/w + (abs(layer1-layer2)*100)
 
     def heuristic_multi(self, node : GridNode, goals : list[GridNode]):
